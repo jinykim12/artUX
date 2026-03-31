@@ -1,0 +1,77 @@
+// Source: scss/6-components/_form.scss 패턴 적용
+@use '../2-tools/breakpoints' as *;
+
+// ====================================================
+// [테이블 컴포넌트 — COMP-05]
+// 작성일: 2026-03-26
+// Bootstrap .table 오버라이드 — CSS 토큰(var(--*))만 사용
+// Sass 변수 오버라이드 방식 금지
+//
+// 사용 예 (HTML):
+//   <div class="table-responsive">
+//   <table class="table">
+//     <caption>사용자 목록 (총 3명)</caption>
+//     <thead>
+//     <tr>
+//       <th scope="col">이름</th>
+//       <th scope="col">이메일</th>
+//     </tr>
+//     </thead>
+//     <tbody>
+//     <tr>
+//       <td>홍길동</td>
+//       <td>hong@example.com</td>
+//     </tr>
+//     </tbody>
+//   </table>
+//   </div>
+//
+// 접근성 주의사항:
+//   - <caption> 필수 — 테이블 용도를 스크린 리더에 사전 안내
+//   - 열 헤더 <th>에 scope="col" 필수
+//   - 행 헤더 <th>에 scope="row" 필수
+//   - 복잡한 테이블은 id/headers 속성 사용
+//   - 레이아웃 용도로 <table> 사용 금지
+// ====================================================
+
+// ── 테이블 기본 ────────────────────────────────────
+.table {
+    width: 100%;
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    border-color: var(--color-border);
+
+    // ── 테이블 헤더 ──────────────────────────────────
+    thead th {
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text);
+    background-color: var(--color-border);  // 살짝 회색 배경으로 헤더 구분
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 2px solid var(--color-border);
+    white-space: nowrap;
+    }
+
+    // ── 테이블 바디 셀 ───────────────────────────────
+    tbody td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+    }
+
+    // ── 캡션 ─────────────────────────────────────────
+    caption {
+    caption-side: top;
+    padding: var(--spacing-sm) 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    text-align: left;
+    }
+}
+
+// ── 반응형 스크롤 wrapper ────────────────────────────
+// Bootstrap .table-responsive와 동일 네이밍 유지 (Bootstrap 오버라이드)
+// 모바일에서 수평 스크롤 허용
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}

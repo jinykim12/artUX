@@ -1,0 +1,93 @@
+@use '../2-tools/breakpoints' as *;
+
+// ====================================================
+// [슬라이더 컴포넌트 — COMP-10]
+// 작성일: 2026-03-26
+// Swiper.js 기반 슬라이더 접근성 스타일
+// CSS 토큰(var(--*))만 사용 — Sass 변수 오버라이드 방식 금지
+//
+// 사용 예 (HTML):
+//   <div class="swiper slider" aria-label="공지사항 슬라이더">
+//   <div class="swiper-wrapper"> ... </div>
+//   <div class="slider__controls">
+//     <button type="button" class="slider__pause" aria-label="자동 재생 정지">
+//   </div>
+//   </div>
+//
+// 접근성 주의사항:
+//   - aria-live="polite"로 현재 슬라이드 상태를 스크린리더에 전달
+//   - 자동 재생 사용 시 정지 버튼 필수 (KWCAG 2.2.2)
+//   - 정지 버튼은 항상 가시적 위치에 배치 (숨김 처리 금지)
+//   - Swiper a11y 옵션 활성화 필수 (paginationBulletMessage, slideLabelMessage)
+//   - transition: none — 공공기관 즉시 표시 원칙
+// ====================================================
+
+// ── 슬라이더 컨테이너 ────────────────────────────
+.slider {
+    position: relative;
+}
+
+// ── Swiper 슬라이드 전환 — 공공기관 즉시 표시 원칙 ──
+.swiper-slide {
+    transition: none;
+}
+
+// ── 정지/재생 컨트롤 영역 ───────────────────────
+.slider__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+}
+
+// ── 정지/재생 버튼 ──────────────────────────────
+// aria-label="자동 재생 정지" / "자동 재생 시작" 필수
+// 정지 버튼은 항상 가시적 위치에 배치 (KWCAG 2.2.2)
+/* WCAG 2.5.8 최소 터치영역 44px */
+.slider__pause,
+.slider__play {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: var(--touch-target-min);   // 44px — WCAG 2.5.8 최소 터치영역 (기존 3.2rem → 4.4rem)
+    min-height: var(--touch-target-min);  // 44px — WCAG 2.5.8 최소 터치영역 (기존 3.2rem → 4.4rem)
+    padding: 0;
+    background: none;
+    border: 1px solid var(--color-border);
+    border-radius: 0.4rem;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: none;   // 공공기관 즉시 표시 원칙
+
+    &:hover {
+    background-color: var(--color-border);
+    }
+}
+
+// ── Swiper 페이지네이션 오버라이드 ─────────────
+.swiper-pagination {
+    position: static;
+    margin-top: var(--spacing-sm);
+}
+
+.swiper-pagination-bullet {
+    background-color: var(--color-text-muted);
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+    background-color: var(--color-primary);
+    }
+}
+
+// ── aria-live 상태 표시 영역 ────────────────────
+// 시각적으로 숨김 처리 시 sr-only 클래스 병행 사용
+// aria-live="polite" 상태 공지 영역 — 페이지 최초 로드 시 DOM에 존재해야 함
+.slider__status {
+    // 스크린리더 전용 상태 공지 영역
+    // 초기 비어 있음 — JS로 "1 / 5" 형식 텍스트 갱신
+}
+
+// ── 포커스 스타일 ───────────────────────────────
+// 포커스 스타일은 전역 scss/4-elements/_focus.scss에서 처리
+// 이 파일에 :focus, :focus-visible 규칙 작성 금지 (중복 방지)
