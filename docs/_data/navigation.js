@@ -73,6 +73,7 @@ export default [
     section: "스타터 킷",
     items: [
       { title: "스타터 킷", url: "/starter/" },
+      { title: "피그마 → 코드 워크플로우", url: "/starter/figma-workflow/" },
     ]
   },
 ];

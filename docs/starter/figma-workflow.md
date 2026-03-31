@@ -1,0 +1,203 @@
+---
+layout: layouts/base.njk
+title: 피그마 → 코드 워크플로우
+tags: starter
+section: starter
+permalink: /starter/figma-workflow/
+---
+
+# 피그마 → 코드 워크플로우
+
+디자인팀에서 피그마 URL을 받은 후 스타터킷으로 신규 프로젝트를 만들기까지의 전체 과정이다.
+
+---
+
+## 전체 흐름
+
+```
+1. 피그마 URL 받기
+2. 디자인 분석 (색상, 폰트, 간격, 컴포넌트 파악)
+3. 스타터킷 복사 + 토큰 설정
+4. 페이지 구조 잡기
+5. 컴포넌트 매칭 + 퍼블리싱
+6. 검수
+```
+
+---
+
+## 1단계. 피그마 디자인 분석
+
+피그마 URL을 열고 아래 항목을 먼저 파악한다.
+
+### 색상 추출
+
+피그마에서 사용된 색상을 확인하고 프로젝트 토큰에 매핑한다.
+
+| 피그마에서 확인 | 가이드 토큰 | 설정 파일 |
+|----------------|------------|-----------|
+| Primary 색상 (메인 버튼, 링크 색) | `--color-primary` | `_project-overrides.scss` |
+| Secondary 색상 (보조 버튼) | `--color-secondary` | `_project-overrides.scss` |
+| 텍스트 색상 | `--color-text` | `_root.scss` |
+| 배경 색상 | `--color-bg` | `_root.scss` |
+| 테두리 색상 | `--color-border` | `_root.scss` |
+| 오류/성공 색상 | `--color-error`, `--color-success` | `_root.scss` |
+
+### 폰트 확인
+
+| 피그마 폰트 | 가이드 대응 |
+|------------|------------|
+| Pretendard | 기본 설정 그대로 사용 |
+| Noto Sans KR | `_font.scss`에서 CDN 방식으로 전환 |
+| 기타 폰트 | `_font.scss`에 `@font-face` 추가 또는 CDN |
+
+### 간격 확인
+
+피그마의 Auto Layout 간격값을 가이드 토큰과 매핑한다.
+
+| 피그마 간격 (px) | 가이드 토큰 |
+|-----------------|------------|
+| 4px | `--spacing-xs` |
+| 8px | `--spacing-sm` |
+| 20px | `--spacing-md` |
+| 28px | `--spacing-lg` |
+| 32px | `--spacing-xl` |
+| 48px | `--spacing-2xl` |
+| 64px | `--spacing-3xl` |
+
+정확히 일치하지 않으면 가장 가까운 토큰을 사용하거나 `_root.scss`에 토큰을 추가한다.
+
+### 컴포넌트 파악
+
+피그마 디자인에 사용된 UI 요소를 가이드 컴포넌트와 매칭한다.
+
+| 피그마에서 보이는 것 | 가이드 컴포넌트 | Bootstrap 활용 |
+|---------------------|----------------|----------------|
+| 상단 메뉴 | 헤더 / GNB | 커스텀 BEM |
+| 하단 정보 | 푸터 | 커스텀 BEM |
+| 버튼 | 버튼 | Bootstrap `.btn` |
+| 입력 필드 | 폼 | Bootstrap `.form-control` |
+| 카드형 목록 | 카드 | Bootstrap `.card` |
+| 데이터 표 | 테이블 | Bootstrap `.table` |
+| 팝업/대화상자 | 모달 | Bootstrap `data-bs-toggle="modal"` |
+| 탭 메뉴 | 탭 | Bootstrap `data-bs-toggle="tab"` |
+| 접었다 펼치는 영역 | 아코디언 | Bootstrap `data-bs-toggle="collapse"` |
+| 마우스 올리면 뜨는 설명 | 툴팁 | Bootstrap `data-bs-toggle="tooltip"` |
+| 알림 메시지 | 토스트 | Bootstrap `.toast` |
+| 상태 표시 라벨 | 배지 | Bootstrap `.badge` |
+| 페이지 번호 | 페이지네이션 | Bootstrap `.pagination` |
+| 경로 표시 | 브레드크럼 | Bootstrap `.breadcrumb` |
+| 이미지 슬라이드 | 슬라이더 | Swiper.js |
+| 로딩 표시 | 스피너 | 커스텀 BEM |
+| 단계 진행 표시 | 단계 표시기 | 커스텀 BEM |
+| 좌측 세로 메뉴 | 사이드 메뉴 | 커스텀 BEM |
+| 하단 우측 동그란 버튼 | FAB | 커스텀 BEM |
+| 정부 사이트 표시 띠 | 공식 배너 | 커스텀 BEM |
+
+---
+
+## 2단계. 스타터킷 복사 + 토큰 설정
+
+### 폴더 생성
+
+```bash
+cp -r starter/ /path/to/새프로젝트명/
+cd /path/to/새프로젝트명
+npm install
+```
+
+### 색상 적용
+
+피그마에서 추출한 색상을 `html/pub/css/scss/1-settings/_project-overrides.scss`에 입력한다.
+
+```scss
+:root {
+    --color-primary:   #피그마-메인-색상;
+    --bs-primary:      #피그마-메인-색상;
+    --color-secondary: #피그마-보조-색상;
+}
+```
+
+### 빌드 확인
+
+```bash
+npm run build:css
+```
+
+`html/index.html`을 브라우저에서 열어 색상이 적용됐는지 확인한다.
+
+---
+
+## 3단계. 페이지 구조 잡기
+
+피그마 디자인을 보고 필요한 HTML 페이지를 만든다.
+
+```
+html/
+├── index.html          ← 메인 페이지
+├── about.html          ← 소개 페이지
+├── board.html          ← 게시판 목록
+├── board-view.html     ← 게시판 상세
+├── login.html          ← 로그인
+└── pub/
+```
+
+모든 페이지는 `index.html`을 복사해서 만든다. 공통 영역(헤더, 푸터)은 모든 페이지에 동일하게 넣는다.
+
+---
+
+## 4단계. 컴포넌트 매칭 + 퍼블리싱
+
+### 작업 순서 (권장)
+
+1. **공통 영역 먼저** — 헤더, 푸터, 본문건너뛰기
+2. **메인 페이지** — 히어로, 카드 목록 등
+3. **서브 페이지** — 게시판, 폼, 상세 페이지
+4. **인터랙션** — 모달, 탭, 아코디언, 툴팁
+
+### 피그마 디자인을 코드로 옮기는 방법
+
+**1. Bootstrap에 있는 컴포넌트인지 확인**
+
+가이드의 컴포넌트 문서에서 해당 컴포넌트를 찾는다. Bootstrap 활용 컴포넌트면 `data-bs-*` 속성만 넣으면 동작한다.
+
+**2. 가이드 문서의 HTML 코드를 복사**
+
+각 컴포넌트 가이드 페이지에 있는 코드 블록을 복사해서 사용한다. ARIA 속성이 이미 포함되어 있으므로 접근성이 자동으로 충족된다.
+
+**3. 피그마와 다른 부분만 SCSS 수정**
+
+가이드 기본 스타일과 피그마 디자인이 다른 부분만 `6-components/`에서 수정한다. 색상은 토큰(`var(--color-*)`)을 사용하고 직접 색상값(`#333`)을 쓰지 않는다.
+
+---
+
+## 5단계. 검수
+
+### 피그마 대비 검수
+
+- [ ] 모든 페이지가 피그마 디자인과 일치하는가
+- [ ] 색상, 폰트, 간격이 토큰으로 적용되었는가
+- [ ] 반응형 (모바일/태블릿/PC)이 피그마 기준에 맞는가
+
+### 접근성 검수 (최우선)
+
+- [ ] [KWCAG 2.1 AA 체크리스트](/accessibility/checklist/) 24항목
+- [ ] 키보드만으로 전체 기능 사용 가능
+- [ ] 스크린리더 테스트
+
+### 호환성 검수
+
+- [ ] Chrome, Firefox, Safari, Edge 확인
+- [ ] 모바일 (Android, iOS) 확인
+
+---
+
+## 자주 하는 실수
+
+| 실수 | 올바른 방법 |
+|------|------------|
+| 피그마 색상값을 CSS에 직접 입력 (`color: #333`) | 토큰 사용 (`color: var(--color-text)`) |
+| 피그마 간격을 px로 직접 입력 (`margin: 20px`) | 토큰 사용 (`margin: var(--spacing-md)`) |
+| Bootstrap에 있는 컴포넌트를 처음부터 만듦 | 가이드에서 Bootstrap 활용 여부 먼저 확인 |
+| `style.css`를 직접 수정 | `scss/` 안에서만 작업, 빌드로 생성 |
+| ARIA 속성 누락 | 가이드 코드 블록을 복사하면 자동 포함 |
+| 모든 페이지에 skip-nav 빠뜨림 | `index.html` 복사해서 만들면 자동 포함 |
