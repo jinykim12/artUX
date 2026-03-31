@@ -1,0 +1,81 @@
+@use 'sass:map';
+@use 'sass:list';
+
+// ====================================================
+// artpqUX 팀 표준 브레이크포인트
+//
+// Bootstrap $grid-breakpoints (기본값 유지 — D-07):
+//   xs:0 / sm:576 / md:768 / lg:992 / xl:1200 / xxl:1400
+//
+// 팀 브레이크포인트:
+//   모바일   ~767px   기본 스타일 (미디어쿼리 없음)
+//   태블릿   768~1023px Bootstrap md 시작점과 동일
+//   소형 PC 1024~1279px Bootstrap 기준에 없는 팀 전용 구간
+//   PC  1280px~
+//
+// Bootstrap 그리드 클래스(col-md-6 등)는 Bootstrap 기본 breakpoint 동작.
+// respond-to()는 커스텀 컴포넌트 전용.
+// ====================================================
+
+$breakpoints: (
+ mobile-max:  767px,
+ tablet:  768px,
+ tablet-max:  1023px,
+ pc-sm:   1024px,
+ pc-sm-max:   1279px,
+ pc:    1280px,
+) !default;
+
+// ----------------------------------------------------
+// [반응형 미디어쿼리 믹스인]
+//
+// 모바일 퍼스트 원칙:
+//   기본 스타일 → 모바일 기준 작성 (쿼리 없음)
+//   respond-to(tablet), respond-to(pc-sm), respond-to(pc) → 넓은 화면으로 확장
+//
+// 예외 허용:
+//   PC 전용 컴포넌트 등 특수한 경우 -only 변형 사용 가능
+//   respond-to(mobile-only), respond-to(tablet-only), respond-to(pc-sm-only)
+//
+// 사용 예:
+//   .card {
+//   padding: 1.6rem;        // 모바일 기본
+//   @include respond-to(tablet)  { padding: 2.4rem; }
+//   @include respond-to(pc)  { padding: 3.2rem; }
+//   }
+//
+//   .gnb-pc {
+//   display: none;
+//   @include respond-to(pc-sm) { display: flex; }
+//   }
+//
+// 파라미터:
+//   $key — tablet | pc-sm | pc | mobile-only | tablet-only | pc-sm-only
+// ----------------------------------------------------
+@mixin respond-to($key) {
+ $min-keys: (tablet, pc-sm, pc);
+ $only-map: (
+ mobile-only: (max: map.get($breakpoints, mobile-max)),
+ tablet-only: (min: map.get($breakpoints, tablet),  max: map.get($breakpoints, tablet-max)),
+ pc-sm-only:  (min: map.get($breakpoints, pc-sm),   max: map.get($breakpoints, pc-sm-max)),
+ );
+
+ @if list.index($min-keys, $key) {
+ @media (min-width: map.get($breakpoints, $key)) {
+    @content;
+ }
+ } @else if map.has-key($only-map, $key) {
+ $range: map.get($only-map, $key);
+ $min: map.get($range, min);
+ $max: map.get($range, max);
+ @if $min and $max {
+    @media (min-width: $min) and (max-width: $max) { @content; }
+ } @else if $max {
+    @media (max-width: $max) { @content; }
+ } @else {
+    @media (min-width: $min) { @content; }
+ }
+ } @else {
+ @error "Unknown respond-to key: '#{$key}'. Available: tablet, pc-sm, pc, mobile-only, tablet-only, pc-sm-only.";
+ }
+}

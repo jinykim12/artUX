@@ -1,0 +1,36 @@
+// ====================================================
+// artpqUX 반응형 브레이크포인트 믹스인 (RESP-01)
+//
+// 키워드: mobile-only | tablet | tablet-only | pc-sm | pc-sm-only | pc
+// Bootstrap $grid-breakpoints 오버라이드 없이 병행 운용
+// ====================================================
+@use 'sass:map';
+@use 'sass:list';
+
+$breakpoints: (
+    "mobile-only": (max: 767px),
+    "tablet":  (min: 768px),
+    "tablet-only": (min: 768px, max: 1023px),
+    "pc-sm":   (min: 1024px),
+    "pc-sm-only":  (min: 1024px, max: 1279px),
+    "pc":    (min: 1280px),
+);
+
+@mixin respond-to($key) {
+    $bp: map.get($breakpoints, $key);
+
+    @if not $bp {
+    @warn "respond-to(): 알 수 없는 브레이크포인트 '#{$key}'.";
+    } @else {
+    $min: map.get($bp, "min");
+    $max: map.get($bp, "max");
+
+    @if $min and $max {
+    @media (min-width: #{$min}) and (max-width: #{$max}) { @content; }
+    } @else if $min {
+    @media (min-width: #{$min}) { @content; }
+    } @else if $max {
+    @media (max-width: #{$max}) { @content; }
+    }
+    }
+}

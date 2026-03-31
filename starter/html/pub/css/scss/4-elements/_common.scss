@@ -1,0 +1,72 @@
+// ====================================================
+// artpqUX 공통 기본 스타일 — Bootstrap Reboot 이후 보완
+//
+// Bootstrap Reboot이 이미 처리하는 항목은 중복 작성하지 않는다:
+//   - * { box-sizing: border-box }
+//   - body 기본 font-family, font-size, line-height, color
+//   - p { margin-top: 0 }
+//   - img { max-width: 100% }
+//
+// [접근성] outline: none 사용 금지
+//   키보드 포커스 인디케이터 제거는 KWCAG 2.1 AA 위반.
+//   포커스 스타일 재정의는 Phase 5에서 focus() 믹스인으로 처리.
+// ====================================================
+@use '../2-tools' as tools;
+
+// [한국어 줄바꿈 — 공공기관 필수]
+// Bootstrap Reboot은 word-break을 설정하지 않음
+html,
+body {
+    word-break: keep-all;   // 한국어 단어 단위 줄바꿈
+    word-wrap: break-word;  // 긴 URL 등 강제 줄바꿈
+}
+
+// [기본 링크 스타일]
+// Bootstrap 5 Reboot: color: $link-color + text-decoration: underline
+// 팀 관행: underline 제거
+a {
+    text-decoration: none;
+
+    &:hover {
+    text-decoration: none;
+    }
+}
+
+// [버튼 초기화]
+// outline: none은 접근성 위반 — 사용 금지
+// 포커스 스타일은 Phase 5에서 focus() 믹스인으로 별도 정의
+button {
+    border-radius: 0;
+    white-space: nowrap;
+}
+
+// [비활성화 상태]
+button:disabled,
+button[disabled],
+.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+// [스크린리더 전용 텍스트 — A11Y-02 기반]
+// Bootstrap 5에도 .visually-hidden이 있으나 팀 관행명(.sr-only) 유지
+.sr-only {
+    position: absolute !important;
+    overflow: hidden !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    clip: rect(0, 0, 0, 0) !important;
+    border: 0 !important;
+}
+
+.sr-only-focusable:active,
+.sr-only-focusable:focus {
+    position: static !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    clip: auto !important;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} | artpqUX 퍼블리싱 가이드</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/css/docs.css">
+  <link rel="stylesheet" href="/css/artux.css">
+</head>
+<body>
+  <button class="docs-nav-toggle" aria-expanded="false" aria-controls="docs-sidebar">메뉴 열기/닫기</button>
+  <div class="docs-layout">
+    <aside id="docs-sidebar" class="docs-sidebar">
+      <nav aria-label="문서 네비게이션">
+        {% for group in navigation %}
+        <div class="docs-nav-group">
+          <button type="button" class="docs-nav-section-title js-nav-toggle" aria-expanded="false">
+            {{ group.section }}
+          </button>
+          <ul class="docs-nav-list" hidden>
+            {% for item in group.items %}
+            <li>
+              <a href="{{ item.url }}"{% if page.url == item.url %} class="is-active"{% endif %}>{{ item.title }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+      </nav>
+    </aside>
+    <main class="docs-content">
+      {{ content | safe }}
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/copy.js" defer></script>
+  <script>
+    document.querySelector('.docs-nav-toggle')?.addEventListener('click', function () {
+      const sidebar = document.getElementById('docs-sidebar');
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!expanded));
+      sidebar.classList.toggle('is-open');
+    });
+
+    // Bootstrap Tooltip 전역 초기화
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function (el) {
+      new bootstrap.Tooltip(el);
+    });
+
+    // 사이드바 아코디언 — 현재 페이지가 속한 섹션 자동 펼침
+    document.querySelectorAll('.js-nav-toggle').forEach(function (btn) {
+      var list = btn.nextElementSibling;
+      var hasActive = list.querySelector('.is-active');
+
+      // 현재 페이지 섹션은 펼침
+      if (hasActive) {
+        btn.setAttribute('aria-expanded', 'true');
+        list.hidden = false;
+      }
+
+      btn.addEventListener('click', function () {
+        var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!isExpanded));
+        list.hidden = isExpanded;
+      });
+    });
+  </script>
+</body>
+</html>

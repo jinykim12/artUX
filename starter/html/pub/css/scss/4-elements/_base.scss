@@ -1,0 +1,13 @@
+// ====================================================
+// HTML 기본 요소 스타일
+// Bootstrap 기본 1rem = 16px 환경 사용
+// body font-size는 Bootstrap이 $font-size-base로 처리
+// ====================================================
+
+// 폼 요소는 font-size 상속 안 함 — 접근성 필수
+input,
+button,
+select,
+textarea {
+    font-size: inherit;
+}

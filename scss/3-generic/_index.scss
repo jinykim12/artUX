@@ -1,0 +1,6 @@
+// ====================================================
+// 3-generic: CSS Custom Properties + 외부 라이브러리(Bootstrap)
+// 주의: _vendor.scss는 @import 기반이므로 @forward 불가
+// style.scss에서 @import '3-generic/vendor'로 별도 처리한다
+// ====================================================
+@forward 'root';

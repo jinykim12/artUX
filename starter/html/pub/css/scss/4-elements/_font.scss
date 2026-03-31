@@ -1,0 +1,15 @@
+// ====================================================
+// artpqUX 폰트 선언
+//
+// Pretendard CDN 방식 사용 (로컬 파일 불필요)
+// 공공기관 납품 시 로컬 파일 방식으로 전환 가능
+//
+// [로컬 파일 전환 방법]
+// 1. 아래 @import를 주석 처리
+// 2. @font-face 블록을 활성화
+// 3. 폰트 파일을 프로젝트에 포함
+//    다운로드: https://github.com/orioncactus/pretendard/releases
+// ====================================================
+
+// Pretendard CDN
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');

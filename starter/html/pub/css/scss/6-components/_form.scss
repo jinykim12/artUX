@@ -1,0 +1,140 @@
+// Source: scss/6-components/_header.scss 패턴 적용
+@use '../2-tools/breakpoints' as *;
+
+// ====================================================
+// [폼 컴포넌트 — COMP-03]
+// 작성일: 2026-03-26
+// Bootstrap .form-control / .form-select / .form-check 오버라이드
+// CSS 토큰(var(--*))만 사용 — Sass 변수 오버라이드 방식 금지
+//
+// 접근성 주의사항:
+//   - <label>의 for 속성과 <input>의 id 속성 반드시 매칭
+//   - 필수 항목에 aria-required="true" 추가
+//   - 오류 상태 시 aria-invalid="true" + aria-describedby 쌍으로 처리
+//   - 체크박스/라디오 그룹은 <fieldset>/<legend> 필수
+//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// ====================================================
+
+// ── 폼 레이블 ─────────────────────────────────────
+.form-label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+// ── 입력 필드 공통 (input, textarea) ──────────────
+.form-control {
+    height: 2.75rem;     // 44px — WCAG 2.5.8 최소 터치영역
+    padding: 0.375rem 0.75rem;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    transition: none;    // 공공기관 트랜지션 없음 원칙
+
+    &:focus {
+        border-color: var(--color-primary);
+        box-shadow: none;
+        outline: 0;
+    }
+
+    // textarea — height 자동 (rows 속성 있을 때)
+    &[rows] {
+        height: auto;
+    }
+
+    // 오류 상태
+    &.is-invalid {
+        border-color: var(--color-error);
+    }
+
+    // 성공 상태
+    &.is-valid {
+        border-color: var(--color-success);
+    }
+}
+
+// ── select ────────────────────────────────────────
+.form-select {
+    height: 2.75rem;     // 44px — WCAG 2.5.8 최소 터치영역
+    padding: 0.375rem 2.25rem 0.375rem 0.75rem;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 0.375rem;
+    transition: none;
+
+    &:focus {
+        border-color: var(--color-primary);
+        box-shadow: none;
+        outline: 0;
+    }
+
+    &.is-invalid {
+        border-color: var(--color-error);
+    }
+
+    &.is-valid {
+        border-color: var(--color-success);
+    }
+}
+
+// ── 체크박스/라디오 ──────────────────────────────
+/* WCAG 2.5.8 최소 터치영역 44px */
+.form-check {
+    min-height: var(--touch-target-min); // 44px
+    display: flex;
+    align-items: center;
+}
+
+.form-check-input {
+    width: 1.25rem;      // 20px — Bootstrap 기본값
+    height: 1.25rem;     // 20px
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    border: 2px solid var(--color-border);
+    cursor: pointer;
+
+    &:checked {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// ── 오류 메시지 ───────────────────────────────────
+.invalid-feedback,
+.form-error {
+    color: var(--color-error);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+}
+
+// ── 성공 메시지 ───────────────────────────────────
+.valid-feedback,
+.form-success {
+    color: var(--color-success);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+}
+
+// ── 힌트 텍스트 ───────────────────────────────────
+.form-text,
+.form-hint {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+    margin-top: var(--spacing-xs);
+}
+
+// ── fieldset legend 이중 margin 방지 ──────────────
+fieldset {
+    legend.form-label {
+        margin-bottom: var(--spacing-xs);
+    }
+}

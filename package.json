@@ -1,0 +1,35 @@
+{
+  "name": "artux",
+  "version": "0.1.0",
+  "description": "아트피큐 퍼블리싱 가이드 시스템",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.js",
+    "build:css": "sass scss/style.scss dist/artux.css --style=compressed --source-map --load-path=node_modules --quiet-deps",
+    "watch:css": "sass --watch scss/style.scss:dist/artux.css --load-path=node_modules --quiet-deps",
+    "serve": "npm-run-all2 --parallel watch:css eleventy:serve",
+    "eleventy:serve": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "build": "npm run build:tokens && npm run build:css && npm run eleventy:build",
+    "lint:css": "stylelint \"scss/**/*.scss\"",
+    "sync:starter": "bash scripts/sync-starter.sh",
+    "test:a11y": "npm run build && npx eleventy --serve --port=4000 & sleep 4 && npx pa11y-ci --config .pa11yci.cjs; kill %1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
+    "autoprefixer": "^10.4.27",
+    "bootstrap": "^5.3.8",
+    "npm-run-all2": "^8.0.4",
+    "pa11y-ci": "^4.1.0",
+    "postcss": "^8.5.8",
+    "postcss-cli": "^11.0.1",
+    "sass": "^1.98.0",
+    "stylelint": "^17.5.0",
+    "stylelint-config-standard-scss": "^17.0.0"
+  }
+}

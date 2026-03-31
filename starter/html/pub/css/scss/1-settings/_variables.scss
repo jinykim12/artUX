@@ -1,0 +1,50 @@
+// ====================================================
+// artpqUX Bootstrap 오버라이드 변수 — 문서화 원본
+// ====================================================
+//
+// [중요] 실제 Bootstrap 오버라이드 효력 위치:
+//   scss/3-generic/_vendor.scss 내 @import 스코프
+//
+// 이 파일은 팀이 "어떤 값을 오버라이드하는지" 확인하는
+// 문서 역할을 한다. 값을 변경할 때는 반드시
+// _vendor.scss도 동일하게 업데이트할 것.
+//
+// ── 토큰 매핑 주석 (TOKEN-05) ──────────────────────
+// Bootstrap Sass 변수 → CSS Custom Properties 매핑:
+//   $primary (#0d6efd)        ↔ --color-primary    (scss/3-generic/_root.scss)
+//   $secondary (#6c757d)      ↔ --color-secondary  (scss/3-generic/_root.scss)
+//   $font-size-base (1.6rem)  ↔ --font-size-base   (scss/3-generic/_root.scss)
+//
+// [중요] $primary: var(--color-primary) 사용 불가
+//        Sass 컴파일-타임 변수에 CSS 런타임 함수(var()) 전달 불가.
+//        Bootstrap tint-color(), shade-color() 등 색상 함수가 깨짐.
+// ─────────────────────────────────────────────────────
+//
+// ====================================================
+
+// ----------------------------------------------------
+// Bootstrap 기본 1rem = 16px
+// 1rem = 16px (Bootstrap 기본값)
+// Bootstrap 기본 1rem = 16px 유지를 위해 1.6rem으로 재설정
+// ----------------------------------------------------
+$font-size-base: 1.6rem; // 16px ↔ --font-size-base
+
+// ----------------------------------------------------
+// 색상 오버라이드
+// 값 변경 시 _vendor.scss + _root.scss도 동일하게 수정
+// ----------------------------------------------------
+$primary: #0d6efd;       // ↔ --color-primary
+$secondary: #6c757d;     // ↔ --color-secondary
+
+// ----------------------------------------------------
+// 간격 오버라이드 예시
+// $spacer는 Bootstrap 기본 1rem (= 16px)
+// 필요 시 $spacer: 1.6rem으로 16px 기준 유지
+// ----------------------------------------------------
+// $spacer: 1rem;
+
+// ----------------------------------------------------
+// 기타 오버라이드 예시
+// ----------------------------------------------------
+// $border-radius: 0.4rem;  // 4px (기본 0.375rem = 3.75px)
+// $font-family-base: "Pretendard GOV", sans-serif;

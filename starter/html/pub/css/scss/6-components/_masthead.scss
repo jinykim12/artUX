@@ -1,0 +1,87 @@
+// Source: scss/6-components/_button.scss 패턴 적용
+@use '../2-tools/breakpoints' as *;
+
+// ====================================================
+// [마스트헤드 (공식 배너) 컴포넌트 — COMP-20]
+// KRDS v1.0.0: Masthead (Official Banner)
+// 작성일: 2026-03-31
+// 정부/공공기관 공식 사이트 식별 배너 (페이지 최상단)
+// CSS 토큰(var(--*))만 사용 — Sass 변수 오버라이드 방식 금지
+//
+// 사용 예 (HTML):
+//   <div class="masthead">
+//     <div class="masthead__inner">
+//       <img class="masthead__logo" src="/images/gov-logo.svg"
+//            alt="대한민국 정부" width="24" height="24">
+//       <span class="masthead__text">
+//         이 사이트는 대한민국 공식 전자정부 사이트입니다.
+//       </span>
+//     </div>
+//   </div>
+//
+// 접근성 주의사항:
+//   - 로고 이미지에 alt 텍스트 필수 (KWCAG 1.1.1)
+//   - 명도 대비 4.5:1 이상 준수 (KWCAG 1.4.3)
+//   - 작은 텍스트라도 최소 대비 준수
+//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// ====================================================
+
+// ── 마스트헤드 컨테이너 ─────────────────────────────
+.masthead {
+    width: 100%;
+    background-color: var(--color-text);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: var(--font-size-xs);
+    line-height: 1;
+}
+
+// ── 마스트헤드 내부 래퍼 ─────────────────────────────
+.masthead__inner {
+    max-width: var(--container-max-width, 1200px);
+    margin: 0 auto;
+    padding: var(--spacing-xs) var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    @include respond-to(tablet) {
+        padding: var(--spacing-xs) var(--spacing-md);
+    }
+}
+
+// ── 로고 ───────────────────────────────────────────
+.masthead__logo {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+// ── 안내 텍스트 ────────────────────────────────────
+.masthead__text {
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+
+    @include respond-to(tablet) {
+        font-size: 0.625rem;  // 모바일에서 더 작게
+    }
+}
+
+// ── Modifier: Light (밝은 배경) ─────────────────────
+.masthead--light {
+    background-color: var(--color-bg-subtle);
+    color: var(--color-text);
+
+    .masthead__text {
+        color: var(--color-text-muted);
+    }
+}
+
+// ── Modifier: Dark (기본 — 명시적 선언용) ───────────
+.masthead--dark {
+    background-color: var(--color-text);
+    color: rgba(255, 255, 255, 0.9);
+
+    .masthead__text {
+        color: rgba(255, 255, 255, 0.9);
+    }
+}

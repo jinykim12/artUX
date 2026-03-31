@@ -1,0 +1,52 @@
+// ====================================================
+// artpqUX 퍼블리싱 가이드 — 메인 진입점
+//
+// 로드 순서 (ITCSS 기반):
+//   1-settings  → 변수 (문서화 원본) — CSS 출력 없음
+//   2-tools     → 믹스인 6종 — CSS 출력 없음
+//   3-generic   → _root.scss (CSS Custom Properties 토큰)
+//   project-overrides → 프로젝트별 :root 오버라이드 (cascade 순서 보장)
+//   4-elements  → _base.scss (Bootstrap 기본 REM), _font.scss, _common.scss
+//   5-objects   → 레이아웃 패턴
+//   6-components → UI 컴포넌트
+//   7-utilities → 유틸리티 클래스
+//   Bootstrap   → @import 격리 (@use 이후 마지막 배치)
+//
+// Bootstrap 임포트 전략:
+//   Bootstrap 5.3.x는 내부적으로 @import 사용.
+//   3-generic/_vendor.scss에 @import로 격리하고,
+//   나머지 레이어는 @use/@forward 기반으로 유지한다.
+//   Sass 규칙상 @use는 @import보다 먼저 선언해야 하므로,
+//   @use 계층을 모두 먼저 선언하고 @import를 그 뒤에 배치한다.
+//   $font-size-base 등 Bootstrap 오버라이드 변수는
+//   _vendor.scss 내부에서 @import 스코프로 선언한다.
+//
+// Bootstrap 오버라이드 변수 위치:
+//   3-generic/_vendor.scss 내 @import 스코프에서 선언
+//   1-settings/_variables.scss는 문서화 원본 역할만 수행
+// ====================================================
+
+// @use 계층 — Sass 규칙상 @import보다 먼저 위치해야 한다
+// 1. 설정 (변수 문서화 원본)
+@use '1-settings' as settings;
+
+// 2. 도구 (믹스인 6종)
+@use '2-tools' as tools;
+
+// 3. Generic (CSS Custom Properties 토큰)
+@use '3-generic' as generic;
+
+// 3.5. 프로젝트별 토큰 오버라이드 (3-generic 이후 배치 → cascade 보장)
+@use '1-settings/project-overrides';
+
+// 4~7. 커스텀 스타일 레이어
+@use '4-elements' as elements;
+@use '5-objects' as objects;
+@use '6-components' as components;
+@use '7-utilities' as utilities;
+
+// Bootstrap (@import 격리 — @use 이후에 위치)
+// _vendor.scss 내부가 @import 기반이므로 @use 불가
+// CSS 출력 순서: Bootstrap이 커스텀 레이어 뒤에 오지만,
+// 클래스 선택자 기반이므로 요소 스타일과 충돌 없음
+@import '3-generic/vendor';

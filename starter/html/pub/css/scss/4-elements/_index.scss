@@ -1,0 +1,7 @@
+// ====================================================
+// 4-elements: HTML 태그 기본 스타일
+// ====================================================
+@forward 'base';    // Bootstrap 기본 REM 설정
+@forward 'font';    // @font-face 선언
+@forward 'common';  // Bootstrap Reboot 이후 보완 초기화
+@forward 'focus';   // 포커스 스타일 표준 (A11Y-03)

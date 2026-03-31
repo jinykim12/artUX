@@ -1,0 +1,64 @@
+// Source: scss/6-components/_form.scss 패턴 적용
+
+// ====================================================
+// [브레드크럼 컴포넌트 — COMP-09]
+// 작성일: 2026-03-26
+// Bootstrap .breadcrumb 오버라이드 — CSS 토큰(var(--*))만 사용
+// 구분자 커스텀 및 색상 토큰 적용
+//
+// 사용 예 (HTML):
+//   <nav aria-label="breadcrumb">
+//   <ol class="breadcrumb">
+//   <li class="breadcrumb-item"><a href="/">홈</a></li>
+//   <li class="breadcrumb-item"><a href="/board">게시판</a></li>
+//   <li class="breadcrumb-item active" aria-current="page">공지사항</li>
+//   </ol>
+//   </nav>
+//
+// 접근성 주의사항:
+//   - <nav> 태그에 aria-label="breadcrumb" 필수
+//   - <ol> 순서 목록 사용 (페이지 계층 순서 의미)
+//   - 마지막 항목(현재 페이지)에 aria-current="page" 필수
+//   - 현재 페이지는 링크 없이 텍스트만 (클릭 불가)
+// ====================================================
+
+// ── 브레드크럼 목록 ─────────────────────────────────
+.breadcrumb {
+ display: flex;
+ flex-wrap: wrap;
+ padding: 0;
+ margin-bottom: var(--spacing-md);
+ list-style: none;
+ font-size: var(--font-size-sm);
+}
+
+// ── 브레드크럼 항목 ─────────────────────────────────
+.breadcrumb-item {
+ color: var(--color-text-muted);
+
+ // 링크 스타일
+ a {
+ color: var(--color-primary);
+ text-decoration: none;
+
+ &:hover {
+    text-decoration: underline;
+ }
+ }
+}
+
+// ── 구분자 커스텀 (::before) ─────────────────────────
+// 인접 .breadcrumb-item 앞에 구분자 삽입
+.breadcrumb-item + .breadcrumb-item {
+ &::before {
+ content: "/";
+ padding: 0 var(--spacing-xs);
+ color: var(--color-text-muted);
+ }
+}
+
+// ── 현재 페이지 항목 ──────────────────────────────────
+.breadcrumb-item.active {
+ color: var(--color-text);
+ font-weight: var(--font-weight-medium);
+}

@@ -1,0 +1,202 @@
+// Source: scss/2-tools/_breakpoints.scss — respond-to() 키워드 참고
+@use '../2-tools/breakpoints' as *;
+
+// ====================================================
+// [헤더 / GNB — COMP-01]
+// PC: respond-to(pc-sm) 이상 GNB 수평 표시
+// 모바일: 햄버거 버튼 + 전체메뉴 패널
+//
+// 사용 예 (HTML):
+//   <header class="header" role="banner">
+//   <a href="/" class="header__logo">로고</a>
+//   <nav aria-label="주 메뉴" class="header__gnb">
+//   <ul class="gnb">...</ul>
+//   </nav>
+//   <button
+//   type="button"
+//   class="header__hamburger"
+//   aria-expanded="false"
+//   aria-controls="mobile-menu"
+//   aria-label="전체 메뉴 열기"
+//   >메뉴</button>
+//   <div id="mobile-menu" class="header__mobile-menu" aria-hidden="true">
+//   <nav aria-label="전체 메뉴">...</nav>
+//   </div>
+//   </header>
+//
+// 접근성 주의사항:
+//   - <nav>에 aria-label="주 메뉴" 필수 (중복 랜드마크 구분)
+//   - 햄버거 버튼에 aria-expanded + aria-controls 필수
+//   - 모바일 패널에 aria-hidden="true/false" JS 토글 필수 (D-04)
+//   - 서브메뉴 토글 버튼에 aria-expanded + aria-controls 필수
+//   - 현재 페이지 링크에 aria-current="page" 적용 (D-08)
+//   - 메뉴 열릴 때 첫 항목으로 focus() 이동, ESC 시 트리거로 복귀 (D-09)
+//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// ====================================================
+
+// ── 헤더 공통 ─────────────────────────────────────
+.header {
+ position: sticky;
+ top: 0;
+ z-index: var(--z-dropdown);
+ background-color: var(--color-bg);
+ border-bottom: 1px solid var(--color-border);
+
+ // 헤더 내부 레이아웃
+ &__inner {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ height: 3.75rem;  // 모바일 헤더 높이 (60px)
+ padding: 0 var(--spacing-md);
+
+ @include respond-to(pc-sm) {
+    height: 5rem;  // PC 헤더 높이 (80px)
+    padding: 0 var(--spacing-lg);
+ }
+ }
+
+ // PC GNB — pc-sm 이상 표시
+ &__gnb {
+ display: none;
+
+ @include respond-to(pc-sm) {
+    display: flex;
+    align-items: center;
+ }
+ }
+
+ // 햄버거 버튼 — pc-sm 이상 숨김
+ /* WCAG 2.5.8 최소 터치영역 44px */
+ &__hamburger {
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ gap: 0.5rem;            // 막대 간격을 gap으로 처리 (터치영역 확보 후)
+ min-width: var(--touch-target-min);      // 44px — WCAG 2.5.8 최소 터치영역
+ min-height: var(--touch-target-min);     // 44px — WCAG 2.5.8 최소 터치영역
+ padding: 0;
+ background: none;
+ border: none;
+ cursor: pointer;
+ color: var(--color-text);
+
+ @include respond-to(pc-sm) {
+    display: none;
+ }
+ }
+
+ // 햄버거 바 (막대 3개) — 고정 너비로 버튼 패딩과 무관하게 표시
+ &__hamburger-bar {
+ display: block;
+ width: 1.25rem;  // 20px — 아이콘 막대 너비 고정
+ height: 2px;
+ background-color: currentColor;
+ }
+
+ // 모바일 메뉴 패널
+ &__mobile-menu {
+ display: none;  // JS로 aria-hidden + display 함께 제어
+
+ &[aria-hidden="false"] {
+    display: block;
+ }
+
+ @include respond-to(pc-sm) {
+    display: none !important;  // PC에서는 무조건 숨김
+ }
+ }
+}
+
+// ── GNB (PC 수평 메뉴) ─────────────────────────────
+.gnb {
+ display: flex;
+ gap: 0;
+ margin: 0;
+ padding: 0;
+ list-style: none;
+
+ // GNB 최상위 항목
+ &__item {
+ position: relative;  // 서브메뉴 절대 배치 기준
+ }
+
+ // 서브메뉴 토글 버튼
+ &__toggle {
+ display: inline-flex;
+ align-items: center;
+ padding: var(--spacing-sm) var(--spacing-md);
+ background: none;
+ border: none;
+ cursor: pointer;
+ color: var(--color-text);
+ font-size: var(--font-size-base);
+ font-weight: var(--font-weight-medium);
+ white-space: nowrap;
+
+ &:hover {
+    color: var(--color-primary);
+ }
+ }
+
+ // GNB 링크
+ &__link {
+ display: inline-flex;
+ align-items: center;
+ padding: var(--spacing-sm) var(--spacing-md);
+ color: var(--color-text);
+ font-size: var(--font-size-base);
+ font-weight: var(--font-weight-medium);
+ text-decoration: none;
+ white-space: nowrap;
+
+ &:hover {
+    color: var(--color-primary);
+ }
+
+ // 현재 페이지 표시 (D-08)
+ &[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+ }
+ }
+
+ // 서브메뉴 목록 (.gnb__sub) — hidden 속성으로 숨김
+ &__sub {
+ position: absolute;
+ top: 100%;
+ left: 0;
+ z-index: var(--z-dropdown);
+ display: none;
+ min-width: 16rem;
+ margin: 0;
+ padding: var(--spacing-sm) 0;
+ background-color: var(--color-bg);
+ border: 1px solid var(--color-border);
+ list-style: none;
+
+ // 서브메뉴 열림 상태 (hidden 속성 제거 시)
+ &:not([hidden]) {
+    display: block;
+ }
+
+ a {
+    display: block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+    text-decoration: none;
+
+    &:hover {
+    background-color: var(--color-border);
+    color: var(--color-primary);
+    }
+
+    &[aria-current="page"] {
+    color: var(--color-primary);
+    font-weight: var(--font-weight-bold);
+    }
+ }
+ }
+}

@@ -1,0 +1,36 @@
+// 6-components: UI 컴포넌트
+// 프로젝트에서 사용하지 않는 컴포넌트는 주석 처리하여 CSS 용량을 줄인다.
+
+// 레이아웃
+@forward 'skip-nav';
+@forward 'masthead';
+@forward 'header';
+@forward 'footer';
+@forward 'side-nav';
+
+// 액션
+@forward 'button';
+@forward 'fab';
+
+// 콘텐츠
+@forward 'card';
+@forward 'table';
+@forward 'badge';
+
+// 인터랙션
+@forward 'modal';
+@forward 'tab';
+@forward 'accordion';
+@forward 'tooltip';
+@forward 'toast';
+
+// 피드백
+@forward 'step-indicator';
+@forward 'spinner';
+
+// 탐색
+@forward 'breadcrumb';
+@forward 'slider';
+
+// 폼 (Bootstrap 오버라이드)
+@forward 'form';
