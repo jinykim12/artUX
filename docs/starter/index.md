@@ -13,15 +13,19 @@ title: 스타터 킷
 
 ### 1단계. 복사 + 설치
 
-가이드 폴더 안의 `starter/`를 새 프로젝트 폴더로 복사하고 의존성을 설치한다.
+가이드 폴더 안의 `starter/` 폴더를 통째로 복사해서 새 프로젝트 폴더를 만든다.
+
+```
+D:\work\ux_guide\starter\  →  D:\work\새프로젝트명\
+```
+
+복사한 폴더에서 터미널을 열고 아래 명령을 실행한다. Bootstrap, Sass 등 프로젝트에 필요한 도구들이 자동으로 다운로드된다.
 
 ```bash
-cp -r starter/ /path/to/my-project/
-cd /path/to/my-project
 npm install
 ```
 
-`npm install`을 실행하면 `node_modules/` 폴더가 생성된다. 이 폴더는 건드리지 않는다.
+실행하면 `node_modules/` 폴더가 생긴다. 이 폴더는 자동 생성된 것이므로 열어보거나 수정할 필요 없다.
 
 ### 2단계. 빌드
 
