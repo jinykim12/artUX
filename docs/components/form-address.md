@@ -85,7 +85,7 @@ permalink: /components/form-address/
 
 ```html
 <!-- 우편번호 검색 팝업 — role="dialog", aria-modal, 키보드 트랩 -->
-<div id="postcode-dialog" class="modal" role="dialog" aria-modal="true" aria-label="우편번호 검색" style="display: none;">
+<div id="postcode-dialog" class="modal" role="dialog" aria-modal="true" aria-label="우편번호 검색" class="d-none">
     <div class="modal-content">
         <div class="modal-header">
             <h2 class="modal-title">우편번호 검색</h2>

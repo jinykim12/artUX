@@ -42,29 +42,29 @@ permalink: /components/footer/
 푸터는 `<footer>` 태그를 사용한다. `<footer>`는 암묵적으로 `role="contentinfo"`를 가지므로 별도 role 속성은 불필요하다. 내비게이션 영역은 `<nav>`로 감싼다:
 
 <div class="docs-preview">
-<footer class="footer" style="background:#1a1a2e; color:#c9c9d4; padding:1.5rem 1.25rem; border-radius:0.375rem; font-size:0.875rem;">
+<footer class="footer bg-dark text-light p-3 rounded">
   <div class="footer__inner">
     <nav aria-label="푸터 메뉴">
-      <ul class="footer-nav" style="list-style:none; display:flex; flex-wrap:wrap; gap:1rem; margin:0 0 1rem; padding:0;">
-        <li class="footer-nav-item"><a href="#preview-about" onclick="return false;" style="color:#e0e0e8;">기관 소개</a></li>
-        <li class="footer-nav-item"><a href="#preview-sitemap" onclick="return false;" style="color:#e0e0e8;">사이트맵</a></li>
-        <li class="footer-nav-item"><a href="#preview-privacy" onclick="return false;" style="color:#e0e0e8;">개인정보처리방침</a></li>
-        <li class="footer-nav-item"><a href="#preview-terms" onclick="return false;" style="color:#e0e0e8;">이용약관</a></li>
-        <li class="footer-nav-item"><a href="#preview-a11y" onclick="return false;" style="color:#e0e0e8;">웹 접근성 정책</a></li>
+      <ul class="footer-nav list-unstyled d-flex flex-wrap gap-3 mb-3 p-0">
+        <li class="footer-nav-item"><a href="#preview-about" onclick="return false;" class="text-light">기관 소개</a></li>
+        <li class="footer-nav-item"><a href="#preview-sitemap" onclick="return false;" class="text-light">사이트맵</a></li>
+        <li class="footer-nav-item"><a href="#preview-privacy" onclick="return false;" class="text-light">개인정보처리방침</a></li>
+        <li class="footer-nav-item"><a href="#preview-terms" onclick="return false;" class="text-light">이용약관</a></li>
+        <li class="footer-nav-item"><a href="#preview-a11y" onclick="return false;" class="text-light">웹 접근성 정책</a></li>
       </ul>
     </nav>
     <div class="footer-info">
-      <div class="footer-logo" style="margin-bottom:0.5rem;">
-        <span style="font-weight:700; color:#fff;">OO기관 로고</span>
+      <div class="footer-logo mb-2">
+        <span class="fw-bold text-white">OO기관 로고</span>
       </div>
-      <address class="footer-address" style="font-style:normal; margin-bottom:0.5rem;">
+      <address class="footer-address fst-normal mb-2">
         (12345) 서울특별시 종로구 세종대로 00 OO기관<br>
-        대표전화: <a href="tel:02-1234-5678" style="color:#e0e0e8;">02-1234-5678</a>
+        대표전화: <a href="tel:02-1234-5678" class="text-light">02-1234-5678</a>
       </address>
-      <p class="footer-copyright" style="margin:0 0 0.75rem; color:#8a8a9a;">Copyright &copy; 2026 OO기관. All rights reserved.</p>
+      <p class="footer-copyright m-0 mb-2 text-secondary">Copyright &copy; 2026 OO기관. All rights reserved.</p>
     </div>
     <div class="footer-identifier">
-      <p class="footer-identifier-text" style="margin:0; color:#8a8a9a;">이 사이트는 대한민국 정부 공식 웹사이트입니다.</p>
+      <p class="footer-identifier-text m-0 text-secondary">이 사이트는 대한민국 정부 공식 웹사이트입니다.</p>
     </div>
   </div>
 </footer>

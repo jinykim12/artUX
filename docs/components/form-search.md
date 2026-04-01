@@ -27,7 +27,7 @@ permalink: /components/form-search/
 <form role="search" aria-label="사이트 검색" onsubmit="return false;" class="d-flex gap-2">
   <label for="preview-search" class="sr-only">검색어</label>
   <input type="search" id="preview-search" name="q" class="form-control" placeholder="검색어를 입력하세요" autocomplete="search">
-  <button type="submit" class="btn btn-primary" style="white-space:nowrap;">검색</button>
+  <button type="submit" class="btn btn-primary text-nowrap">검색</button>
 </form>
 </div>
 

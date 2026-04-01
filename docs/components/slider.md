@@ -26,15 +26,15 @@ permalink: /components/slider/
 슬라이더 컨테이너에 `aria-label`을 붙이는 이유는 스크린리더 사용자가 이 영역이 "공지사항 슬라이더"임을 즉시 파악하게 하기 위해서다. `.slider__status` 영역은 슬라이드가 바뀔 때마다 "1 / 5"처럼 현재 위치를 스크린리더에 공지하는 역할을 한다. 반드시 페이지 최초 로드 시 DOM에 존재해야 한다:
 
 <div class="docs-preview">
-<div id="preview-slider" aria-label="공지사항 슬라이더" style="border:1px solid #dee2e6; border-radius:0.375rem; overflow:hidden;">
-  <div id="preview-slide-area" style="background:#f0f0f0; padding:3rem 1.25rem; text-align:center; color:#555;">
-    <p id="preview-slide-num" style="margin:0 0 0.25rem; font-weight:700;">슬라이드 1 / 3</p>
-    <p id="preview-slide-text" style="margin:0; font-size:0.875rem;">2026년 상반기 사업 공고 안내</p>
+<div id="preview-slider" class="border rounded overflow-hidden" aria-label="공지사항 슬라이더">
+  <div id="preview-slide-area" class="bg-light text-center text-secondary px-3 py-5">
+    <p id="preview-slide-num" class="m-0 mb-1 fw-bold">슬라이드 1 / 3</p>
+    <p id="preview-slide-text" class="m-0">2026년 상반기 사업 공고 안내</p>
   </div>
-  <div style="display:flex; align-items:center; justify-content:center; gap:0.75rem; padding:0.625rem; border-top:1px solid #dee2e6;">
+  <div class="d-flex align-items-center justify-content-center gap-2 p-2 border-top">
     <button type="button" id="preview-prev" aria-label="이전 슬라이드" class="btn btn-sm btn-outline-secondary">&lsaquo; 이전</button>
     <button type="button" id="preview-pause" aria-label="자동 재생 정지" class="btn btn-sm btn-outline-secondary">&#9646;&#9646; 정지</button>
-    <button type="button" id="preview-play" aria-label="자동 재생 시작" class="btn btn-sm btn-outline-secondary" style="display:none;">&#9654; 재생</button>
+    <button type="button" id="preview-play" aria-label="자동 재생 시작" class="btn btn-sm btn-outline-secondary d-none">&#9654; 재생</button>
     <button type="button" id="preview-next" aria-label="다음 슬라이드" class="btn btn-sm btn-outline-secondary">다음 &rsaquo;</button>
   </div>
   <div aria-live="polite" aria-atomic="true" class="sr-only" id="preview-slider-status">슬라이드 1 / 3</div>

@@ -43,7 +43,7 @@ permalink: /components/side-nav/
 사이드 메뉴는 `<nav>` 랜드마크로 감싸고 `aria-label`로 다른 내비게이션과 구분한다. 현재 페이지에 `aria-current="page"`를 적용한다:
 
 <div class="docs-preview">
-<nav class="side-nav" aria-label="서브 메뉴" style="max-width:260px;">
+<nav class="side-nav" aria-label="서브 메뉴">
   <ul class="side-nav__list">
     <li class="side-nav__item">
       <a href="#" onclick="return false;" class="side-nav__link">개요</a>

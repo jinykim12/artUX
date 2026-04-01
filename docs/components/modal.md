@@ -45,7 +45,7 @@ permalink: /components/modal/
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <div class="modal-title fw-bold" id="preview-modal-title" style="font-size:1.25rem; margin:0;">공지사항</div>
+        <div class="modal-title fw-bold fs-5 m-0" id="preview-modal-title">공지사항</div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
       </div>
       <div class="modal-body">

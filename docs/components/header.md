@@ -49,22 +49,22 @@ PC GNB 전체 구조다. 서브메뉴가 있는 항목은 `<button>` + 숨겨진
 
 <div class="docs-preview">
 <nav aria-label="주 메뉴" class="header__gnb">
-  <ul class="gnb" style="list-style:none; display:flex; gap:1rem; margin:0; padding:0;">
+  <ul class="gnb list-unstyled d-flex gap-3 m-0 p-0">
     <li class="gnb__item">
-      <button type="button" class="gnb__toggle" aria-expanded="false" aria-controls="preview-submenu-about" style="background:none; border:none; cursor:pointer; padding:0.5rem; font:inherit;">
+      <button type="button" class="gnb__toggle btn btn-link p-2 text-decoration-none" aria-expanded="false" aria-controls="preview-submenu-about">
         기관 소개
       </button>
-      <ul id="preview-submenu-about" class="gnb__sub" hidden style="list-style:none; margin:0; padding:0.5rem 0 0 1rem;">
+      <ul id="preview-submenu-about" class="gnb__sub list-unstyled m-0 pt-2 ps-3" hidden>
         <li><a href="#preview-about-intro" class="gnb__link" onclick="return false;">기관 소개</a></li>
         <li><a href="#preview-about-org" class="gnb__link" onclick="return false;">조직도</a></li>
         <li><a href="#preview-about-history" class="gnb__link" onclick="return false;">연혁</a></li>
       </ul>
     </li>
     <li class="gnb__item">
-      <button type="button" class="gnb__toggle" aria-expanded="false" aria-controls="preview-submenu-service" style="background:none; border:none; cursor:pointer; padding:0.5rem; font:inherit;">
+      <button type="button" class="gnb__toggle btn btn-link p-2 text-decoration-none" aria-expanded="false" aria-controls="preview-submenu-service">
         사업 안내
       </button>
-      <ul id="preview-submenu-service" class="gnb__sub" hidden style="list-style:none; margin:0; padding:0.5rem 0 0 1rem;">
+      <ul id="preview-submenu-service" class="gnb__sub list-unstyled m-0 pt-2 ps-3" hidden>
         <li><a href="#preview-service-a" class="gnb__link" onclick="return false;">사업 A</a></li>
         <li><a href="#preview-service-b" class="gnb__link" onclick="return false;">사업 B</a></li>
       </ul>

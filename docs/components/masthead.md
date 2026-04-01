@@ -40,9 +40,9 @@ permalink: /components/masthead/
 공식 배너는 `<header>` 태그보다 위에 배치한다. `role="region"`과 `aria-label`로 보조 기기에 영역 목적을 전달한다:
 
 <div class="docs-preview">
-<div class="masthead" role="region" aria-label="공식 사이트 안내" style="background:#13183f; color:#ffffffcc; padding:0.5rem 1.25rem; border-radius:0.375rem; font-size:0.8125rem; display:flex; align-items:center; gap:0.5rem;">
-  <div class="masthead-inner" style="display:flex; align-items:center; gap:0.5rem;">
-    <span class="masthead-logo" style="font-weight:700; color:#fff; display:inline-flex; align-items:center; gap:0.25rem;" aria-label="대한민국 정부">&#9733; 대한민국 정부</span>
+<div class="masthead d-flex align-items-center gap-2 rounded px-3 py-2" role="region" aria-label="공식 사이트 안내" style="background:#13183f; color:#ffffffcc;">
+  <div class="masthead-inner d-flex align-items-center gap-2">
+    <span class="masthead-logo fw-bold text-white d-inline-flex align-items-center gap-1" aria-label="대한민국 정부">&#9733; 대한민국 정부</span>
     <span class="masthead-text">이 누리집은 대한민국 공식 전자정부 누리집입니다.</span>
   </div>
 </div>

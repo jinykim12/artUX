@@ -253,7 +253,7 @@ $(function () {
         필터
         <span class="filter-badge" aria-label="적용된 필터 2개">2</span>
     </button>
-    <div id="filter-panel" class="filter-panel" style="display: none;">
+    <div id="filter-panel" class="filter-panel" class="d-none">
         <!-- 필터 내용은 위 기본 필터 패널과 동일 -->
     </div>
 </div>

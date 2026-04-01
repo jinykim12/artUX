@@ -35,8 +35,8 @@ permalink: /components/fab/
 
 플로팅 버튼은 `position: fixed`로 화면에 고정 배치한다. 아이콘만 표시하므로 `aria-label`로 버튼 목적을 반드시 설명한다:
 
-<div class="docs-preview" style="position:relative;min-height:80px;">
-<button type="button" class="fab" aria-label="새 글 작성" style="position:absolute;right:16px;bottom:16px;">
+<div class="docs-preview position-relative" style="min-height:80px;">
+<button type="button" class="fab position-absolute bottom-0 end-0 me-3 mb-3" aria-label="새 글 작성">
   <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
 </button>
 </div>

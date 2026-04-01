@@ -27,7 +27,7 @@ permalink: /components/form-login/
 <div class="docs-preview">
 <form onsubmit="return false;">
   <div class="fw-bold fs-5 mb-3">로그인</div>
-  <div id="preview-login-error" class="form-error" role="alert" style="display: none;"></div>
+  <div id="preview-login-error" class="form-error d-none" role="alert"></div>
   <div class="mb-3">
     <label for="preview-login-id" class="form-label">아이디</label>
     <input type="text" id="preview-login-id" name="username" class="form-control" required aria-required="true" autocomplete="username">
@@ -56,7 +56,7 @@ permalink: /components/form-login/
     <h2>로그인</h2>
 
     <!-- 로그인 오류 메시지 — role="alert"로 즉시 알림, 초기에는 비워둠 -->
-    <div id="login-error" class="form-error" role="alert" style="display: none;"></div>
+    <div id="login-error" class="form-error" role="alert" class="d-none"></div>
 
     <div class="mb-3">
         <label for="login-id" class="form-label">아이디</label>

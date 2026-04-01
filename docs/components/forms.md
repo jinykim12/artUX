@@ -393,7 +393,7 @@ permalink: /components/forms/
     >
     <!-- 오류 메시지 컨테이너 — 미리 DOM에 존재, 내용은 비워둠 -->
     <!-- id는 반드시 "필드id-error" 패턴 유지 (JS에서 errorId = field.id + '-error') -->
-    <p id="v-name-error" class="form-error" style="display: none;"></p>
+    <p id="v-name-error" class="form-error" class="d-none"></p>
   </div>
 
   <div class="mb-3">
@@ -412,7 +412,7 @@ permalink: /components/forms/
       aria-required="true"
       autocomplete="email"
     >
-    <p id="v-email-error" class="form-error" style="display: none;"></p>
+    <p id="v-email-error" class="form-error" class="d-none"></p>
   </div>
 
   <button type="submit" class="btn btn-primary">제출</button>
