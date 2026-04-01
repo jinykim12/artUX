@@ -35,8 +35,8 @@
 // ====================================================
 
 // ── 테이블 기본 ────────────────────────────────────
+// Bootstrap 기본: width 100% — 제거
 .table {
-    width: 100%;
     color: var(--color-text);
     font-size: var(--font-size-base);
     border-color: var(--color-border);
@@ -69,9 +69,8 @@
 }
 
 // ── 반응형 스크롤 wrapper ────────────────────────────
-// Bootstrap .table-responsive와 동일 네이밍 유지 (Bootstrap 오버라이드)
-// 모바일에서 수평 스크롤 허용
+// Bootstrap .table-responsive가 overflow-x: auto 기본 제공
+// -webkit-overflow-scrolling만 커스텀 추가
 .table-responsive {
-    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }

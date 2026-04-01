@@ -26,11 +26,9 @@ permalink: /components/form-file/
 
 <div class="docs-preview">
 <form onsubmit="return false;">
-  <div class="mb-3">
-    <label for="preview-file" class="form-label">첨부파일</label>
-    <input type="file" id="preview-file" name="attachment" class="form-control" accept=".pdf,.hwp,.docx,.jpg,.png" aria-describedby="preview-file-hint">
-    <p id="preview-file-hint" class="form-text">허용 형식: PDF, HWP, DOCX, JPG, PNG / 최대 10MB</p>
-  </div>
+  <label for="preview-file" class="form-label">첨부파일</label>
+  <input type="file" id="preview-file" name="attachment" class="form-control" accept=".pdf,.hwp,.docx,.jpg,.png" aria-describedby="preview-file-hint">
+  <p id="preview-file-hint" class="form-text mb-0">허용 형식: PDF, HWP, DOCX, JPG, PNG / 최대 10MB</p>
 </form>
 </div>
 

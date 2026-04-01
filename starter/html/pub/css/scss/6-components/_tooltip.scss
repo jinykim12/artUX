@@ -18,9 +18,10 @@
 // ====================================================
 
 // Bootstrap Tooltip 스타일 오버라이드
+// Bootstrap 기본: padding .25rem .5rem, border-radius .375rem
+// bg·font-size = 커스텀 토큰, border-radius .25rem = 의도적 차이
 .tooltip-inner {
     background-color: var(--color-text);
     font-size: var(--font-size-sm);
-    padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
 }

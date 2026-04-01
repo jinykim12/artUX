@@ -43,7 +43,6 @@
 .btn-primary {
     background-color: var(--color-primary);
     border-color: var(--color-primary);
-    color: #fff;
 
     &:hover {
     filter: brightness(0.9);  // hover 시 약간 어둡게
@@ -65,11 +64,9 @@
 .btn-outline-primary {
     color: var(--color-primary);
     border-color: var(--color-primary);
-    background-color: transparent;
 
     &:hover {
     background-color: var(--color-primary);
-    color: #fff;
     }
 }
 
@@ -87,11 +84,12 @@
 
 // ── 비활성 버튼 ───────────────────────────────────
 // disabled 속성 + aria-disabled="true" 병행 처리 (접근성 패턴)
+// Bootstrap 기본: opacity .65, pointer-events none
+// opacity 0.5 = 의도적 차이, cursor = 커스텀 추가
 .btn[disabled],
 .btn.disabled {
     opacity: 0.5;
     cursor: not-allowed;
-    pointer-events: none;
 }
 
 // ── 아이콘 전용 버튼 (BEM modifier) ──────────────

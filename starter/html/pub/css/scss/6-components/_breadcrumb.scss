@@ -23,12 +23,9 @@
 // ====================================================
 
 // ── 브레드크럼 목록 ─────────────────────────────────
+// Bootstrap 기본: display flex, flex-wrap, padding 0, list-style none
 .breadcrumb {
- display: flex;
- flex-wrap: wrap;
- padding: 0;
  margin-bottom: var(--spacing-md);
- list-style: none;
  font-size: var(--font-size-sm);
 }
 
@@ -48,10 +45,9 @@
 }
 
 // ── 구분자 커스텀 (::before) ─────────────────────────
-// 인접 .breadcrumb-item 앞에 구분자 삽입
+// Bootstrap 기본 content: "/" — padding·color만 커스텀
 .breadcrumb-item + .breadcrumb-item {
  &::before {
- content: "/";
  padding: 0 var(--spacing-xs);
  color: var(--color-text-muted);
  }

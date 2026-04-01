@@ -64,7 +64,7 @@
 
 // ── 카드 상단 이미지 ──────────────────────────────
 // alt 속성 필수 — 장식 이미지: alt="", 의미 이미지: 설명 텍스트 (접근성 패턴)
+// Bootstrap 기본: width 100%, border-radius top — object-fit만 커스텀
 .card-img-top {
-    width: 100%;
     object-fit: cover;
 }

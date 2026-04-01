@@ -50,8 +50,8 @@
 
 // ── 모달 배경 (backdrop) ───────────────────────────
 // z-index: var(--z-overlay) — 드롭다운(1000) 위, 모달(1050) 아래
+// Bootstrap 기본: bg rgba(0,0,0,.5) — z-index·transition만 커스텀
 .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: var(--z-overlay);    // 1040 — Bootstrap 기본값과 동일
     transition: none;             // 공공기관 트랜지션 없음 원칙
 }

@@ -26,10 +26,11 @@
 // ====================================================
 
 // Bootstrap Toast 스타일 오버라이드
+// Bootstrap 기본: border-radius .375rem, font-size .875rem
+// font-size 커스텀(토큰), border·shadow 커스텀
 .toast {
     font-size: var(--font-size-base);
     border: 1px solid var(--color-border);
-    border-radius: 0.375rem;
     box-shadow: var(--shadow-md);
 }
 
