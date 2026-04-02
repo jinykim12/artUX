@@ -104,7 +104,7 @@ Bootstrap 컴포넌트 전체에 적용할 스타일 변경은 SCSS에서 해당
 }
 
 .card-title {
-  font-size: 1.25rem;
+  font-size: 20px;
   color: var(--bs-body-color);
 }
 ```
@@ -197,7 +197,7 @@ Bootstrap 유틸리티를 직접 덮어쓰면 Bootstrap 버전을 올릴 때 예
 ✅ 좋은 예: 커스텀 클래스로 분리
 ```scss
 /* 올바른 방식 — 전용 커스텀 클래스 작성 */
-.section__top { margin-top: 1.5rem; }
+.section__top { margin-top: 24px; }
 ```
 
 ### 커스텀 클래스 작성 시점
@@ -350,14 +350,14 @@ scss/
 
 ❌ 나쁜 예: camelCase는 HTML/CSS 관례와 어긋나고 BEM 구조를 파악하기 어렵다.
 ```scss
-.cardTitle { font-size: 1.2rem; }
-.modalContent { padding: 1rem; }
+.cardTitle { font-size: 19px; }
+.modalContent { padding: 16px; }
 ```
 
 ✅ 좋은 예: BEM 패턴으로 컴포넌트 소속이 명확해진다.
 ```scss
-.card__title { font-size: 1.2rem; }
-.modal__content { padding: 1rem; }
+.card__title { font-size: 19px; }
+.modal__content { padding: 16px; }
 ```
 
 ### 의미 없는 약어 — 협업 시 의미 파악 불가
@@ -366,14 +366,14 @@ scss/
 ```scss
 .wrp { display: flex; }
 .cont { max-width: 1200px; }
-.hd { font-size: 2rem; }
+.hd { font-size: 32px; }
 ```
 
 ✅ 좋은 예: 전체 단어를 사용하면 코드 리뷰와 유지보수가 쉬워진다.
 ```scss
 .wrapper { display: flex; }
 .container { max-width: 1200px; }
-.heading { font-size: 2rem; }
+.heading { font-size: 32px; }
 ```
 
 ### Bootstrap 클래스 직접 덮어쓰기 — 업그레이드 충돌 위험
@@ -386,7 +386,7 @@ scss/
 
 ✅ 좋은 예: 커스텀 클래스로 분리하면 Bootstrap과 독립적으로 관리된다.
 ```scss
-.section__top { margin-top: 1.5rem; }
+.section__top { margin-top: 24px; }
 .btn--agency { background-color: var(--bs-primary); }
 ```
 

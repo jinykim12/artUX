@@ -59,13 +59,13 @@ permalink: /accessibility/color-contrast/
 
 ```css
 /* 대형 텍스트 예시 — 3:1 대비율 기준 적용 */
-h1 { font-size: 2rem; }      /* 32px — 대형 텍스트 */
-h2 { font-size: 1.5rem; }    /* 24px — 대형 텍스트 경계 */
-h3 { font-size: 1.25rem; }   /* 20px — 대형 텍스트 */
+h1 { font-size: 32px; }      /* 대형 텍스트 */
+h2 { font-size: 24px; }      /* 대형 텍스트 경계 */
+h3 { font-size: 20px; }      /* 대형 텍스트 */
 
 /* 소형 텍스트 예시 — 4.5:1 대비율 기준 적용 */
-p  { font-size: 1rem; }      /* 16px — 일반 텍스트 */
-small { font-size: 0.875rem; } /* 14px — 일반 텍스트 */
+p  { font-size: 16px; }      /* 일반 텍스트 */
+small { font-size: 14px; }   /* 일반 텍스트 */
 ```
 
 ---

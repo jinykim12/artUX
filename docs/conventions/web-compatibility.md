@@ -65,7 +65,7 @@ permalink: /conventions/web-compatibility/
 /* 작성 코드 (prefix 없이) */
 .card {
   display: flex;
-  gap: 1.6rem;
+  gap: 24px;
 }
 
 /* Autoprefixer 출력 (필요 시 자동 추가) */
@@ -73,7 +73,7 @@ permalink: /conventions/web-compatibility/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1.6rem;
+  gap: 24px;
 }
 ```
 
@@ -106,10 +106,10 @@ IE11 대응이 필요한 프로젝트는 `css-vars-ponyfill`을 추가하거나,
   display: flex;
   flex-wrap: wrap;
   // gap 대신 margin 사용
-  margin: calc(1.25rem / -2);
+  margin: calc(20px / -2);
 
   > * {
-    margin: calc(1.25rem / 2);
+    margin: calc(20px / 2);
   }
 }
 ```
@@ -164,7 +164,7 @@ font-family:
 
 /* input 포커스 시 자동 줌 방지 — font-size 16px 이상 */
 input, select, textarea {
-  font-size: max(1.6rem, 16px);
+  font-size: 16px;
 }
 ```
 

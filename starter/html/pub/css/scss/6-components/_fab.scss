@@ -29,8 +29,8 @@
 /* KWCAG 2.5.8 최소 터치영역 44px (56px 원형) */
 .fab {
     position: fixed;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: 32px;
+    right: 32px;
     z-index: 1030;
     display: inline-flex;
     align-items: center;
@@ -63,8 +63,8 @@
 
     // 모바일: 약간 작게 + 여백 조정
     @media (min-width: 768px) {
-        bottom: 1.75rem;
-        right: 1.25rem;
+        bottom: 28px;
+        right: 20px;
     }
 }
 
@@ -94,9 +94,9 @@
 // ── 다수 FAB 배치 시 간격 ──────────────────────────
 // 두 번째 FAB는 위로 올림
 .fab + .fab {
-    bottom: calc(2rem + 56px + 1.25rem);
+    bottom: calc(32px + 56px + 20px);
 
     @media (min-width: 768px) {
-        bottom: calc(1.75rem + 56px + 0.5rem);
+        bottom: calc(28px + 56px + 8px);
     }
 }

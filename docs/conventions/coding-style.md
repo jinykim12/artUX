@@ -89,7 +89,7 @@ trim_trailing_whitespace = false
     align-items: center;
 
     &__title {
-        font-size: 1.25rem;
+        font-size: 20px;
     }
 }
 ```
@@ -141,10 +141,10 @@ trim_trailing_whitespace = false
 
 ```scss
 // TODO: 모바일 대응 추가 — 담당자: 홍길동, 2025년 2분기 예정
-.hero__banner { padding: 3rem; }
+.hero__banner { padding: 48px; }
 
 // FIXME: IE11에서 flex-gap이 지원되지 않아 레이아웃 깨짐 — 확인 필요
-.card__grid { gap: 1.25rem; }
+.card__grid { gap: 20px; }
 
 // TEMP: 디자인 확정 전 임시값 — 납품 전 반드시 삭제
 .hero { height: 600px; }
@@ -229,18 +229,18 @@ git config --global core.autocrlf input
   /* 2. 박스 모델 */
   display: flex;
   width: 100%;
-  padding: 1.25rem;
+  padding: 20px;
   margin: 0;
 
   /* 3. 타이포그래피 */
-  font-size: 1rem;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--bs-body-color);
 
   /* 4. 시각 효과 */
   background: var(--bs-body-bg);
   border: 1px solid var(--bs-border-color);
-  border-radius: .25rem;
+  border-radius: 4px;
 
   /* 5. 기타 */
   cursor: pointer;

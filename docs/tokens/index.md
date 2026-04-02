@@ -136,14 +136,14 @@ Bootstrap 기본 폰트 크기 체계를 사용한다.
 | `2.5rem` | 40px | Bootstrap `$h1-font-size` |
 
 ```scss
-// 직접 rem 값 사용 — 별도 토큰 불필요
+// 직접 px 값 사용 — 별도 토큰 불필요
 .card-title {
-    font-size: 1.25rem;  // 20px
+    font-size: 20px;
     font-weight: 700;
 }
 
 .form-hint {
-    font-size: 0.875rem;  // 14px
+    font-size: 14px;
 }
 ```
 
@@ -170,7 +170,7 @@ HTML에서는 Bootstrap 유틸리티 클래스 활용:
 
 ## 간격
 
-Bootstrap 간격 유틸리티(`p-*`, `m-*`, `gap-*`)를 사용한다. SCSS에서는 rem 직접 사용.
+Bootstrap 간격 유틸리티(`p-*`, `m-*`, `gap-*`)를 사용한다. 커스텀 SCSS에서는 px 직접 사용.
 
 | Bootstrap 유틸리티 | 값 | 픽셀 |
 |-------------------|-----|------|
@@ -186,9 +186,9 @@ Bootstrap 간격 유틸리티(`p-*`, `m-*`, `gap-*`)를 사용한다. SCSS에서
 ```
 
 ```scss
-// SCSS — rem 직접 사용
+// SCSS — px 직접 사용
 .header__inner {
-    padding: 0 1.25rem;
+    padding: 0 20px;
 }
 ```
 
@@ -230,13 +230,13 @@ Bootstrap 기본 z-index 체계를 따른다.
 
 ## 접근성 — 터치 영역
 
-WCAG 2.5.8 기준 모든 인터랙티브 요소의 터치 영역은 **최소 44×44px (2.75rem)**을 보장한다.
+WCAG 2.5.8 기준 모든 인터랙티브 요소의 터치 영역은 **최소 44×44px**을 보장한다.
 
 ```scss
 // 아이콘 전용 버튼 — 44px 정사각형
 .btn--icon {
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: 44px;
+    min-height: 44px;
 }
 ```
 

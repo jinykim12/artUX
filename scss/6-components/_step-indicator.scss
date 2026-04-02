@@ -79,7 +79,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    font-size: 0.875rem;
+    font-size: 14px;
     font-weight: 700;
     background-color: var(--bs-tertiary-bg);
     color: var(--bs-secondary-color);
@@ -105,8 +105,8 @@
 
 // ── 단계 라벨 ──────────────────────────────────────
 .step-indicator__label {
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
+    margin-top: 4px;
+    font-size: 12px;
     color: var(--bs-secondary-color);
     word-break: keep-all;
 
@@ -125,7 +125,7 @@
 // ── 반응형: 모바일에서 라벨 숨김 ────────────────────
 @media (min-width: 768px) {
     .step-indicator__label {
-        font-size: 0.75rem;
+        font-size: 12px;
         // 필요 시 sr-only로 전환 가능
     }
 }

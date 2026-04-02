@@ -244,6 +244,118 @@ $btn-padding-x:     1.5rem;
 
 ---
 
+## 디자인에 맞춰 버튼 추가하기
+
+피그마 디자인에 Bootstrap 기본에 없는 버튼이 있을 때 추가하는 방법이다.
+
+### 1. Bootstrap 유틸리티 조합으로 해결 (우선)
+
+대부분의 디자인 변형은 Bootstrap 클래스 조합으로 만들 수 있다. SCSS를 새로 작성하기 전에 먼저 시도한다:
+
+<div class="docs-preview">
+<div class="d-flex flex-wrap gap-2 align-items-center">
+  <button type="button" class="btn btn-primary rounded-pill px-4">둥근 버튼</button>
+  <button type="button" class="btn btn-outline-dark btn-sm">다크 아웃라인</button>
+  <button type="button" class="btn btn-light border">연한 버튼</button>
+  <button type="button" class="btn btn-primary w-100 mt-2">전체 너비 버튼</button>
+</div>
+</div>
+
+```html
+<!-- 둥근 pill 버튼 -->
+<button type="button" class="btn btn-primary rounded-pill px-4">둥근 버튼</button>
+
+<!-- 다크 아웃라인 -->
+<button type="button" class="btn btn-outline-dark btn-sm">다크 아웃라인</button>
+
+<!-- 연한 버튼 (테두리 포함) -->
+<button type="button" class="btn btn-light border">연한 버튼</button>
+
+<!-- 전체 너비 -->
+<button type="button" class="btn btn-primary w-100">전체 너비 버튼</button>
+```
+
+### 2. 프로젝트 전용 색상 버튼 추가
+
+디자인에서 Bootstrap 6색 외 브랜드 색상 버튼이 필요하면 `_vendor.scss`에서 색상을 추가한다:
+
+```scss
+// _vendor.scss — 커스텀 색상 추가
+$custom-colors: (
+    "brand": #ff6b00,    // → .btn-brand, .btn-outline-brand 자동 생성
+    "accent": #6f42c1,   // → .btn-accent, .btn-outline-accent 자동 생성
+);
+$theme-colors: map-merge($theme-colors, $custom-colors);
+```
+
+```html
+<!-- 자동 생성된 커스텀 버튼 -->
+<button type="button" class="btn btn-brand">브랜드</button>
+<button type="button" class="btn btn-outline-accent">액센트</button>
+```
+
+### 3. 디자인 전용 버튼 SCSS 추가 (마지막 수단)
+
+Bootstrap 유틸리티로도, 색상 추가로도 안 되는 특수한 디자인일 때만 SCSS를 작성한다:
+
+<div class="docs-preview">
+<div class="d-flex flex-wrap gap-3 align-items-center">
+  <button type="button" class="btn text-white fw-bold rounded-pill px-4 py-2 border-0" style="background:linear-gradient(135deg,var(--bs-primary),#6f42c1);">지금 신청하기</button>
+  <button type="button" class="btn p-0 border-0 bg-transparent text-primary text-decoration-underline">자세히 보기 →</button>
+</div>
+</div>
+
+```scss
+// scss/6-components/_button.scss에 추가
+
+// 그라데이션 CTA 버튼 (피그마 디자인 전용)
+.btn-cta {
+    background: linear-gradient(135deg, var(--bs-primary), #6f42c1);
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    font-weight: 700;
+    border-radius: 32px;
+
+    &:hover {
+        filter: brightness(0.9);
+        color: #fff;
+    }
+}
+
+// 텍스트 전용 버튼 (밑줄 + 아이콘)
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--bs-primary);
+    padding: 0;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+```
+
+```html
+<button type="button" class="btn btn-cta">지금 신청하기</button>
+<button type="button" class="btn btn-text">자세히 보기 →</button>
+```
+
+### 추가 시 체크리스트
+
+- [ ] Bootstrap 유틸리티 조합으로 먼저 시도했는가
+- [ ] 색상만 다르면 `$custom-colors`로 추가했는가
+- [ ] SCSS 작성 시 `_button.scss`에 추가했는가 (새 파일 만들지 않음)
+- [ ] `type="button"` 명시했는가
+- [ ] 포커스 상태(`:focus-visible`)가 정상 동작하는가
+- [ ] 비활성 상태(`disabled`)가 구분 가능한가
+- [ ] 최소 터치 영역 44px 확보했는가
+
+> **규칙: Bootstrap 유틸리티 조합 → 색상 추가 → SCSS 작성 순서로 시도한다. SCSS는 마지막 수단이다.**
+
+---
+
 ## 접근성 체크리스트
 
 - [ ] `type="button"` 또는 `type="submit"` 명시
@@ -269,8 +381,8 @@ Bootstrap에 없는 것만 `_button.scss`에 정의한다:
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.75rem;
-    min-height: 2.75rem;
+    min-width: 44px;
+    min-height: 44px;
     padding: 0;
 }
 ```
