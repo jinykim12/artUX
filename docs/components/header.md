@@ -555,21 +555,19 @@ $(function () {
 
 | 파일 | 역할 |
 |------|------|
-| `scss/6-components/_header.scss` | 헤더 기본 스타일, PC/모바일 respond-to() 분기 |
+| `scss/6-components/_header.scss` | 헤더 기본 스타일, PC/모바일 `@media (min-width: 992px)` 분기 |
 | `scss/6-components/_skip-nav.scss` | 본문건너뛰기 링크 스타일 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용, 헤더 별도 설정 불필요) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-dropdown`, `--color-bg` 등) |
+| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-dropdown`, `--bs-body-bg` 등) |
 
-**respond-to() 분기 기준:**
+**미디어 쿼리 분기 기준:**
 
 ```scss
-// _header.scss PC/모바일 분기 키워드
-@include respond-to(pc-sm) {
-  // pc-sm (1024px) 이상: GNB 수평 표시, 햄버거 버튼 숨김
+// _header.scss PC/모바일 분기
+@media (min-width: 992px) {
+  // 992px 이상: GNB 수평 표시, 햄버거 버튼 숨김
 }
 ```
-
-`respond-to()` 키워드 전체 목록은 `scss/2-tools/_breakpoints.scss` 참고.
 
 ---
 

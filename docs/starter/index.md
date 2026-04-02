@@ -67,7 +67,7 @@ npm run watch:css
 │       │   └── scss/          ← 여기서 스타일 작업
 │       │       ├── style.scss          # 진입점 (수정할 일 거의 없음)
 │       │       ├── 1-settings/         # 색상 설정 ← 처음 수정하는 곳
-│       │       ├── 2-tools/            # 믹스인 (respond-to 등)
+│       │       ├── 2-tools/            # 믹스인 (ellipsis 등)
 │       │       ├── 3-generic/          # 디자인 토큰, Bootstrap
 │       │       ├── 4-elements/         # 기본 스타일, 폰트, 포커스
 │       │       ├── 5-objects/          # 레이아웃
@@ -164,13 +164,11 @@ html/
 
 ```scss
 // 컴포넌트 파일 기본 구조
-@use '../2-tools/breakpoints' as *;
-
 .컴포넌트명 {
     // 모바일 기본 스타일
-    // CSS 토큰 사용: var(--color-*), var(--spacing-*)
+    // Bootstrap 변수 사용: var(--bs-primary) 등
 
-    @include respond-to(pc-sm) {
+    @media (min-width: 992px) {
         // PC 스타일
     }
 }

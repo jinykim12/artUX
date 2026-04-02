@@ -32,7 +32,7 @@ type(scope): 한국어 설명
 아래는 팀 표준에 맞는 커밋 메시지 예시다. type + scope + 한국어 동사 끝 구조를 확인한다.
 
 ```bash
-feat(button): .btn-ghost 커스텀 variant 추가
+feat(button): .btn-link 스타일 보완
 fix(form): aria-invalid 누락 수정
 docs(tokens): 간격 토큰 설명 보완
 style(header): 불필요한 공백 제거
@@ -112,7 +112,7 @@ feat(button): add ghost variant
 
 ✅ 대상, 내용, 동사가 명확하게 전달되는 커밋
 ```bash
-feat(button): .btn-ghost 커스텀 variant 추가
+feat(button): .btn-link 스타일 보완
 fix(form): aria-invalid 누락 수정
 docs(conventions): HTML 마크업 기본 구조 문서 추가
 a11y(modal): 포커스 트랩 role="dialog" aria-modal="true" 적용

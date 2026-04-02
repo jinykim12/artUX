@@ -42,7 +42,7 @@ my-project/
 │       │   └── scss/           # ITCSS 7단계 SCSS 소스
 │       │       ├── style.scss  # 진입점
 │       │       ├── 1-settings/ # 변수, 프로젝트 오버라이드
-│       │       ├── 2-tools/    # 믹스인 (respond-to 등)
+│       │       ├── 2-tools/    # 믹스인 (ellipsis 등)
 │       │       ├── 3-generic/  # CSS 토큰, Bootstrap
 │       │       ├── 4-elements/ # base, font, focus, sr-only
 │       │       ├── 5-objects/  # 레이아웃
@@ -71,48 +71,38 @@ my-project/
 
 색상 변경 시 두 곳을 함께 수정해야 한다:
 
-**1. CSS Custom Properties** — `html/pub/css/scss/3-generic/_root.scss`
+**Bootstrap Sass 변수** — `html/pub/css/scss/3-generic/_vendor.scss`
 ```scss
-:root {
-  --color-primary: #1a73e8;  // 변경
-}
+$primary: #1a73e8;  // 변경
 ```
 
-**2. Bootstrap Sass 변수** — `html/pub/css/scss/3-generic/_vendor.scss`
-```scss
-$primary: #1a73e8;  // 동일하게 변경
-```
+Bootstrap CSS Custom Properties(`--bs-primary` 등)는 Sass 변수에서 자동 생성된다.
 
 ---
 
 ## 반응형 브레이크포인트
 
-`respond-to()` 믹스인 사용:
+`@media` 쿼리를 직접 사용한다 (Bootstrap 브레이크포인트 기준):
 
 ```scss
-@use '../2-tools' as tools;
-
 .element {
   font-size: 1.4rem;
 
-  @include tools.respond-to(tablet) {
+  @media (min-width: 768px) {
     font-size: 1.6rem;
   }
 
-  @include tools.respond-to(pc) {
+  @media (min-width: 1200px) {
     font-size: 1.8rem;
   }
 }
 ```
 
-| 키워드 | 범위 |
-|--------|------|
-| `mobile-only` | ~767px |
-| `tablet` | 768px~ |
-| `tablet-only` | 768px~1023px |
-| `pc-sm` | 1024px~ |
-| `pc-sm-only` | 1024px~1279px |
-| `pc` | 1280px~ |
+| 브레이크포인트 | 미디어쿼리 |
+|---------------|-----------|
+| tablet | `@media (min-width: 768px)` |
+| pc-sm | `@media (min-width: 992px)` |
+| pc | `@media (min-width: 1200px)` |
 
 ---
 

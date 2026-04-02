@@ -133,9 +133,9 @@ artpqUX 팀은 `scss/3-generic/_root.scss`에 정의된 CSS Custom Properties를
 
 ```css
 /* 팀 토큰 사용 시 반드시 배경색과 함께 대비 검사 */
-color: var(--color-text);        /* 본문 텍스트 — 배경과 4.5:1 이상 확인 */
-color: var(--color-primary);     /* 강조/링크 색상 — 사용 배경과 대비 확인 */
-color: var(--color-secondary);   /* 보조 색상 — 소형 텍스트에 4.5:1 확인 */
+color: var(--bs-body-color);        /* 본문 텍스트 — 배경과 4.5:1 이상 확인 */
+color: var(--bs-primary);     /* 강조/링크 색상 — 사용 배경과 대비 확인 */
+color: var(--bs-secondary);   /* 보조 색상 — 소형 텍스트에 4.5:1 확인 */
 ```
 
 > **규칙: 색상 토큰을 수정하면 전체 프로젝트 대비율에 영향이 생긴다. 토큰 변경 시 WebAIM Contrast Checker로 주요 색상 조합을 반드시 재검사한다.**

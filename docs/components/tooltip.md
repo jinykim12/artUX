@@ -45,7 +45,7 @@ permalink: /components/tooltip/
 <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" title="변경사항을 저장합니다 (Ctrl+S)">저장</button>
 
 <!-- 아이콘 버튼에 연결된 툴팁 -->
-<button type="button" class="btn btn-ghost btn--icon" data-bs-toggle="tooltip" aria-label="도움말" title="이 기능에 대한 자세한 안내를 확인합니다.">
+<button type="button" class="btn btn-outline-secondary btn--icon" data-bs-toggle="tooltip" aria-label="도움말" title="이 기능에 대한 자세한 안내를 확인합니다.">
     <svg aria-hidden="true" focusable="false" width="16" height="16"><!-- 아이콘 --></svg>
 </button>
 

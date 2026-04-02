@@ -216,7 +216,7 @@ permalink: /accessibility/keyboard/
 ```css
 /* artpqUX 팀 포커스 스타일 — 키보드 탐색 시 명확한 테두리 표시 */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--bs-primary);
   outline-offset: 2px;
 }
 

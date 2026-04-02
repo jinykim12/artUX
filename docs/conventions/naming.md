@@ -23,7 +23,7 @@ permalink: /conventions/naming/
 |-----------|--------|------|
 | 블록 | 없음 | `.card`, `.form`, `.modal` |
 | 요소 | `__` (언더스코어 2개) | `.card__title`, `.card__body` |
-| 수정자 | `--` (하이픈 2개) | `.card--featured`, `.btn--ghost` |
+| 수정자 | `--` (하이픈 2개) | `.card--featured`, `.btn-link` |
 
 아래 코드는 `.card` 컴포넌트를 BEM 패턴으로 분해한 예시다. 블록 · 요소 · 수정자를 어떻게 구분하는지 확인한다.
 
@@ -41,7 +41,7 @@ permalink: /conventions/naming/
 /* 수정자 — 블록 또는 요소의 변형, 하이픈 2개로 연결 */
 .card--featured { }
 .card--compact { }
-.btn--ghost { }
+.btn-link { }
 ```
 
 ### Bootstrap 클래스와 BEM의 경계
@@ -51,7 +51,7 @@ permalink: /conventions/naming/
 | 상황 | 사용하는 네이밍 | 예시 |
 |------|----------------|------|
 | Bootstrap 컴포넌트 | Bootstrap 하이픈 네이밍 | `.card-title`, `.modal-header`, `.btn-primary` |
-| Bootstrap에 없는 커스텀 컴포넌트 | BEM (`__`, `--`) | `.gnb__toggle`, `.slider__status`, `.btn--ghost` |
+| Bootstrap에 없는 커스텀 컴포넌트 | BEM (`__`, `--`) | `.gnb__toggle`, `.slider__status`, `.btn-link` |
 | Bootstrap 컴포넌트에 변형 추가 | BEM 수정자만 추가 | `.card--featured`, `.table--striped-custom` |
 
 ```html
@@ -99,13 +99,13 @@ Bootstrap 컴포넌트 전체에 적용할 스타일 변경은 SCSS에서 해당
 // Bootstrap 카드 기본 스타일을 프로젝트 토큰으로 변경
 .card {
   --bs-card-border-radius: var(--radius-md);
-  --bs-card-bg: var(--color-bg);
-  --bs-card-border-color: var(--color-border);
+  --bs-card-bg: var(--bs-body-bg);
+  --bs-card-border-color: var(--bs-border-color);
 }
 
 .card-title {
-  font-size: var(--font-size-lg);
-  color: var(--color-text);
+  font-size: 1.25rem;
+  color: var(--bs-body-color);
 }
 ```
 
@@ -126,17 +126,17 @@ Bootstrap 컴포넌트 전체에 적용할 스타일 변경은 SCSS에서 해당
 
 // 강조 카드 변형 — BEM 수정자
 .card--featured {
-  border-color: var(--color-primary);
+  border-color: var(--bs-primary);
   box-shadow: var(--shadow-md);
 
   // 수정자 안에서 Bootstrap 하위 요소 스타일 변경
   .card-title {
-    color: var(--color-primary);
+    color: var(--bs-primary);
     font-weight: var(--font-weight-bold);
   }
 
   .card-body {
-    background-color: var(--color-bg-subtle);
+    background-color: var(--bs-tertiary-bg);
   }
 }
 ```
@@ -205,7 +205,7 @@ Bootstrap 유틸리티를 직접 덮어쓰면 Bootstrap 버전을 올릴 때 예
 | 상황 | 처리 방법 |
 |------|-----------|
 | Bootstrap 유틸리티로 충분 | 유틸리티 클래스만 사용 |
-| Bootstrap variant가 없는 경우 | 팀 커스텀 클래스 작성 (예: `.btn--ghost`) |
+| Bootstrap variant가 없는 경우 | 팀 커스텀 클래스 작성 (예: `.btn-link`) |
 | 컴포넌트 고유 구조 | BEM 블록/요소 패턴 사용 |
 | 프로젝트별 오버라이드 | CSS Custom Property 오버라이드 사용 |
 
@@ -224,7 +224,7 @@ HTML 요소에서 클래스를 나열할 때 Bootstrap 유틸리티 클래스를
 ```html
 <!-- 순서: Bootstrap 클래스 → 커스텀 클래스 -->
 <div class="d-flex align-items-center card__header">
-<button class="btn btn-primary btn--ghost">
+<button class="btn btn-primary btn-link">
 <section class="container py-4 section--hero">
 ```
 
@@ -246,7 +246,7 @@ Bootstrap에 없는 variant는 팀 표준으로 명시하여 사용한다.
 
 | 클래스 | 설명 | 기준 |
 |--------|------|------|
-| `.btn--ghost` | 아웃라인 스타일 고스트 버튼 | Phase 08-01 결정 |
+| `.btn-link` | 아웃라인 스타일 고스트 버튼 | Phase 08-01 결정 |
 | `.card--featured` | 강조 카드 수정자 | BEM 수정자 패턴 |
 | `.form--search` | 검색 폼 변형 | BEM 수정자 패턴 |
 
@@ -296,7 +296,7 @@ $trigger.addClass('is-active');
 ```scss
 /* is- 상태 클래스는 컴포넌트 선택자 안에 중첩하여 작성 */
 .card {
-  &.is-active { border-color: var(--color-primary); }
+  &.is-active { border-color: var(--bs-primary); }
   &.is-loading { opacity: .6; }
   &.is-disabled { cursor: not-allowed; }
 }
@@ -387,7 +387,7 @@ scss/
 ✅ 좋은 예: 커스텀 클래스로 분리하면 Bootstrap과 독립적으로 관리된다.
 ```scss
 .section__top { margin-top: 1.5rem; }
-.btn--agency { background-color: var(--color-primary); }
+.btn--agency { background-color: var(--bs-primary); }
 ```
 
 ### 피해야 할 패턴 요약

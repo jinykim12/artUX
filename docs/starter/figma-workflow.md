@@ -197,7 +197,7 @@ html/
 
 **3. 피그마와 다른 부분만 SCSS 수정**
 
-가이드 기본 스타일과 피그마 디자인이 다른 부분만 `6-components/`에서 수정한다. 색상은 토큰(`var(--color-*)`)을 사용하고 직접 색상값(`#333`)을 쓰지 않는다.
+가이드 기본 스타일과 피그마 디자인이 다른 부분만 `6-components/`에서 수정한다. 색상은 Bootstrap 변수(`var(--bs-primary)` 등)을 사용하고 직접 색상값(`#333`)을 쓰지 않는다.
 
 ---
 
@@ -226,8 +226,8 @@ html/
 
 | 실수 | 올바른 방법 |
 |------|------------|
-| 피그마 색상값을 CSS에 직접 입력 (`color: #333`) | 토큰 사용 (`color: var(--color-text)`) |
-| 피그마 간격을 px로 직접 입력 (`margin: 20px`) | 토큰 사용 (`margin: var(--spacing-md)`) |
+| 피그마 색상값을 CSS에 직접 입력 (`color: #333`) | Bootstrap 변수 사용 (`color: var(--bs-body-color)`) |
+| 피그마 간격을 px로 직접 입력 (`margin: 20px`) | 토큰 사용 (`margin: 1.25rem`) |
 | Bootstrap에 있는 컴포넌트를 처음부터 만듦 | 가이드에서 Bootstrap 활용 여부 먼저 확인 |
 | `style.css`를 직접 수정 | `scss/` 안에서만 작업, 빌드로 생성 |
 | ARIA 속성 누락 | 가이드 코드 블록을 복사하면 자동 포함 |

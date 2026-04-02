@@ -106,10 +106,10 @@ IE11 대응이 필요한 프로젝트는 `css-vars-ponyfill`을 추가하거나,
   display: flex;
   flex-wrap: wrap;
   // gap 대신 margin 사용
-  margin: calc(var(--spacing-md) / -2);
+  margin: calc(1.25rem / -2);
 
   > * {
-    margin: calc(var(--spacing-md) / 2);
+    margin: calc(1.25rem / 2);
   }
 }
 ```
