@@ -1,58 +1,16 @@
 // ====================================================
-// artpqUX CSS Custom Properties (디자인 토큰)
+// artpqUX 디자인 토큰
 //
-// 색상: Bootstrap --bs-* 변수를 참조하여 커스텀 토큰 연결
-//   → _vendor.scss의 $primary 등을 바꾸면 자동 반영
-//   → 프로젝트별 커스터마이징은 _project-overrides.scss에서
+// Bootstrap 5 --bs-* CSS 변수를 직접 사용한다.
+// 커스텀 토큰을 별도로 정의하지 않는다.
 //
-// rem 기준: 1rem = 16px (Bootstrap 기본값)
+// 색상:     var(--bs-primary), var(--bs-danger), var(--bs-body-color) 등
+// 폰트:     Bootstrap 기본값 (1rem = 16px)
+// 간격:     Bootstrap 유틸리티 (p-3, gap-2 등) 또는 rem 직접 사용
+// 그림자:   var(--bs-box-shadow), var(--bs-box-shadow-sm) 등
+// z-index:  Bootstrap 기본값 (1000, 1040, 1050 등)
+//
+// 색상 커스터마이징:
+//   _vendor.scss에서 $primary, $secondary 등을 바꾸면
+//   --bs-primary 등 CSS 변수가 자동 반영된다.
 // ====================================================
-
-:root {
-    // ── 색상 토큰 — Bootstrap 변수 참조 ─────────────
-    // Bootstrap이 컴파일 시 생성하는 --bs-* 변수를 참조
-    // _vendor.scss에서 $primary 등을 바꾸면 여기도 자동 반영
-    --color-primary:     var(--bs-primary);
-    --color-secondary:   var(--bs-secondary);
-    --color-text:        var(--bs-body-color);
-    --color-text-muted:  var(--bs-secondary-color);
-    --color-bg:          var(--bs-body-bg);
-    --color-border:      var(--bs-border-color);
-    --color-error:       var(--bs-danger);
-    --color-success:     var(--bs-success);
-
-    // ── 타이포그래피 토큰 — Bootstrap 변수 참조 ────────
-    --font-size-xs:    0.75rem;   // 12px — 커스텀 (Bootstrap에 없음)
-    --font-size-sm:    0.875rem;  // Bootstrap $font-size-sm
-    --font-size-base:  var(--bs-body-font-size, 1rem);
-    --font-size-lg:    1.25rem;   // Bootstrap $font-size-lg
-    --font-size-xl:    1.75rem;   // Bootstrap $h3-font-size 참조
-    --font-size-2xl:   2rem;      // Bootstrap $h2-font-size 참조
-    --font-weight-regular:  var(--bs-body-font-weight, 400);
-    --font-weight-medium:   500;
-    --font-weight-bold:     var(--bs-font-weight-bold, 700);
-
-    --leading-normal:  var(--bs-body-line-height, 1.5);
-
-    // ── 접근성 토큰 ─────────────────────────────────
-    --touch-target-min:  2.75rem; // 44px — WCAG 2.5.8
-
-    // ── 간격 토큰 ───────────────────────────────────
-    --spacing-xs:   0.25rem;  //  4px
-    --spacing-sm:   0.5rem;   //  8px
-    --spacing-md:   1.25rem;  // 20px
-    --spacing-lg:   1.75rem;  // 28px
-    --spacing-xl:   2rem;     // 32px
-    --spacing-2xl:  3rem;     // 48px
-    --spacing-3xl:  4rem;     // 64px
-
-    // ── 그림자 — Bootstrap 변수 참조 ────────────────
-    --shadow-sm:  var(--bs-box-shadow-sm);
-    --shadow-md:  var(--bs-box-shadow);
-    --shadow-lg:  var(--bs-box-shadow-lg);
-
-    // ── z-index — Bootstrap 체계 참조 ───────────────
-    --z-dropdown:  var(--bs-zindex-dropdown, 1000);
-    --z-overlay:   var(--bs-zindex-modal-backdrop, 1040);
-    --z-modal:     var(--bs-zindex-modal, 1050);
-}

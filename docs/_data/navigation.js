@@ -12,6 +12,7 @@ export default [
       { title: "컨벤션", url: "/conventions/" },
       { title: "네이밍 규칙", url: "/conventions/naming/" },
       { title: "SCSS 작성 규칙", url: "/conventions/scss-rules/" },
+      { title: "반응형", url: "/conventions/responsive/" },
       { title: "HTML 구조", url: "/conventions/html-structure/" },
       { title: "코딩 스타일", url: "/conventions/coding-style/" },
       { title: "웹호환성", url: "/conventions/web-compatibility/" },

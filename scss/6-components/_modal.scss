@@ -1,14 +1,1 @@
-@use '../2-tools/breakpoints' as *;
-
-// ====================================================
-// [모달 — COMP-06]
-// Bootstrap 5 .modal 보완: transition 제거
-// ====================================================
-
-.modal {
-    transition: none;
-}
-
-.modal-backdrop {
-    transition: none;
-}
+// Bootstrap 기본 사용 — 커스텀 오버라이드 불필요

@@ -1,4 +1,3 @@
-@use '../2-tools/breakpoints' as *;
 
 // ====================================================
 // [탭 — COMP-07]
@@ -8,7 +7,7 @@
 
 // ── 탭 링크/버튼 ───────────────────────────────────
 .nav-tabs .nav-link {
-    min-height: var(--touch-target-min); // WCAG 2.5.8
+    min-height: 2.75rem; // WCAG 2.5.8
     display: inline-flex;
     align-items: center;
     border: none;
@@ -25,6 +24,6 @@
 // aria-selected="true" 지원 (접근성 강화)
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-link[aria-selected="true"] {
-    color: var(--color-primary);
-    border-bottom: 2px solid var(--color-primary);
+    color: var(--bs-primary);
+    border-bottom: 2px solid var(--bs-primary);
 }

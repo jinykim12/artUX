@@ -1,5 +1,4 @@
 // Source: scss/6-components/_button.scss 패턴 적용
-@use '../2-tools/breakpoints' as *;
 
 // ====================================================
 // [FAB 컴포넌트 — COMP-19]
@@ -30,22 +29,22 @@
 /* KWCAG 2.5.8 최소 터치영역 44px (56px 원형) */
 .fab {
     position: fixed;
-    bottom: var(--spacing-xl);
-    right: var(--spacing-xl);
-    z-index: var(--z-fixed, 1030);
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1030;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 56px;
     height: 56px;
-    min-height: var(--touch-target-min);  // 44px — KWCAG 2.5.8 (56px > 44px)
+    min-height: 2.75rem;  // 44px — KWCAG 2.5.8 (56px > 44px)
     padding: 0;
     border: 0;
     border-radius: 50%;
-    background-color: var(--color-primary);
+    background-color: var(--bs-primary);
     color: #fff;
     cursor: pointer;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--bs-box-shadow);
     transition: none;  // 공공기관 트랜지션 없음 원칙
 
     &:hover {
@@ -63,27 +62,27 @@
     }
 
     // 모바일: 약간 작게 + 여백 조정
-    @include respond-to(tablet) {
-        bottom: var(--spacing-lg);
-        right: var(--spacing-md);
+    @media (min-width: 768px) {
+        bottom: 1.75rem;
+        right: 1.25rem;
     }
 }
 
 // ── Modifier: 맨 위로 이동 ──────────────────────────
 .fab--top {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    border: 1px solid var(--color-border);
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
 
     &:hover {
-        background-color: var(--color-bg-subtle);
+        background-color: var(--bs-tertiary-bg);
         filter: none;
     }
 }
 
 // ── Modifier: Secondary ─────────────────────────────
 .fab--secondary {
-    background-color: var(--color-secondary);
+    background-color: var(--bs-secondary);
     color: #fff;
 }
 
@@ -95,9 +94,9 @@
 // ── 다수 FAB 배치 시 간격 ──────────────────────────
 // 두 번째 FAB는 위로 올림
 .fab + .fab {
-    bottom: calc(var(--spacing-xl) + 56px + var(--spacing-md));
+    bottom: calc(2rem + 56px + 1.25rem);
 
-    @include respond-to(tablet) {
-        bottom: calc(var(--spacing-lg) + 56px + var(--spacing-sm));
+    @media (min-width: 768px) {
+        bottom: calc(1.75rem + 56px + 0.5rem);
     }
 }

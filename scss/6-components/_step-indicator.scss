@@ -1,5 +1,4 @@
 // Source: scss/6-components/_button.scss 패턴 적용
-@use '../2-tools/breakpoints' as *;
 
 // ====================================================
 // [단계 표시기 컴포넌트 — COMP-15]
@@ -62,13 +61,13 @@
         right: 50%;
         width: 100%;
         height: 2px;
-        background-color: var(--color-border);
+        background-color: var(--bs-border-color);
     }
 
     // 완료된 단계의 연결선
     &--completed:not(:first-child)::before,
     &--active:not(:first-child)::before {
-        background-color: var(--color-primary);
+        background-color: var(--bs-primary);
     }
 }
 
@@ -80,53 +79,53 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    background-color: var(--color-bg-subtle);
-    color: var(--color-text-muted);
-    border: 2px solid var(--color-border);
+    font-size: 0.875rem;
+    font-weight: 700;
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-secondary-color);
+    border: 2px solid var(--bs-border-color);
     position: relative;
     z-index: 1;
     transition: none;  // 공공기관 트랜지션 없음 원칙
 
     // 현재 단계
     .step-indicator__item--active & {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
         color: #fff;
     }
 
     // 완료 단계
     .step-indicator__item--completed & {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
         color: #fff;
     }
 }
 
 // ── 단계 라벨 ──────────────────────────────────────
 .step-indicator__label {
-    margin-top: var(--spacing-xs);
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
     word-break: keep-all;
 
     // 현재 단계
     .step-indicator__item--active & {
-        color: var(--color-primary);
-        font-weight: var(--font-weight-bold);
+        color: var(--bs-primary);
+        font-weight: 700;
     }
 
     // 완료 단계
     .step-indicator__item--completed & {
-        color: var(--color-text);
+        color: var(--bs-body-color);
     }
 }
 
 // ── 반응형: 모바일에서 라벨 숨김 ────────────────────
-@include respond-to(tablet) {
+@media (min-width: 768px) {
     .step-indicator__label {
-        font-size: var(--font-size-xs);
+        font-size: 0.75rem;
         // 필요 시 sr-only로 전환 가능
     }
 }

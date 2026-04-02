@@ -1,5 +1,4 @@
 // Source: scss/6-components/_button.scss 패턴 적용
-@use '../2-tools/breakpoints' as *;
 
 // ====================================================
 // [사이드 네비게이션 컴포넌트 — COMP-17]
@@ -45,10 +44,10 @@
 
 // ── 내비게이션 아이템 ──────────────────────────────
 .side-nav__item {
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--bs-border-color);
 
     &:first-child {
-        border-top: 1px solid var(--color-border);
+        border-top: 1px solid var(--bs-border-color);
     }
 }
 
@@ -56,10 +55,10 @@
 /* KWCAG 2.5.8 최소 터치영역 44px */
 .side-nav__link {
     display: block;
-    min-height: var(--touch-target-min);  // 44px — KWCAG 2.5.8
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-base);
-    color: var(--color-text);
+    min-height: 2.75rem;  // 44px — KWCAG 2.5.8
+    padding: 0.5rem 1.25rem;
+    font-size: 1rem;
+    color: var(--bs-body-color);
     text-decoration: none;
     border-left: 3px solid transparent;
     transition: none;  // 공공기관 트랜지션 없음 원칙
@@ -67,16 +66,16 @@
     align-items: center;
 
     &:hover {
-        background-color: var(--color-bg-subtle);
-        color: var(--color-primary);
+        background-color: var(--bs-tertiary-bg);
+        color: var(--bs-primary);
     }
 
     // 현재 페이지 — aria-current="page"
     &[aria-current='page'] {
-        color: var(--color-primary);
-        font-weight: var(--font-weight-bold);
-        border-left-color: var(--color-primary);
-        background-color: var(--color-bg-subtle);
+        color: var(--bs-primary);
+        font-weight: 700;
+        border-left-color: var(--bs-primary);
+        background-color: var(--bs-tertiary-bg);
     }
 }
 
@@ -88,8 +87,8 @@
     }
 
     .side-nav__link {
-        padding-left: var(--spacing-xl);
-        font-size: var(--font-size-sm);
+        padding-left: 2rem;
+        font-size: 0.875rem;
         min-height: 36px;
         border-left: 0;
     }
@@ -97,7 +96,7 @@
 
 // ── 반응형: 모바일에서 숨김 ─────────────────────────
 // 모바일에서는 별도 토글 메뉴로 처리
-@include respond-to(tablet) {
+@media (min-width: 768px) {
     .side-nav--responsive {
         display: none;
     }

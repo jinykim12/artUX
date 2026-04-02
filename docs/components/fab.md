@@ -35,10 +35,16 @@ permalink: /components/fab/
 
 플로팅 버튼은 `position: fixed`로 화면에 고정 배치한다. 아이콘만 표시하므로 `aria-label`로 버튼 목적을 반드시 설명한다:
 
-<div class="docs-preview position-relative" style="min-height:80px;">
-<button type="button" class="fab position-absolute bottom-0 end-0 me-3 mb-3" aria-label="새 글 작성">
-  <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-</button>
+<div class="docs-preview">
+<div class="d-flex gap-3 align-items-center">
+  <button type="button" class="btn btn-outline-secondary rounded-circle d-flex align-items-center justify-content-center" aria-label="맨 위로" style="width:56px;height:56px;">
+    <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+  </button>
+  <button type="button" class="btn btn-primary rounded-circle d-flex align-items-center justify-content-center" aria-label="채팅 상담 열기" style="width:56px;height:56px;">
+    <svg aria-hidden="true" focusable="false" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+  </button>
+  <span class="text-muted small">← 실제 사이트에서는 화면 우측 하단에 고정됩니다</span>
+</div>
 </div>
 
 ```html

@@ -414,3 +414,4 @@ touch scss/6-components/_tooltip.scss
 ```
 
 > **규칙: 새 SCSS partial 파일 생성과 `_index.scss`의 `@forward` 등록은 같은 커밋에 포함한다. 파일만 만들고 등록을 빠뜨리면 빌드에서 제외된다.**
+

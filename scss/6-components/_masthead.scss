@@ -1,5 +1,4 @@
 // Source: scss/6-components/_button.scss 패턴 적용
-@use '../2-tools/breakpoints' as *;
 
 // ====================================================
 // [마스트헤드 (공식 배너) 컴포넌트 — COMP-20]
@@ -29,9 +28,9 @@
 // ── 마스트헤드 컨테이너 ─────────────────────────────
 .masthead {
     width: 100%;
-    background-color: var(--color-text);
+    background-color: var(--bs-body-color);
     color: rgba(255, 255, 255, 0.9);
-    font-size: var(--font-size-xs);
+    font-size: 0.75rem;
     line-height: 1;
 }
 
@@ -39,13 +38,13 @@
 .masthead__inner {
     max-width: var(--container-max-width, 1200px);
     margin: 0 auto;
-    padding: var(--spacing-xs) var(--spacing-lg);
+    padding: 0.25rem 1.75rem;
     display: flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 0.25rem;
 
-    @include respond-to(tablet) {
-        padding: var(--spacing-xs) var(--spacing-md);
+    @media (min-width: 768px) {
+        padding: 0.25rem 1.25rem;
     }
 }
 
@@ -61,24 +60,24 @@
     color: rgba(255, 255, 255, 0.9);
     white-space: nowrap;
 
-    @include respond-to(tablet) {
+    @media (min-width: 768px) {
         font-size: 0.625rem;  // 모바일에서 더 작게
     }
 }
 
 // ── Modifier: Light (밝은 배경) ─────────────────────
 .masthead--light {
-    background-color: var(--color-bg-subtle);
-    color: var(--color-text);
+    background-color: var(--bs-tertiary-bg);
+    color: var(--bs-body-color);
 
     .masthead__text {
-        color: var(--color-text-muted);
+        color: var(--bs-secondary-color);
     }
 }
 
 // ── Modifier: Dark (기본 — 명시적 선언용) ───────────
 .masthead--dark {
-    background-color: var(--color-text);
+    background-color: var(--bs-body-color);
     color: rgba(255, 255, 255, 0.9);
 
     .masthead__text {

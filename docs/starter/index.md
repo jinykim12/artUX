@@ -223,34 +223,9 @@ $primary: #1a73e8;
 
 ---
 
-## 반응형 작성법
+## 반응형 + 그리드
 
-미디어쿼리 픽셀값을 직접 쓰지 않고 `respond-to()` 믹스인을 사용한다.
-
-```scss
-@use '../2-tools' as tools;
-
-.element {
-    font-size: 0.875rem;           /* 모바일 기본 */
-
-    @include tools.respond-to(tablet) {
-        font-size: 1rem;           /* 태블릿 이상 */
-    }
-
-    @include tools.respond-to(pc) {
-        font-size: 1.125rem;       /* PC 이상 */
-    }
-}
-```
-
-| 키워드 | 범위 |
-|--------|------|
-| `mobile-only` | ~767px |
-| `tablet` | 768px~ |
-| `tablet-only` | 768px~1023px |
-| `pc-sm` | 1024px~ |
-| `pc-sm-only` | 1024px~1279px |
-| `pc` | 1280px~ |
+반응형 브레이크포인트와 그리드 사용법은 [반응형 가이드](/conventions/responsive/)를 참고한다.
 
 ---
 

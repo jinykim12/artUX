@@ -1,12 +1,1 @@
-// ====================================================
-// [카드 — COMP-04]
-// Bootstrap 5 .card 보완: transition 제거, object-fit
-// ====================================================
-
-.card {
-    transition: none;
-}
-
-.card-img-top {
-    object-fit: cover;
-}
+// Bootstrap 기본 사용 — 커스텀 오버라이드 불필요

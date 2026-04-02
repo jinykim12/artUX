@@ -7,196 +7,237 @@ permalink: /tokens/
 
 # 디자인 토큰
 
-CSS Custom Properties(변수)로 정의된 팀 공통 디자인 토큰. `:root`에서 선언되며 Bootstrap 변수와 병행 운용한다. 프로젝트별로 `:root` 재선언을 통해 오버라이드할 수 있다.
+**Bootstrap 5 CSS 변수(`--bs-*`)를 그대로 사용한다.** 커스텀 토큰을 별도로 정의하지 않는다.
 
-> **왜 디자인 토큰을 사용하는가?**
-> 색상이나 간격을 하드코딩하면 공공기관 A 프로젝트에서 `#005a9c`를 `#0d6efd`로 바꿀 때 파일 전체를 검색·치환해야 한다. 토큰을 사용하면 `_root.scss`의 `:root` 블록 한 곳만 수정하면 전체 UI에 즉시 반영된다.
+색상을 바꾸고 싶으면 `_vendor.scss`에서 Bootstrap Sass 변수(`$primary` 등)를 수정하면 `--bs-*` CSS 변수가 자동 반영된다.
 
 ---
 
-## 색상 토큰
+## 색상
 
-각 토큰이 어느 상황에 쓰이는지 "언제 이 토큰을 쓰는가"를 함께 확인한다.
+Bootstrap이 컴파일 시 생성하는 CSS 변수를 직접 사용한다.
 
-| 토큰 | 기본값 | 사용 상황 |
-|------|--------|-----------|
-| `--color-primary` | `#0d6efd` | 주요 CTA 버튼, 링크 색상, 포커스 아웃라인, 브랜드 강조 요소에 사용 |
-| `--color-secondary` | `#6c757d` | 보조 버튼, 배지(badge), 덜 중요한 UI 요소에 사용 |
-| `--color-text` | `#212529` | 기본 본문 텍스트 전체에 사용 — 제목, 단락, 레이블 |
-| `--color-text-muted` | `#6c757d` | 부차적인 설명 텍스트, 플레이스홀더, 힌트 문구에 사용 |
-| `--color-bg` | `#ffffff` | 페이지 배경, 카드 배경, 모달 배경 등 흰 바탕이 필요한 곳에 사용 |
-| `--color-border` | `#dee2e6` | 카드·폼·테이블의 테두리 및 구분선에 사용 |
-| `--color-error` | `#dc3545` | 폼 유효성 실패 메시지, 오류 상태 아이콘, 알림에 사용 |
-| `--color-success` | `#198754` | 폼 제출 성공, 완료 상태 배지, 긍정적 피드백에 사용 |
+| Bootstrap 변수 | 기본값 | 사용 상황 |
+|---------------|--------|-----------|
+| `var(--bs-primary)` | `#0d6efd` | 주요 버튼, 링크, 포커스 아웃라인, 브랜드 강조 |
+| `var(--bs-secondary)` | `#6c757d` | 보조 버튼, 배지, 덜 중요한 UI |
+| `var(--bs-success)` | `#198754` | 성공 상태, 완료 배지 |
+| `var(--bs-danger)` | `#dc3545` | 오류 메시지, 삭제 버튼 |
+| `var(--bs-warning)` | `#ffc107` | 경고 상태 |
+| `var(--bs-info)` | `#0dcaf0` | 정보 안내 |
+| `var(--bs-body-color)` | `#212529` | 기본 본문 텍스트 |
+| `var(--bs-secondary-color)` | `#6c757d` | 부차 설명, 힌트 텍스트 |
+| `var(--bs-body-bg)` | `#ffffff` | 페이지/카드/모달 배경 |
+| `var(--bs-border-color)` | `#dee2e6` | 테두리, 구분선 |
+| `var(--bs-tertiary-bg)` | `#f8f9fa` | 연한 배경 (hover, 활성 상태) |
 
-### 색상 스워치 미리보기
+### 색상 스워치
 
-<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0;">
-  <div style="width:60px;height:60px;background:var(--color-primary,#0d6efd);border:1px solid #dee2e6;border-radius:.25rem;" title="--color-primary"></div>
-  <div style="width:60px;height:60px;background:var(--color-secondary,#6c757d);border:1px solid #dee2e6;border-radius:.25rem;" title="--color-secondary"></div>
-  <div style="width:60px;height:60px;background:var(--color-error,#dc3545);border:1px solid #dee2e6;border-radius:.25rem;" title="--color-error"></div>
-  <div style="width:60px;height:60px;background:var(--color-success,#198754);border:1px solid #dee2e6;border-radius:.25rem;" title="--color-success"></div>
+<div class="docs-preview">
+<div class="d-flex gap-2 flex-wrap">
+  <div class="rounded border" title="--bs-primary"><span class="d-block bg-primary rounded" style="width:48px;height:48px;"></span></div>
+  <div class="rounded border" title="--bs-secondary"><span class="d-block bg-secondary rounded" style="width:48px;height:48px;"></span></div>
+  <div class="rounded border" title="--bs-success"><span class="d-block bg-success rounded" style="width:48px;height:48px;"></span></div>
+  <div class="rounded border" title="--bs-danger"><span class="d-block bg-danger rounded" style="width:48px;height:48px;"></span></div>
+  <div class="rounded border" title="--bs-warning"><span class="d-block bg-warning rounded" style="width:48px;height:48px;"></span></div>
+  <div class="rounded border" title="--bs-info"><span class="d-block bg-info rounded" style="width:48px;height:48px;"></span></div>
+</div>
 </div>
 
-### 색상 사용 예시
-
-아래 코드는 하드코딩 대신 색상 토큰을 사용하는 올바른 패턴이다.
+### SCSS에서 사용
 
 ```scss
-/* 오류 메시지 컴포넌트 — error/success 토큰 사용 */
-.form__error-msg {
-  color: var(--color-error);      /* 오류 상태: 빨간 텍스트 */
+// Bootstrap 변수 직접 사용
+.form-error {
+    color: var(--bs-danger);
 }
 
-.form__success-msg {
-  color: var(--color-success);    /* 성공 상태: 초록 텍스트 */
+.skip-nav:focus {
+    background: var(--bs-primary);
+    outline: 2px solid var(--bs-primary);
+}
+```
+
+### 색상 커스터마이징
+
+프로젝트 브랜드 색상이 다를 때 `scss/3-generic/_vendor.scss` **한 곳만 수정**하면 전체 반영된다.
+
+**수정 파일:** `scss/3-generic/_vendor.scss`
+
+```scss
+// _vendor.scss — 여기만 바꾸면 전체 반영
+$primary:   #1a73e8;   // 메인 브랜드 색상
+$secondary: #5f6368;   // 보조 색상
+$success:   #198754;   // 성공 상태 (기본값 유지 가능)
+$danger:    #dc3545;   // 오류 상태 (기본값 유지 가능)
+$warning:   #ffc107;   // 경고 상태 (기본값 유지 가능)
+$info:      #0dcaf0;   // 정보 안내 (기본값 유지 가능)
+```
+
+**반영 범위** — `$primary`를 `#1a73e8`로 바꾸면:
+
+| 자동 변경되는 것 | 예시 |
+|-----------------|------|
+| CSS 변수 | `--bs-primary` → `#1a73e8` |
+| 버튼 | `.btn-primary` 배경색 |
+| 배경 | `.bg-primary` |
+| 텍스트 | `.text-primary` |
+| 테두리 | `.border-primary` |
+| 배지 | `.badge.bg-primary` |
+| 아웃라인 버튼 | `.btn-outline-primary` |
+| 포커스 링 | `:focus-visible` 아웃라인 |
+
+**실전 예시 — 공공기관 A (파란색 브랜드):**
+
+```scss
+$primary: #005bac;  // 기관 CI 색상
+```
+
+**실전 예시 — 공공기관 B (초록색 브랜드):**
+
+```scss
+$primary: #00843d;  // 기관 CI 색상
+```
+
+**추가 색상이 필요한 경우:**
+
+Bootstrap 기본 6색(primary~info) 외에 프로젝트 전용 색상이 필요하면 `_vendor.scss`에 Bootstrap 커스텀 컬러를 추가한다:
+
+```scss
+// _vendor.scss — 커스텀 색상 추가
+$custom-colors: (
+    "brand":  #ff6b00,
+    "accent": #6f42c1,
+);
+
+// Bootstrap 색상맵에 병합
+$theme-colors: map-merge($theme-colors, $custom-colors);
+```
+
+이렇게 하면 `.btn-brand`, `.bg-brand`, `.text-brand` 등 Bootstrap 유틸리티가 자동 생성된다.
+
+> **규칙: 색상은 항상 `_vendor.scss`에서 Bootstrap Sass 변수로 관리한다. CSS에 `color: #005bac` 같은 하드코딩을 하지 않는다.**
+
+---
+
+## 타이포그래피
+
+Bootstrap 기본 폰트 크기 체계를 사용한다.
+
+| 값 | 픽셀 | 사용 상황 |
+|----|------|-----------|
+| `0.75rem` | 12px | 매우 작은 텍스트 (배지, 보조 레이블) |
+| `0.875rem` | 14px | 작은 텍스트 (캡션, 힌트, 테이블 셀) |
+| `1rem` | 16px | 기본 본문 (Bootstrap `$font-size-base`) |
+| `1.25rem` | 20px | Bootstrap `$font-size-lg`, `$h5-font-size` |
+| `1.5rem` | 24px | Bootstrap `$h4-font-size` |
+| `1.75rem` | 28px | Bootstrap `$h3-font-size` |
+| `2rem` | 32px | Bootstrap `$h2-font-size` |
+| `2.5rem` | 40px | Bootstrap `$h1-font-size` |
+
+```scss
+// 직접 rem 값 사용 — 별도 토큰 불필요
+.card-title {
+    font-size: 1.25rem;  // 20px
+    font-weight: 700;
 }
 
-/* 기본 본문 텍스트 — text/text-muted 구분 사용 */
-.card__title {
-  color: var(--color-text);       /* 주 텍스트: 진한 색 */
+.form-hint {
+    font-size: 0.875rem;  // 14px
 }
+```
 
-.card__desc {
-  color: var(--color-text-muted); /* 부차 설명: 흐린 색 */
+HTML에서는 Bootstrap 유틸리티 클래스 활용:
+
+```html
+<p class="fs-5">큰 텍스트 (1.25rem)</p>
+<p class="fs-6">작은 텍스트 (1rem)</p>
+<p class="small">더 작은 텍스트 (0.875rem)</p>
+<p class="fw-bold">굵은 텍스트</p>
+```
+
+| Bootstrap 클래스 | 크기 |
+|-----------------|------|
+| `.fs-1` | 2.5rem |
+| `.fs-2` | 2rem |
+| `.fs-3` | 1.75rem |
+| `.fs-4` | 1.5rem |
+| `.fs-5` | 1.25rem |
+| `.fs-6` | 1rem |
+| `.small` | 0.875em |
+
+---
+
+## 간격
+
+Bootstrap 간격 유틸리티(`p-*`, `m-*`, `gap-*`)를 사용한다. SCSS에서는 rem 직접 사용.
+
+| Bootstrap 유틸리티 | 값 | 픽셀 |
+|-------------------|-----|------|
+| `p-1`, `m-1`, `gap-1` | 0.25rem | 4px |
+| `p-2`, `m-2`, `gap-2` | 0.5rem | 8px |
+| `p-3`, `m-3`, `gap-3` | 1rem | 16px |
+| `p-4`, `m-4`, `gap-4` | 1.5rem | 24px |
+| `p-5`, `m-5`, `gap-5` | 3rem | 48px |
+
+```html
+<!-- HTML — Bootstrap 유틸리티 사용 -->
+<div class="p-3 mb-4 gap-2">콘텐츠</div>
+```
+
+```scss
+// SCSS — rem 직접 사용
+.header__inner {
+    padding: 0 1.25rem;
 }
 ```
 
 ---
 
-## 타이포그래피 토큰
+## 그림자
 
-폰트 관련 값은 모두 토큰으로 관리한다. 브라우저 기본값이 변해도, 또는 프로젝트 기본 폰트 크기를 조정해도 토큰 하나만 바꾸면 된다.
+| Bootstrap 변수 | 사용 상황 |
+|---------------|-----------|
+| `var(--bs-box-shadow-sm)` | 카드, 작은 요소 |
+| `var(--bs-box-shadow)` | 모달, 드롭다운 |
+| `var(--bs-box-shadow-lg)` | 대형 오버레이 |
 
-| 토큰 | 기본값 | 사용 상황 |
-|------|--------|-----------|
-| `--font-size-xs` | `1.1rem` (11px) | 보조 레이블, 뱃지 텍스트 등 매우 작은 글씨가 필요한 곳에 사용 |
-| `--font-size-sm` | `1.3rem` (13px) | 캡션, 힌트 텍스트, 테이블 셀 등 작은 글씨가 필요한 곳에 사용 |
-| `--font-size-base` | `1.6rem` (16px) | 단락 텍스트, 레이블, 기본 UI 텍스트에 사용 |
-| `--font-size-md` | `1.9rem` (19px) | 소제목, 강조 본문 등 기본보다 약간 큰 텍스트에 사용 |
-| `--font-size-lg` | `2.2rem` (22px) | 카드 제목, 섹션 서브타이틀 등 강조가 필요한 중간 크기 텍스트에 사용 |
-| `--font-size-xl` | `2.8rem` (28px) | 페이지 부제목, 주요 섹션 제목에 사용 |
-| `--font-size-2xl` | `3.6rem` (36px) | 페이지 주 제목, 히어로 헤드라인에 사용 |
-| `--leading-normal` | `1.5` | 모든 기본 텍스트 줄 간격. 한국어 가독성에 최적화된 값 |
+HTML에서는 Bootstrap 클래스 사용:
 
-> **주의:** 폰트 패밀리는 `_font.scss`에서 직접 설정한다 — 공공기관 납품 시 `Pretendard GOV`, 일반 프로젝트는 `Noto Sans KR` 사용.
-
-### 타이포그래피 사용 예시
-
-아래 코드는 폰트 크기를 하드코딩하지 않고 토큰으로 관리하는 패턴이다.
-
-```scss
-/* 카드 컴포넌트 텍스트 계층 */
-.card__label {
-  font-size: var(--font-size-sm);   /* 캡션 레이블: 13px */
-  color: var(--color-text-muted);
-}
-
-.card__title {
-  font-size: var(--font-size-lg);   /* 카드 제목: 22px */
-  color: var(--color-text);
-}
-
-.card__body {
-  font-size: var(--font-size-base);   /* 기본 본문: 16px */
-  line-height: var(--leading-normal);
-}
+```html
+<div class="shadow-sm">작은 그림자</div>
+<div class="shadow">기본 그림자</div>
+<div class="shadow-lg">큰 그림자</div>
 ```
 
 ---
 
-## 간격 토큰
+## z-index
 
-Bootstrap `$spacers` 맵 기반 CSS Custom Properties. Bootstrap의 `mt-3`, `p-3` 등 유틸리티와 동일한 스케일을 공유한다.
+Bootstrap 기본 z-index 체계를 따른다.
 
-| 토큰 | 값 | 픽셀 환산 | 사용 상황 |
-|------|----|-----------|-----------|
-| `--spacing-xs` | `0.4rem` | 4px | 아이콘과 텍스트 사이 최소 여백, 배지 내부 패딩 |
-| `--spacing-sm` | `0.8rem` | 8px | 버튼 내부 세로 패딩, 인라인 요소 간 간격 |
-| `--spacing-md` | `2.0rem` | 20px | 카드 내부 패딩, 폼 필드 간격 등 **일반적인 요소 간격** — 가장 자주 사용 |
-| `--spacing-lg` | `2.8rem` | 28px | 섹션 내부 여백, 카드 간 간격, 폼 그룹 간격 |
-| `--spacing-xl` | `3.2rem` | 32px | 컴포넌트 간 넉넉한 여백, 그리드 갭 |
-| `--spacing-2xl` | `4.8rem` | 48px | 섹션 간 큰 여백, 히어로 섹션 상하 패딩 등 넉넉한 공간이 필요한 곳 |
-| `--spacing-3xl` | `6.4rem` | 64px | 페이지 최상단/최하단 대형 여백 |
-
-### 간격 사용 예시
-
-아래 코드는 간격 토큰을 컴포넌트 패딩과 레이아웃 여백에 사용하는 패턴이다.
-
-```scss
-/* 카드 컴포넌트 — 내부 패딩은 spacing-md (20px) */
-.card__body {
-  padding: var(--spacing-md);
-}
-
-/* 폼 필드 간 간격 — spacing-md (20px) */
-.form__group + .form__group {
-  margin-top: var(--spacing-md);
-}
-
-/* 섹션 간 큰 여백 — spacing-2xl (48px) */
-.section {
-  padding-top: var(--spacing-2xl);
-  padding-bottom: var(--spacing-2xl);
-}
-```
+| 값 | Bootstrap 용도 |
+|----|---------------|
+| `1000` | 드롭다운 |
+| `1020` | Sticky 요소 |
+| `1030` | Fixed 요소 (FAB 등) |
+| `1040` | 모달 백드롭 |
+| `1050` | 모달 |
+| `1060` | 팝오버 |
+| `1070` | 툴팁 |
 
 ---
 
-## 터치 영역 토큰
+## 접근성 — 터치 영역
 
-인터랙티브 요소의 최소 터치 영역을 토큰으로 관리한다. WCAG 2.5.8(최소 크기) 및 KWCAG 모바일 접근성 기준을 만족하기 위해, 버튼·체크박스·라디오·탭 등 모든 인터랙티브 요소는 아래 최솟값을 보장해야 한다.
-
-| 토큰 | 값 | 사용 상황 |
-|------|----|-----------|
-| `--touch-target-min` | `4.4rem (44px)` | 버튼, 탭, 체크박스, 라디오, 슬라이더 컨트롤 등 터치/클릭 가능한 모든 인터랙티브 요소의 최소 크기 (WCAG 2.5.8) |
-
-> **규칙: 모든 인터랙티브 요소의 터치 영역은 최소 44×44px을 보장해야 한다.** 시각적으로 작게 표시되더라도 `min-width`/`min-height` 또는 패딩으로 실제 터치 가능 영역을 44px 이상으로 확보한다.
+WCAG 2.5.8 기준 모든 인터랙티브 요소의 터치 영역은 **최소 44×44px (2.75rem)**을 보장한다.
 
 ```scss
-/* 터치 영역 최솟값 보장 — WCAG 2.5.8 */
-.btn {
-  min-height: var(--touch-target-min); /* 44px */
-}
-
-.form-check-input {
-  min-width: var(--touch-target-min);  /* 44px */
-  min-height: var(--touch-target-min); /* 44px */
+// 아이콘 전용 버튼 — 44px 정사각형
+.btn--icon {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
 }
 ```
 
----
-
-## 전체 사용 예시
-
-아래 코드는 색상·타이포그래피·간격 토큰을 모두 활용한 컴포넌트 예시다. 하드코딩 값이 하나도 없음에 주목한다.
-
-```scss
-/* 모든 값을 토큰으로 관리한 컴포넌트 */
-.component {
-  color: var(--color-text);
-  background: var(--color-bg);
-  padding: var(--spacing-md);
-  font-size: var(--font-size-base);
-  border: 1px solid var(--color-border);
-}
-```
-
----
-
-## 프로젝트별 오버라이드 방법
-
-공공기관마다 브랜드 컬러가 다르다. `_root.scss`의 `:root` 블록을 프로젝트 진입 CSS 파일에서 재선언하면 전체 UI 색상을 한 번에 교체할 수 있다.
-
-아래 코드는 공공기관 브랜드 컬러로 primary 색상을 교체하는 예시다.
-
-```css
-/* 프로젝트 진입 CSS — 기관 브랜드 컬러로 토큰 오버라이드 */
-:root {
-  --color-primary: #005a9e; /* 공공기관 브랜드 컬러로 교체 */
-}
-```
-
-> **폰트 패밀리 설정:** `--font-family-base`는 CSS Custom Property 토큰이 아닌 `_font.scss`에서 직접 선언한다. 공공기관 납품 시 `Pretendard GOV`, 일반 프로젝트는 `Noto Sans KR`로 변경한다.
-
-이 한 곳만 바꾸면 버튼, 링크, 포커스 아웃라인, 강조 테두리 등 `--color-primary`를 참조하는 모든 요소가 동시에 변경된다.
+> **규칙: Bootstrap 버튼은 기본 높이가 44px에 근접하므로 별도 설정이 불필요하다. 아이콘 전용 버튼처럼 텍스트가 없는 요소만 `min-width`/`min-height`로 보장한다.**
