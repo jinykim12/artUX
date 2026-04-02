@@ -126,8 +126,8 @@ permalink: /components/step-indicator/
 | 파일 | 역할 |
 |------|------|
 | `scss/6-components/_step-indicator.scss` | 단계 표시기 스타일, 상태별 색상, 연결선 |
-| `scss/5-objects/_sr-only.scss` | 스크린리더 전용 숨김 클래스 |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-primary`, `--color-text-muted` 등) |
+| `scss/4-elements/_common.scss` | `.sr-only` 유틸리티 (Bootstrap `.visually-hidden` 별칭) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

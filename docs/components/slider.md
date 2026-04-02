@@ -267,9 +267,9 @@ $(function () {
 
 | 파일 | 역할 |
 |------|------|
-| `scss/6-components/_slider.scss` | Swiper 슬라이더 CSS 토큰 오버라이드 + 정지/재생 버튼 스타일 |
+| `scss/6-components/_slider.scss` | Swiper 슬라이더 정지/재생 버튼 스타일 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-primary`, `--color-border` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

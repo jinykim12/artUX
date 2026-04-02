@@ -12,7 +12,7 @@ permalink: /components/modal/
 **적용 수준:** AA
 **작성일:** 2026-03-26
 
-> 모달 컴포넌트는 Bootstrap `.modal`을 CSS 토큰으로 오버라이드한다.
+> 모달 컴포넌트는 Bootstrap `.modal`을 Bootstrap 기본 스타일 보완한다.
 > KWCAG 2.1 AA 접근성 기준(role="dialog", aria-modal, 포커스 트랩)을 준수한다.
 > CSS 클래스명은 `scss/6-components/_modal.scss`와 일치시킨다.
 
@@ -485,9 +485,9 @@ $(function () {
 
 | 파일 | 역할 |
 |------|------|
-| `scss/6-components/_modal.scss` | Bootstrap .modal 오버라이드, CSS 토큰 적용 |
+| `scss/6-components/_modal.scss` | Bootstrap .modal 오버라이드, Bootstrap 스타일 보완 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-overlay`, `--z-modal`, `--shadow-md` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

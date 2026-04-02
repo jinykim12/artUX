@@ -47,17 +47,17 @@
     color: var(--bs-body-bg);
     padding: 32px 0;
     font-size: 14px;
-    line-height: var(--line-height-base);
+    line-height: 1.5;
 }
 
 // ── 푸터 내부 래퍼 ─────────────────────────────────
 .footer__inner {
-    max-width: var(--container-max-width, 1200px);
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 16px;
 
     @media (min-width: 992px) {
-        padding: 0 20px;
+        padding: 0 28px;
     }
 }
 

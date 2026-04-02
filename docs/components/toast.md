@@ -176,7 +176,7 @@ $(function () {
 |------|------|
 | `scss/6-components/_toast.scss` | 토스트 컴포넌트 스타일, 위치 고정, 애니메이션 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-toast`, `--color-success`, `--color-error` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

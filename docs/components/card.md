@@ -267,7 +267,7 @@ Bootstrap Grid를 사용하여 이미지와 텍스트를 좌우로 나란히 배
 |------|------|
 | `scss/6-components/_card.scss` | 카드 컴포넌트 스타일 (Bootstrap 오버라이드) |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--shadow-sm`, `--color-border` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

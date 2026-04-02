@@ -1,36 +1,24 @@
-// 6-components: UI 컴포넌트
-// 프로젝트에서 사용하지 않는 컴포넌트는 주석 처리하여 CSS 용량을 줄인다.
-
-// 레이아웃
-@forward 'skip-nav';
-@forward 'masthead';
-@forward 'header';
-@forward 'footer';
-@forward 'side-nav';
-
-// 액션
-@forward 'button';
-@forward 'fab';
-
-// 콘텐츠
-@forward 'card';
-@forward 'table';
-@forward 'badge';
-
-// 인터랙션
-@forward 'modal';
-@forward 'tab';
-@forward 'accordion';
-@forward 'tooltip';
-@forward 'toast';
-
-// 피드백
-@forward 'step-indicator';
-@forward 'spinner';
-
-// 탐색
-@forward 'breadcrumb';
-@forward 'slider';
-
-// 폼 (Bootstrap 오버라이드)
-@forward 'form';
+// ====================================================
+// 6-components: UI 컴포넌트 (btn, form, card 등)
+// ====================================================
+@forward 'skip-nav';    // 본문건너뛰기 (A11Y-01)
+@forward 'header';      // 헤더/GNB (COMP-01)
+@forward 'form';        // 폼 컴포넌트 (COMP-03)
+@forward 'button';      // 버튼 (COMP-02)
+@forward 'card';        // 카드 (COMP-04)
+@forward 'table';       // 테이블 (COMP-05) — Plan 02에서 생성
+@forward 'pagination';  // 페이지네이션 (COMP-08)
+@forward 'breadcrumb';  // 브레드크럼 (COMP-09)
+@forward 'modal';       // 모달 (COMP-06)
+@forward 'tab';         // 탭 (COMP-07)
+@forward 'slider';          // 슬라이더 (COMP-10) — Plan 02에서 생성
+@forward 'accordion';       // 아코디언 (COMP-11)
+@forward 'toast';           // 토스트/스낵바 (COMP-12)
+@forward 'badge';           // 배지 (COMP-13)
+@forward 'tooltip';         // 툴팁 (COMP-14)
+@forward 'step-indicator';  // 단계 표시기 (COMP-15)
+@forward 'spinner';         // 스피너 (COMP-16)
+@forward 'side-nav';        // 사이드 내비게이션 (COMP-17)
+@forward 'footer';          // 푸터/식별자 (COMP-18)
+@forward 'fab';             // FAB (COMP-19)
+@forward 'masthead';        // 마스트헤드 공식 배너 (COMP-20)

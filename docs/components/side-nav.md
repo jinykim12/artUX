@@ -153,7 +153,7 @@ permalink: /components/side-nav/
 |------|------|
 | `scss/6-components/_side-nav.scss` | 사이드 메뉴 스타일, 중첩 들여쓰기, 활성 상태 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-nav-active`, `--spacing-*` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

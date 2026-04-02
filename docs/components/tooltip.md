@@ -102,7 +102,7 @@ tooltipTriggerList.forEach(function(el) { new bootstrap.Tooltip(el); });
 |------|------|
 | `scss/6-components/_tooltip.scss` | 툴팁 컴포넌트 스타일, 위치 계산, 화살표 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-tooltip-bg`, `--z-tooltip` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

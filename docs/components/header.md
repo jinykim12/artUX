@@ -558,7 +558,7 @@ $(function () {
 | `scss/6-components/_header.scss` | 헤더 기본 스타일, PC/모바일 `@media (min-width: 992px)` 분기 |
 | `scss/6-components/_skip-nav.scss` | 본문건너뛰기 링크 스타일 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용, 헤더 별도 설정 불필요) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-dropdown`, `--bs-body-bg` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 **미디어 쿼리 분기 기준:**
 

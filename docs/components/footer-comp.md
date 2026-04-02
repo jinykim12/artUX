@@ -142,7 +142,7 @@ permalink: /components/footer/
 |------|------|
 | `scss/6-components/_footer.scss` | 푸터 컴포넌트 스타일, 레이아웃, 색상 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-footer-bg`, `--color-footer-text` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

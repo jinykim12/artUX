@@ -577,7 +577,7 @@ $(function () {
 |------|------|
 | `scss/6-components/_form.scss` | 폼 컴포넌트 스타일 (Bootstrap 오버라이드) |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용, 폼 별도 설정 불필요) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-error`, `--color-success` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

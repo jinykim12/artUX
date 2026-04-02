@@ -229,12 +229,8 @@ artpqUX에 아직 없지만 KRDS v1.0.0에서 공공기관 납품 시 자주 요
 
 | KRDS 컴포넌트 | 카테고리 | 핵심 접근성 요건 |
 |---------------|----------|------------------|
-| Masthead (공식 배너) | 아이덴티티 | 정부 사이트 식별 배너, 최상단 고정 |
 | Identifier (운영기관 식별자) | 아이덴티티 | 운영 기관명 + 로고, 푸터 내 배치 |
-| Accordion (아코디언) | 레이아웃 및 표현 | `aria-expanded`, `aria-controls`, `hidden` |
 | Disclosure (디스클로저) | 레이아웃 및 표현 | `aria-expanded`, FAQ/약관 펼침 |
-| Toast / Snackbar | 피드백 (모바일) | `role="alert"`, `aria-live` |
-| Step indicator (단계 표시기) | 피드백 | `aria-current="step"`, 진행 상태 안내 |
 
 > **참고:** KRDS 공식 사이트 — <a href="https://www.krds.go.kr" target="_blank" rel="noopener" title="새 창으로 열림">https://www.krds.go.kr <span class="sr-only">(새 창)</span></a>
 > KRDS Figma 라이브러리 — <a href="https://www.figma.com/community/file/1452915208095182951" target="_blank" rel="noopener" title="새 창으로 열림">Figma Community KRDS v1.0.0 <span class="sr-only">(새 창)</span></a>

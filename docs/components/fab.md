@@ -159,7 +159,7 @@ $(function () {
 |------|------|
 | `scss/6-components/_fab.scss` | FAB 스타일, 고정 위치, 그림자, 크기 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--z-fab`, `--shadow-lg`, `--touch-target-min` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

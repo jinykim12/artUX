@@ -263,7 +263,7 @@ permalink: /components/table/
 | 파일 | 역할 |
 |------|------|
 | `scss/6-components/_table.scss` | 테이블 컴포넌트 스타일 (Bootstrap 오버라이드) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-border`, `--spacing-md` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

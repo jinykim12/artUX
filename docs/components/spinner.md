@@ -110,8 +110,8 @@ permalink: /components/spinner/
 | 파일 | 역할 |
 |------|------|
 | `scss/6-components/_spinner.scss` | 스피너 컴포넌트 스타일, 회전 애니메이션, 크기 변형 |
-| `scss/5-objects/_sr-only.scss` | 스크린리더 전용 숨김 클래스 |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-primary`, `--spinner-size` 등) |
+| `scss/4-elements/_common.scss` | `.sr-only` 유틸리티 (Bootstrap `.visually-hidden` 별칭) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 레이아웃 기본값 |
 
 ---
 

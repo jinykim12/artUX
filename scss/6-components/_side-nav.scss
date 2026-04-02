@@ -54,16 +54,15 @@
 // ── 내비게이션 링크 ────────────────────────────────
 /* KWCAG 2.5.8 최소 터치영역 44px */
 .side-nav__link {
-    display: block;
-    min-height: 44px;  // 44px — KWCAG 2.5.8
+    display: flex;
+    align-items: center;
+    min-height: 44px;  // WCAG 2.5.8
     padding: 8px 20px;
     font-size: 16px;
     color: var(--bs-body-color);
     text-decoration: none;
     border-left: 3px solid transparent;
-    transition: none;  // 공공기관 트랜지션 없음 원칙
-    display: flex;
-    align-items: center;
+    transition: none;
 
     &:hover {
         background-color: var(--bs-tertiary-bg);
@@ -96,7 +95,7 @@
 
 // ── 반응형: 모바일에서 숨김 ─────────────────────────
 // 모바일에서는 별도 토글 메뉴로 처리
-@media (min-width: 768px) {
+@media (max-width: 767.98px) {
     .side-nav--responsive {
         display: none;
     }

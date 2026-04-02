@@ -118,7 +118,7 @@ permalink: /components/masthead/
 |------|------|
 | `scss/6-components/_masthead.scss` | 공식 배너 스타일, 최상단 고정, 배경색 |
 | `scss/4-elements/_focus.scss` | 포커스 인디케이터 (전역 적용) |
-| `scss/3-generic/_root.scss` | CSS 토큰 (`--color-masthead-bg`, `--color-masthead-text` 등) |
+| `scss/3-generic/_root.scss` | Bootstrap 변수 및 기본값 |
 
 ---
 

@@ -36,7 +36,7 @@
 
 // ── 마스트헤드 내부 래퍼 ─────────────────────────────
 .masthead__inner {
-    max-width: var(--container-max-width, 1200px);
+    max-width: 1200px;
     margin: 0 auto;
     padding: 4px 28px;
     display: flex;
@@ -60,9 +60,7 @@
     color: rgba(255, 255, 255, 0.9);
     white-space: nowrap;
 
-    @media (min-width: 768px) {
-        font-size: 0.625rem;  // 모바일에서 더 작게
-    }
+    // font-size 반응형 오버라이드 제거 — 기본 12px(부모 .masthead)을 전 브레이크포인트에서 유지
 }
 
 // ── Modifier: Light (밝은 배경) ─────────────────────
