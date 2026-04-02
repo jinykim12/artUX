@@ -117,6 +117,20 @@ permalink: /components/forms/
 
 `<label>`과 `<select>`를 `for`/`id`로 연결한다. 기본 옵션에 빈 `value=""`를 넣어야 선택하지 않은 상태를 명확히 표현할 수 있다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-region" class="form-label">지역</label>
+    <select id="preview-region" name="region" class="form-select">
+      <option value="">선택하세요</option>
+      <option value="seoul">서울</option>
+      <option value="busan">부산</option>
+      <option value="daegu">대구</option>
+    </select>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- select — label for/id 매칭, 기본 옵션 "선택하세요" -->
 <div class="mb-3">
@@ -167,6 +181,16 @@ permalink: /components/forms/
 ## 텍스트 영역 (textarea)
 
 `aria-describedby`를 사용하면 힌트 텍스트와 입력 필드를 연결할 수 있다. 스크린리더가 필드에 포커스될 때 힌트("최대 500자")도 함께 읽어준다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-message" class="form-label">문의 내용</label>
+    <textarea id="preview-message" name="message" class="form-control" rows="5" aria-describedby="preview-message-hint"></textarea>
+    <p id="preview-message-hint" class="form-text">최대 500자까지 입력 가능합니다.</p>
+  </div>
+</form>
+</div>
 
 ```html
 <!-- textarea — label for/id 매칭, aria-describedby로 힌트 텍스트 연결 -->
@@ -238,6 +262,26 @@ permalink: /components/forms/
 
 여러 체크박스가 하나의 질문에 속한다면 `<fieldset>` + `<legend>`로 묶어야 한다. `<legend>` 없이 나열하면 스크린리더가 "디자인 체크박스"처럼 읽는 게 아니라, 그 체크박스가 무슨 질문("관심 분야")에 대한 답인지 알 수 없다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset>
+    <legend class="form-label">관심 분야</legend>
+    <div class="form-check">
+      <input type="checkbox" id="preview-interest-design" name="interest" value="design" class="form-check-input">
+      <label for="preview-interest-design" class="form-check-label">디자인</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-interest-pub" name="interest" value="pub" class="form-check-input">
+      <label for="preview-interest-pub" class="form-check-label">퍼블리싱</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-interest-dev" name="interest" value="dev" class="form-check-input">
+      <label for="preview-interest-dev" class="form-check-label">개발</label>
+    </div>
+  </fieldset>
+</form>
+</div>
+
 ```html
 <!-- 체크박스 그룹 — fieldset/legend 필수: 그룹 맥락을 스크린 리더에 전달 -->
 <fieldset>
@@ -286,6 +330,26 @@ permalink: /components/forms/
 ### 라디오 그룹 (fieldset/legend 필수)
 
 라디오 버튼도 체크박스 그룹과 같은 이유로 `<fieldset>` + `<legend>`가 필수다. `<legend>`가 있으면 스크린리더가 "성별, 남성 라디오 버튼" 형태로 읽어서 선택 맥락을 바로 파악할 수 있다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset>
+    <legend class="form-label">성별</legend>
+    <div class="form-check">
+      <input type="radio" id="preview-gender-male" name="preview-gender" value="male" class="form-check-input">
+      <label for="preview-gender-male" class="form-check-label">남성</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" id="preview-gender-female" name="preview-gender" value="female" class="form-check-input">
+      <label for="preview-gender-female" class="form-check-label">여성</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" id="preview-gender-other" name="preview-gender" value="other" class="form-check-input">
+      <label for="preview-gender-other" class="form-check-label">기타</label>
+    </div>
+  </fieldset>
+</form>
+</div>
 
 ```html
 <!-- 라디오 그룹 — fieldset/legend 필수, 각 항목에 for/id 매칭 -->

@@ -90,6 +90,24 @@ permalink: /components/form-login/
 
 로그인 실패 시 오류 메시지를 `role="alert"`로 표시하고, 해당 입력 필드에 `aria-invalid="true"`를 적용한다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="fw-bold fs-5 mb-3">로그인</div>
+  <div class="form-error mb-3" role="alert">
+    <p>아이디 또는 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.</p>
+  </div>
+  <div class="mb-3">
+    <label for="preview-login-id-err" class="form-label">아이디</label>
+    <input type="text" id="preview-login-id-err" name="username" class="form-control is-invalid" aria-invalid="true" required aria-required="true" autocomplete="username">
+  </div>
+  <div class="mb-3">
+    <label for="preview-login-pw-err" class="form-label">비밀번호</label>
+    <input type="password" id="preview-login-pw-err" name="password" class="form-control is-invalid" aria-invalid="true" required aria-required="true" autocomplete="current-password">
+  </div>
+  <button type="submit" class="btn btn-primary btn-block">로그인</button>
+</form>
+</div>
+
 ```html
 <!-- 로그인 오류 상태 — role="alert"로 실패 알림, aria-invalid 쌍 처리 -->
 <form action="/login" method="post">
@@ -119,6 +137,18 @@ permalink: /components/form-login/
 ## 비밀번호 표시/숨기기 토글
 
 비밀번호 입력 필드 옆에 표시/숨기기 토글 버튼을 제공한다. `aria-pressed`로 토글 상태를 전달한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-login-pw-toggle" class="form-label">비밀번호</label>
+    <div class="input-group">
+      <input type="password" id="preview-login-pw-toggle" name="password" class="form-control" required aria-required="true" autocomplete="current-password">
+      <button type="button" class="btn btn-outline-secondary" aria-pressed="false" aria-label="비밀번호 표시">표시</button>
+    </div>
+  </div>
+</form>
+</div>
 
 ```html
 <!-- 비밀번호 표시/숨기기 — aria-pressed로 토글 상태 전달 -->

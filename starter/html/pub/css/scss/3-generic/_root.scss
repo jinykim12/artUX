@@ -1,55 +1,43 @@
 // ====================================================
 // artpqUX CSS Custom Properties (디자인 토큰)
 //
-// 토큰 네이밍 규칙: --[카테고리]-[이름]-[변형]
-//   --color-*       색상
-//   --font-size-*   폰트 크기
-//   --font-weight-* 폰트 굵기
-//   --leading-*     줄간격
-//   --spacing-*     간격
-//   --shadow-*      그림자
-//   --transition-*  전환 속도
-//   --z-*           z-index
-//
-// Bootstrap 충돌 방지:
-//   Bootstrap 5.3은 --bs-* 접두어 사용 → 팀 토큰과 이름 충돌 없음
+// 색상: Bootstrap --bs-* 변수를 참조하여 커스텀 토큰 연결
+//   → _vendor.scss의 $primary 등을 바꾸면 자동 반영
+//   → 프로젝트별 커스터마이징은 _project-overrides.scss에서
 //
 // rem 기준: 1rem = 16px (Bootstrap 기본값)
-//   px → rem 환산: px / 16 = rem (예: 44px = 2.75rem)
 // ====================================================
 
 :root {
-    // ── 색상 토큰 (TOKEN-01) ──────────────────────────
-    --color-primary:     #0d6efd;
-    --color-secondary:   #6c757d;
-    --color-text:        #212529;
-    --color-text-muted:  #6c757d;
-    --color-bg:          #fff;
-    --color-border:      #dee2e6;
-    --color-error:       #dc3545;
-    --color-success:     #198754;
+    // ── 색상 토큰 — Bootstrap 변수 참조 ─────────────
+    // Bootstrap이 컴파일 시 생성하는 --bs-* 변수를 참조
+    // _vendor.scss에서 $primary 등을 바꾸면 여기도 자동 반영
+    --color-primary:     var(--bs-primary);
+    --color-secondary:   var(--bs-secondary);
+    --color-text:        var(--bs-body-color);
+    --color-text-muted:  var(--bs-secondary-color);
+    --color-bg:          var(--bs-body-bg);
+    --color-border:      var(--bs-border-color);
+    --color-error:       var(--bs-danger);
+    --color-success:     var(--bs-success);
 
-    // ── 타이포그래피 토큰 (TOKEN-02) ──────────────────
-    // 1rem = 16px (Bootstrap 기본)
-    --font-size-xs:    0.6875rem; // 11px
-    --font-size-sm:    0.8125rem; // 13px
-    --font-size-base:  1rem;      // 16px — Bootstrap $font-size-base
-    --font-size-md:    1.1875rem; // 19px
-    --font-size-lg:    1.375rem;  // 22px
-    --font-size-xl:    1.75rem;   // 28px
-    --font-size-2xl:   2.25rem;   // 36px
-    --font-weight-regular:  400;
+    // ── 타이포그래피 토큰 — Bootstrap 변수 참조 ────────
+    --font-size-xs:    0.75rem;   // 12px — 커스텀 (Bootstrap에 없음)
+    --font-size-sm:    0.875rem;  // Bootstrap $font-size-sm
+    --font-size-base:  var(--bs-body-font-size, 1rem);
+    --font-size-lg:    1.25rem;   // Bootstrap $font-size-lg
+    --font-size-xl:    1.75rem;   // Bootstrap $h3-font-size 참조
+    --font-size-2xl:   2rem;      // Bootstrap $h2-font-size 참조
+    --font-weight-regular:  var(--bs-body-font-weight, 400);
     --font-weight-medium:   500;
-    --font-weight-bold:     700;
+    --font-weight-bold:     var(--bs-font-weight-bold, 700);
 
-    --leading-tight:   1.25;
-    --leading-normal:  1.5; // Bootstrap $line-height-base 기본값
-    --leading-loose:   1.75;
+    --leading-normal:  var(--bs-body-line-height, 1.5);
 
-    // ── 접근성 토큰 (TOKEN-02b) ───────────────────────
-    --touch-target-min:  2.75rem; // 44px — WCAG 2.5.8 최소 터치영역
+    // ── 접근성 토큰 ─────────────────────────────────
+    --touch-target-min:  2.75rem; // 44px — WCAG 2.5.8
 
-    // ── 간격 토큰 — 4px 기반 7단계 (TOKEN-03) ────────
+    // ── 간격 토큰 ───────────────────────────────────
     --spacing-xs:   0.25rem;  //  4px
     --spacing-sm:   0.5rem;   //  8px
     --spacing-md:   1.25rem;  // 20px
@@ -58,18 +46,13 @@
     --spacing-2xl:  3rem;     // 48px
     --spacing-3xl:  4rem;     // 64px
 
-    // ── 기타 토큰 (TOKEN-04) ─────────────────────────
-    // 그림자 — Bootstrap --bs-box-shadow-* 값 참조
-    --shadow-sm:  0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-    --shadow-md:  0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    --shadow-lg:  0 1rem 3rem rgba(0, 0, 0, 0.175);
+    // ── 그림자 — Bootstrap 변수 참조 ────────────────
+    --shadow-sm:  var(--bs-box-shadow-sm);
+    --shadow-md:  var(--bs-box-shadow);
+    --shadow-lg:  var(--bs-box-shadow-lg);
 
-    // 전환
-    --transition-fast:  150ms ease;
-    --transition-base:  300ms ease;
-
-    // z-index — Bootstrap z-index 체계와 정렬
-    --z-dropdown:  1000;
-    --z-overlay:   1040;
-    --z-modal:     1050;
+    // ── z-index — Bootstrap 체계 참조 ───────────────
+    --z-dropdown:  var(--bs-zindex-dropdown, 1000);
+    --z-overlay:   var(--bs-zindex-modal-backdrop, 1040);
+    --z-modal:     var(--bs-zindex-modal, 1050);
 }

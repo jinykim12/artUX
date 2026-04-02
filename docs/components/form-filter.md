@@ -145,6 +145,42 @@ permalink: /components/form-filter/
 
 체크박스 변경 시 자동으로 필터를 적용하는 패턴이다. `aria-live` 영역에 결과 건수를 실시간으로 알린다:
 
+<div class="docs-preview">
+<form id="preview-live-filter" aria-label="실시간 필터" onsubmit="return false;">
+  <div id="preview-live-results" aria-live="polite" aria-atomic="true" class="mb-2">
+    <p class="m-0">총 <strong>128</strong>건의 결과가 있습니다.</p>
+  </div>
+  <fieldset class="mb-3">
+    <legend class="form-label">유형</legend>
+    <div class="form-check">
+      <input type="checkbox" id="preview-type-article" name="type" value="article" class="form-check-input" data-auto-filter>
+      <label for="preview-type-article" class="form-check-label">아티클</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-type-video" name="type" value="video" class="form-check-input" data-auto-filter>
+      <label for="preview-type-video" class="form-check-label">동영상</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-type-download" name="type" value="download" class="form-check-input" data-auto-filter>
+      <label for="preview-type-download" class="form-check-label">다운로드</label>
+    </div>
+  </fieldset>
+  <button type="reset" class="btn btn-secondary btn-sm">필터 초기화</button>
+</form>
+<script>
+(function(){
+  var form = document.getElementById('preview-live-filter');
+  var results = document.getElementById('preview-live-results');
+  if(!form || !results) return;
+  form.addEventListener('change', function(){
+    var checked = form.querySelectorAll('[data-auto-filter]:checked').length;
+    var count = checked > 0 ? 35 : 128;
+    results.innerHTML = '<p class="m-0">총 <strong>' + count + '</strong>건의 결과가 있습니다.</p>';
+  });
+})();
+</script>
+</div>
+
 ```html
 <!-- 실시간 필터 — 체크박스 변경 시 자동 필터 적용, aria-live로 결과 알림 -->
 <form id="live-filter-form" aria-label="실시간 필터">
@@ -177,6 +213,20 @@ permalink: /components/form-filter/
 ## 적용된 필터 태그
 
 현재 적용 중인 필터를 태그로 표시하고, 개별 해제 및 전체 초기화를 제공한다:
+
+<div class="docs-preview">
+<div class="d-flex flex-wrap gap-2 align-items-center" aria-live="polite" aria-label="적용된 필터">
+  <span class="badge bg-secondary d-inline-flex align-items-center gap-1 px-2 py-1" id="preview-tag-design">
+    디자인
+    <button type="button" class="btn-close btn-close-white ms-1" aria-label="디자인 필터 해제" onclick="this.parentElement.remove();"></button>
+  </span>
+  <span class="badge bg-secondary d-inline-flex align-items-center gap-1 px-2 py-1" id="preview-tag-active">
+    진행중
+    <button type="button" class="btn-close btn-close-white ms-1" aria-label="진행중 필터 해제" onclick="this.parentElement.remove();"></button>
+  </span>
+  <button type="button" class="btn btn-link btn-sm text-decoration-none">전체 초기화</button>
+</div>
+</div>
 
 ```html
 <!-- 적용된 필터 태그 — 개별 해제 버튼에 aria-label 포함, aria-live로 변경 알림 -->
@@ -245,6 +295,35 @@ $(function () {
 ## 모바일 필터 (접기/펼치기)
 
 모바일에서 필터를 접기/펼치기 형태로 제공한다. `aria-expanded`로 상태를 전달한다:
+
+<div class="docs-preview">
+<div>
+  <button type="button" class="btn btn-outline-secondary" id="preview-filter-toggle" aria-expanded="false" aria-controls="preview-filter-panel">
+    <span aria-hidden="true">&#9776;</span> 필터
+    <span class="badge bg-primary ms-1" aria-label="적용된 필터 2개">2</span>
+  </button>
+  <div id="preview-filter-panel" class="border rounded p-3 mt-2" hidden>
+    <p class="m-0 text-muted">필터 내용 영역</p>
+  </div>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('preview-filter-toggle');
+  var panel = document.getElementById('preview-filter-panel');
+  if(!btn || !panel) return;
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    if(expanded){
+      btn.setAttribute('aria-expanded','false');
+      panel.setAttribute('hidden','');
+    } else {
+      btn.setAttribute('aria-expanded','true');
+      panel.removeAttribute('hidden');
+    }
+  });
+})();
+</script>
+</div>
 
 ```html
 <!-- 모바일 필터 — aria-expanded로 접기/펼치기 상태 전달 -->

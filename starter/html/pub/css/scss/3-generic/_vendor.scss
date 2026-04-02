@@ -1,31 +1,20 @@
 // ====================================================
 // Bootstrap 5.3 SCSS 격리 임포트
-// Bootstrap 내부는 @import 기반 — Dart Sass deprecation 경고 발생은 정상
-// 이 파일을 통해 Bootstrap @import를 격리하고,
-// 나머지 프로젝트 SCSS는 순수 @use/@forward 기반으로 유지한다
-// Bootstrap 6.x에서 @use 마이그레이션 완료 시 이 파일을 교체할 것
+//
+// 색상 커스터마이징:
+//   아래 $primary, $secondary 등을 바꾸면
+//   Bootstrap 컴포넌트 + --bs-* CSS 변수 + --color-* 토큰 모두 자동 반영
+//
+// 폰트 커스터마이징:
+//   $font-family-base를 변경
 // ====================================================
 
-// Bootstrap 오버라이드 변수 — @import 스코프에서 선언해야 Bootstrap이 인식한다
-// (Sass @use 모듈 시스템은 네임스페이스로 격리되므로 Bootstrap이 못 읽음)
-//
-// ── 토큰 매핑 주석 (TOKEN-05) ──────────────────────
-// [중요] Bootstrap Sass 변수는 컴파일-타임 정적값이어야 한다.
-//        $primary: var(--color-primary) 사용 절대 불가.
-//        CSS Custom Properties(--color-*)와 값을 수동으로 동기화한다.
-//
-// 색상 변경 시 두 곳을 함께 수정:
-//   1. 이 파일의 $변수 값
-//   2. scss/3-generic/_root.scss의 --color-* 값
-//
-// Bootstrap Sass 변수 → CSS Custom Properties 매핑:
-//   $primary (#0d6efd)        ↔ --color-primary
-//   $secondary (#6c757d)      ↔ --color-secondary
-//   $font-size-base (1.6rem)  ↔ --font-size-base
-// ─────────────────────────────────────────────────────
-$font-size-base: 1rem;              // 16px (Bootstrap 기본값) ↔ --font-size-base
+// ── 프로젝트 색상 (여기만 바꾸면 전체 반영) ──────────
+$primary:    #0d6efd;
+$secondary:  #6c757d;
+
+// ── 폰트 ────────────────────────────────────────────
+$font-size-base: 1rem;
 $font-family-base: "Pretendard Variable", "Pretendard", -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif;
-$primary:    #0d6efd;               // ↔ --color-primary
-$secondary:  #6c757d;               // ↔ --color-secondary
 
 @import "bootstrap/scss/bootstrap";

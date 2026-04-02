@@ -40,23 +40,26 @@ permalink: /components/step-indicator/
 
 <div class="docs-preview">
 <nav aria-label="진행 단계">
-  <ol class="step-indicator">
-    <li class="step-indicator-item step--completed">
-      <span class="step-indicator-marker" aria-hidden="true">&#10003;</span>
-      <span class="step-indicator-label">약관 동의</span>
+  <ol class="list-unstyled d-flex gap-0 m-0">
+    <li class="d-flex align-items-center gap-2 pe-3">
+      <span class="badge rounded-circle bg-success" aria-hidden="true">&#10003;</span>
+      <span class="text-success fw-bold">약관 동의</span>
       <span class="sr-only">(완료)</span>
+      <span class="text-muted mx-1" aria-hidden="true">―</span>
     </li>
-    <li class="step-indicator-item step--active" aria-current="step">
-      <span class="step-indicator-marker" aria-hidden="true">2</span>
-      <span class="step-indicator-label">정보 입력</span>
+    <li class="d-flex align-items-center gap-2 pe-3" aria-current="step">
+      <span class="badge rounded-circle bg-primary">2</span>
+      <span class="text-primary fw-bold">정보 입력</span>
+      <span class="text-muted mx-1" aria-hidden="true">―</span>
     </li>
-    <li class="step-indicator-item">
-      <span class="step-indicator-marker" aria-hidden="true">3</span>
-      <span class="step-indicator-label">인증</span>
+    <li class="d-flex align-items-center gap-2 pe-3">
+      <span class="badge rounded-circle bg-secondary">3</span>
+      <span class="text-muted">인증</span>
+      <span class="text-muted mx-1" aria-hidden="true">―</span>
     </li>
-    <li class="step-indicator-item">
-      <span class="step-indicator-marker" aria-hidden="true">4</span>
-      <span class="step-indicator-label">가입 완료</span>
+    <li class="d-flex align-items-center gap-2">
+      <span class="badge rounded-circle bg-secondary">4</span>
+      <span class="text-muted">가입 완료</span>
     </li>
   </ol>
 </nav>

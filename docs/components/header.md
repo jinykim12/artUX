@@ -197,6 +197,44 @@ PC GNB 전체 구조다. 서브메뉴가 있는 항목은 `<button>` + 숨겨진
 
 아래는 햄버거 버튼과 모바일 메뉴 패널의 전체 마크업이다:
 
+<div class="docs-preview">
+<div class="d-flex align-items-center gap-3 mb-3">
+  <button type="button" class="btn btn-outline-secondary" aria-expanded="false" aria-controls="preview-mobile-menu" aria-label="전체 메뉴 열기" id="preview-hamburger">
+    <span aria-hidden="true">&#9776;</span>
+  </button>
+  <span class="fw-bold">사이트 로고</span>
+</div>
+<div id="preview-mobile-menu" class="border rounded p-3" hidden>
+  <nav aria-label="전체 메뉴">
+    <ul class="list-unstyled m-0">
+      <li class="mb-2"><a href="#preview-m-home" class="text-decoration-none" aria-current="page" onclick="return false;">홈</a></li>
+      <li class="mb-2"><a href="#preview-m-about" class="text-decoration-none" onclick="return false;">기관 소개</a></li>
+      <li class="mb-2"><a href="#preview-m-news" class="text-decoration-none" onclick="return false;">소식</a></li>
+      <li><a href="#preview-m-contact" class="text-decoration-none" onclick="return false;">문의</a></li>
+    </ul>
+  </nav>
+</div>
+<script>
+(function(){
+  var btn = document.getElementById('preview-hamburger');
+  var menu = document.getElementById('preview-mobile-menu');
+  if(!btn || !menu) return;
+  btn.addEventListener('click', function(){
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    if(expanded){
+      btn.setAttribute('aria-expanded','false');
+      btn.setAttribute('aria-label','전체 메뉴 열기');
+      menu.setAttribute('hidden','');
+    } else {
+      btn.setAttribute('aria-expanded','true');
+      btn.setAttribute('aria-label','전체 메뉴 닫기');
+      menu.removeAttribute('hidden');
+    }
+  });
+})();
+</script>
+</div>
+
 ```html
 <!-- 헤더 내부 (header__inner 안) -->
 
@@ -254,6 +292,18 @@ PC GNB 전체 구조다. 서브메뉴가 있는 항목은 `<button>` + 숨겨진
 `aria-current="page"` 속성은 현재 사용자가 보고 있는 페이지 링크에 적용한다. 스크린리더가 "현재 페이지" 링크를 강조해 읽어주기 때문에, 시각적 활성 표시와 함께 반드시 병행해야 한다.
 
 현재 페이지와 일반 페이지 링크의 차이를 보여주는 예시다:
+
+<div class="docs-preview">
+<ul class="list-unstyled m-0">
+  <li class="mb-2">
+    <a href="#preview-current-about" class="fw-bold text-primary text-decoration-underline" aria-current="page" onclick="return false;">소개</a>
+    <span class="badge bg-primary ms-1">현재 페이지</span>
+  </li>
+  <li>
+    <a href="#preview-current-news" class="text-decoration-none" onclick="return false;">소식</a>
+  </li>
+</ul>
+</div>
 
 ```html
 <!-- 현재 /about 페이지에 있는 경우 -->

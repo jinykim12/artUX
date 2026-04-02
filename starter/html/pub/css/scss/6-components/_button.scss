@@ -1,106 +1,46 @@
-// Source: scss/6-components/_header.scss 패턴 적용
 @use '../2-tools/breakpoints' as *;
 
 // ====================================================
-// [버튼 컴포넌트 — COMP-02]
-// 작성일: 2026-03-26
-// Bootstrap .btn 오버라이드 + 팀 커스텀 variant 정의
-// CSS 토큰(var(--*))만 사용 — Sass 변수 오버라이드 방식 금지
-//
-// 사용 예 (HTML):
-//   <button type="button" class="btn btn-primary">확인</button>
-//   <button type="button" class="btn btn-ghost btn--icon" aria-label="삭제">
-//   <svg aria-hidden="true">...</svg>
-//   </button>
-//
-// 접근성 주의사항:
-//   - type="button" 또는 type="submit" 반드시 명시 (form 내 submit 방지)
-//   - disabled 속성 사용 시 aria-disabled="true" 병행 처리
-//   - 아이콘 전용 버튼(.btn--icon)에 aria-label 필수 (텍스트 없으므로)
-//   - a 태그로 버튼 역할 사용 시 role="button" 추가
-//   - 로딩 상태 시 aria-busy="true" + 텍스트 변경 처리
-//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// [버튼 — COMP-02]
+// Bootstrap 5 .btn 보완 + 커스텀 variant (.btn-ghost, .btn--icon)
 // ====================================================
 
 // ── 버튼 공통 ─────────────────────────────────────
-/* WCAG 2.5.8 최소 터치영역 44px */
 .btn {
-    min-height: var(--touch-target-min);  // 44px — WCAG 2.5.8 최소 터치영역 보장 (내용에 따라 확장 가능)
-    padding: var(--spacing-sm) var(--spacing-md);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    border-radius: 0.4rem;
-    transition: none;    // 공공기관 트랜지션 없음 원칙 적용
+    min-height: var(--touch-target-min); // WCAG 2.5.8
+    transition: none;
 
-    // 포커스 — Bootstrap focus ring 제거, 전역 :focus-visible 위임
     &:focus {
-    box-shadow: none;  // Bootstrap 기본 box-shadow 제거 (Phase 7 패턴)
-    outline: 0;      // 전역 :focus-visible이 outline 처리 (_focus.scss)
+        box-shadow: none;
+        outline: 0;
     }
 }
 
-// ── Primary 버튼 ──────────────────────────────────
-.btn-primary {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-
-    &:hover {
-    filter: brightness(0.9);  // hover 시 약간 어둡게
-    }
-
-    &:active {
-    filter: brightness(0.85);
-    }
-}
-
-// ── Secondary 버튼 ────────────────────────────────
-.btn-secondary {
-    background-color: var(--color-secondary);
-    border-color: var(--color-secondary);
-    color: #fff;
-}
-
-// ── Outline Primary 버튼 ──────────────────────────
-.btn-outline-primary {
-    color: var(--color-primary);
-    border-color: var(--color-primary);
-
-    &:hover {
-    background-color: var(--color-primary);
-    }
-}
-
-// ── Ghost 버튼 (팀 커스텀 variant) ────────────────
-// 배경/테두리 없는 텍스트 버튼 — GNB 닫기, 아이콘 버튼 등에 활용
+// ── Ghost 버튼 (커스텀 variant) ─────────────────────
 .btn-ghost {
     background-color: transparent;
     border-color: transparent;
     color: var(--color-text);
 
     &:hover {
-    background-color: var(--color-border);
+        background-color: var(--color-border);
     }
 }
 
 // ── 비활성 버튼 ───────────────────────────────────
-// disabled 속성 + aria-disabled="true" 병행 처리 (접근성 패턴)
-// Bootstrap 기본: opacity .65, pointer-events none
-// opacity 0.5 = 의도적 차이, cursor = 커스텀 추가
+// Bootstrap 기본 opacity: 0.65 → 0.5 (의도적 차이)
 .btn[disabled],
 .btn.disabled {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-// ── 아이콘 전용 버튼 (BEM modifier) ──────────────
-// 정사각형 44px — WCAG 2.5.8 최소 터치영역 44px
-// aria-label 필수 (텍스트 없으므로 스크린 리더 안내)
-/* WCAG 2.5.8 최소 터치영역 44px */
+// ── 아이콘 전용 버튼 (커스텀 BEM modifier) ──────────
 .btn--icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: var(--touch-target-min);   // 44px — WCAG 2.5.8 최소 터치영역
-    min-height: var(--touch-target-min);  // 44px — WCAG 2.5.8 최소 터치영역
+    min-width: var(--touch-target-min);  // WCAG 2.5.8
+    min-height: var(--touch-target-min); // WCAG 2.5.8
     padding: 0;
 }

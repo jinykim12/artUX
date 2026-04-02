@@ -1,85 +1,30 @@
-// Source: scss/6-components/_button.scss 패턴 적용
 @use '../2-tools/breakpoints' as *;
 
 // ====================================================
-// [탭 컴포넌트 — COMP-07]
-// 작성일: 2026-03-26
-// Bootstrap .nav-tabs 오버라이드 + aria-selected 상태 스타일
-// CSS 토큰(var(--*))만 사용 — Sass 변수 오버라이드 방식 금지
-//
-// 사용 예 (HTML):
-//   <ul role="tablist" class="nav nav-tabs" aria-label="상품 정보">
-//   <li role="presentation">
-//     <button role="tab" class="nav-link active"
-//         aria-selected="true" aria-controls="panel-detail"
-//         id="tab-detail" tabindex="0">상세 정보</button>
-//   </li>
-//   <li role="presentation">
-//     <button role="tab" class="nav-link"
-//         aria-selected="false" aria-controls="panel-review"
-//         id="tab-review" tabindex="-1">리뷰</button>
-//   </li>
-//   </ul>
-//   <div role="tabpanel" id="panel-detail" aria-labelledby="tab-detail">
-//   <!-- 상세 정보 내용 -->
-//   </div>
-//   <div role="tabpanel" id="panel-review" aria-labelledby="tab-review" hidden>
-//   <!-- 리뷰 내용 -->
-//   </div>
-//
-// 접근성 주의사항:
-//   - role="tablist" 컨테이너에 aria-label 필수 (탭 그룹 이름)
-//   - 각 탭 버튼에 role="tab", aria-selected, aria-controls 필수
-//   - 각 탭 패널에 role="tabpanel", aria-labelledby 필수
-//   - 비활성 탭: tabindex="-1" + aria-selected="false"
-//   - 활성 탭: tabindex="0" + aria-selected="true"
-//   - 방향키(ArrowLeft/ArrowRight)로 탭 간 이동 지원 (WAI-ARIA Tab 패턴)
-//   - Home/End 키로 첫/마지막 탭으로 이동 지원
-//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// [탭 — COMP-07]
+// Bootstrap 5 .nav-tabs 보완: touch target, transition 제거,
+// aria-selected 상태, 커스텀 underline 패턴
 // ====================================================
 
-// ── 탭 목록 컨테이너 ───────────────────────────────
-// Bootstrap .nav-tabs 오버라이드
-.nav-tabs {
-    border-bottom: 1px solid var(--color-border);  // #dee2e6
-}
-
-// ── 탭 링크/버튼 공통 ─────────────────────────────
-/* WCAG 2.5.8 최소 터치영역 44px */
+// ── 탭 링크/버튼 ───────────────────────────────────
 .nav-tabs .nav-link {
-    min-height: var(--touch-target-min);              // 44px — WCAG 2.5.8 최소 터치영역 보장
-    display: inline-flex;            // 세로 중앙 정렬을 위한 flex
-    align-items: center;             // 세로 중앙 정렬
-    padding: var(--spacing-sm) var(--spacing-md);  // 8px 16px
-    color: var(--color-text-muted);          // #6c757d — 비활성 탭
-    border: none;                  // Bootstrap 기본 border 제거
-    border-bottom: 2px solid transparent;      // 활성 탭 underline 공간 확보
-    transition: none;                // 공공기관 트랜지션 없음 원칙
+    min-height: var(--touch-target-min); // WCAG 2.5.8
+    display: inline-flex;
+    align-items: center;
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: none;
 
-    // Bootstrap :focus box-shadow 제거 — 전역 :focus-visible 위임
     &:focus {
-    box-shadow: none;
-    outline: 0;
+        box-shadow: none;
+        outline: 0;
     }
 }
 
-// ── 탭 호버 상태 ───────────────────────────────────
-.nav-tabs .nav-link:hover {
-    color: var(--color-text);            // #212529 — 텍스트 색상으로 강조
-    border-color: transparent;
-}
-
 // ── 탭 활성 상태 ───────────────────────────────────
-// .active 클래스 또는 aria-selected="true" 속성 모두 처리 (접근성 강화)
+// aria-selected="true" 지원 (접근성 강화)
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-link[aria-selected="true"] {
-    color: var(--color-primary);                // #0d6efd
-    border-bottom: 2px solid var(--color-primary);       // 활성 탭 underline 표시
-    font-weight: var(--font-weight-medium);          // 500 — 강조
-}
-
-// ── 탭 패널 ───────────────────────────────────────
-// 탭 패널 위 여백 — 콘텐츠와 탭 목록 간격
-.tab-content > .tab-pane {
-    padding: var(--spacing-lg) 0;  // 24px 상하
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
 }

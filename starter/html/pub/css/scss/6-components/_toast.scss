@@ -1,45 +1,5 @@
-@use '../2-tools/breakpoints' as *;
-
 // ====================================================
-// [토스트 컴포넌트 — COMP-12]
-// KRDS v1.0.0: Toast / Snackbar
-// Bootstrap 5 Toast를 CSS 토큰으로 오버라이드
-//
-// 사용법 (HTML):
-//   <div class="toast-container position-fixed bottom-0 end-0 p-3">
-//     <div class="toast" role="alert" aria-live="polite" aria-atomic="true">
-//       <div class="toast-header">
-//         <strong class="me-auto">알림</strong>
-//         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="닫기"></button>
-//       </div>
-//       <div class="toast-body">저장되었습니다.</div>
-//     </div>
-//   </div>
-//
-// JS (jQuery):
-//   var toast = new bootstrap.Toast($('#myToast')[0]);
-//   toast.show();
-//
-// 접근성:
-//   - role="alert" + aria-live="polite" (Bootstrap 기본)
-//   - 닫기 버튼 aria-label 필수
+// [토스트 — COMP-12]
+// Bootstrap 5 Toast — 현재 추가 오버라이드 불필요
+// 커스텀 필요 시 이 파일에 추가
 // ====================================================
-
-// Bootstrap Toast 스타일 오버라이드
-// Bootstrap 기본: border-radius .375rem, font-size .875rem
-// font-size 커스텀(토큰), border·shadow 커스텀
-.toast {
-    font-size: var(--font-size-base);
-    border: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
-}
-
-.toast-header {
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.toast-body {
-    color: var(--color-text);
-}

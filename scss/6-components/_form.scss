@@ -1,18 +1,11 @@
 @use '../2-tools/breakpoints' as *;
 
 // ====================================================
-// [폼 컴포넌트 — COMP-03]
-// Bootstrap 5 Form을 CSS 토큰으로 오버라이드
-// Bootstrap 기본 스타일을 최대한 활용하고 필요한 부분만 수정
-//
-// 접근성 주의사항:
-//   - <label>의 for 속성과 <input>의 id 속성 반드시 매칭
-//   - 필수 항목에 aria-required="true" 추가
-//   - 오류 상태 시 aria-invalid="true" + aria-describedby 쌍으로 처리
-//   - 체크박스/라디오 그룹은 <fieldset>/<legend> 필수
+// [폼 — COMP-03]
+// Bootstrap 5 Form 보완: transition 제거, focus 커스텀, 커스텀 classes
 // ====================================================
 
-// ── 입력 필드 — Bootstrap 기본 높이 유지, 트랜지션만 제거 ──
+// ── 입력 필드 ──────────────────────────────────────
 .form-control,
 .form-select {
     transition: none;
@@ -20,45 +13,30 @@
     &:focus {
         box-shadow: none;
     }
-
-    &.is-invalid {
-        border-color: var(--color-error);
-    }
-
-    &.is-valid {
-        border-color: var(--color-success);
-    }
 }
 
-// ── 체크박스/라디오 ──────────────────────────────
+// ── 체크박스/라디오 ────────────────────────────────
 .form-check-input {
     cursor: pointer;
-
-    &:checked {
-        background-color: var(--color-primary);
-        border-color: var(--color-primary);
-    }
 
     &:focus {
         box-shadow: none;
     }
 }
 
-// ── 오류 메시지 ───────────────────────────────────
-.invalid-feedback,
+// ── 커스텀: 오류 메시지 ─────────────────────────────
 .form-error {
     color: var(--color-error);
     font-size: var(--font-size-sm);
 }
 
-// ── 성공 메시지 ───────────────────────────────────
-.valid-feedback,
+// ── 커스텀: 성공 메시지 ─────────────────────────────
 .form-success {
     color: var(--color-success);
     font-size: var(--font-size-sm);
 }
 
-// ── 힌트 텍스트 ───────────────────────────────────
+// ── 커스텀: 힌트 텍스트 ─────────────────────────────
 .form-hint {
     color: var(--color-text-muted);
     font-size: var(--font-size-sm);

@@ -1,52 +1,15 @@
 @use '../2-tools/breakpoints' as *;
 
 // ====================================================
-// [아코디언 컴포넌트 — COMP-11]
-// KRDS v1.0.0: Accordion
-// Bootstrap 5 Accordion을 CSS 토큰으로 오버라이드
-//
-// 사용법 (HTML — Bootstrap 네이티브):
-//   <div class="accordion" id="myAccordion">
-//     <div class="accordion-item">
-//       <h3 class="accordion-header">
-//         <button class="accordion-button" type="button"
-//           data-bs-toggle="collapse" data-bs-target="#panel-1"
-//           aria-expanded="true" aria-controls="panel-1">제목</button>
-//       </h3>
-//       <div id="panel-1" class="accordion-collapse collapse show"
-//         data-bs-parent="#myAccordion">
-//         <div class="accordion-body">내용</div>
-//       </div>
-//     </div>
-//   </div>
-//
-// 접근성:
-//   - Bootstrap이 aria-expanded 자동 토글
-//   - 키보드 Enter/Space 토글 (Bootstrap 기본)
-//   - data-bs-parent로 하나만 열림 제어
+// [아코디언 — COMP-11]
+// Bootstrap 5 Accordion 보완: transition 제거, focus 커스텀, flush modifier
 // ====================================================
 
-// Bootstrap Accordion 스타일 오버라이드
-.accordion {
-    width: 100%;
-}
-
-.accordion-item {
-    border-color: var(--color-border);
-}
-
 .accordion-button {
-    min-height: var(--touch-target-min); // 44px — WCAG 2.5.8
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    background-color: transparent;
-    transition: none; // 공공기관 트랜지션 없음
+    min-height: var(--touch-target-min); // WCAG 2.5.8
+    transition: none;
 
     &:not(.collapsed) {
-        font-weight: var(--font-weight-bold);
-        color: var(--color-text);
-        background-color: transparent;
         box-shadow: none;
     }
 
@@ -55,18 +18,11 @@
     }
 }
 
-.accordion-body {
-    font-size: var(--font-size-base);
-    color: var(--color-text);
-}
-
-// 펼침/접힘 트랜지션 제거 — 공공기관 즉시 표시 원칙
 .accordion-collapse {
     transition: none;
 }
 
-// ── Modifier: --flush ───────────────────────────────
-// Bootstrap .accordion-flush와 동일 패턴
+// ── Modifier: --flush (커스텀) ──────────────────────
 .accordion--flush {
     .accordion-item {
         border-left: 0;

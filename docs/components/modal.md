@@ -92,6 +92,262 @@ permalink: /components/modal/
 
 ---
 
+## 확인 모달 (Confirm)
+
+삭제, 탈퇴 등 되돌릴 수 없는 행동 전에 사용자에게 한 번 더 확인하는 모달이다:
+
+<div class="docs-preview">
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#previewConfirmModal">삭제</button>
+<div class="modal fade" id="previewConfirmModal" tabindex="-1" aria-labelledby="preview-confirm-title" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fw-bold" id="preview-confirm-title">삭제 확인</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+      </div>
+      <div class="modal-body">
+        <p>이 항목을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-danger">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+```html
+<!-- 확인 모달 — modal-sm + modal-dialog-centered로 중앙 정렬 소형 모달 -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">삭제</button>
+
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="confirm-title">삭제 확인</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                <p>이 항목을 삭제하시겠습니까? 삭제 후에는 복구할 수 없습니다.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-danger">삭제</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 폼 모달
+
+모달 안에 폼을 넣는 패턴이다. 모달이 열리면 첫 번째 입력 필드로 포커스가 이동해야 한다:
+
+<div class="docs-preview">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#previewFormModal">문의하기</button>
+<div class="modal fade" id="previewFormModal" tabindex="-1" aria-labelledby="preview-form-modal-title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fw-bold" id="preview-form-modal-title">문의하기</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+      </div>
+      <div class="modal-body">
+        <form onsubmit="return false;">
+          <div class="mb-3">
+            <label for="preview-modal-name" class="form-label">이름</label>
+            <input type="text" class="form-control" id="preview-modal-name" required>
+          </div>
+          <div class="mb-3">
+            <label for="preview-modal-email" class="form-label">이메일</label>
+            <input type="email" class="form-control" id="preview-modal-email" required>
+          </div>
+          <div class="mb-3">
+            <label for="preview-modal-message" class="form-label">내용</label>
+            <textarea class="form-control" id="preview-modal-message" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-primary">보내기</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+```html
+<!-- 폼 모달 — 모달 열릴 때 첫 입력 필드로 포커스 이동 -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">문의하기</button>
+
+<div class="modal fade" id="formModal" tabindex="-1" aria-labelledby="form-modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="form-modal-title">문의하기</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">
+                <form id="modal-form">
+                    <div class="mb-3">
+                        <label for="modal-name" class="form-label">이름</label>
+                        <input type="text" class="form-control" id="modal-name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-email" class="form-label">이메일</label>
+                        <input type="email" class="form-control" id="modal-email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="modal-message" class="form-label">내용</label>
+                        <textarea class="form-control" id="modal-message" rows="3"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                <button type="submit" class="btn btn-primary" form="modal-form">보내기</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 대형 모달 / 스크롤 모달
+
+콘텐츠가 긴 경우 `modal-lg`로 넓히거나 `modal-dialog-scrollable`로 본문만 스크롤되게 할 수 있다:
+
+<div class="docs-preview">
+<div class="d-flex gap-2">
+  <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#previewLgModal">대형 모달</button>
+  <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#previewScrollModal">스크롤 모달</button>
+</div>
+<div class="modal fade" id="previewLgModal" tabindex="-1" aria-labelledby="preview-lg-title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fw-bold" id="preview-lg-title">대형 모달</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+      </div>
+      <div class="modal-body"><p>넓은 콘텐츠 영역입니다.</p></div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button></div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="previewScrollModal" tabindex="-1" aria-labelledby="preview-scroll-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fw-bold" id="preview-scroll-title">스크롤 모달</div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+      </div>
+      <div class="modal-body"><p>긴 콘텐츠입니다.</p><p>스크롤이 본문 영역 안에서만 동작합니다.</p><p>헤더와 푸터는 고정됩니다.</p><p>아래로 더 스크롤해 보세요.</p><p>...</p><p>...</p><p>...</p><p>콘텐츠 끝.</p></div>
+      <div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button></div>
+    </div>
+  </div>
+</div>
+</div>
+
+```html
+<!-- 대형 모달 — modal-lg -->
+<div class="modal fade" id="lgModal" tabindex="-1" aria-labelledby="lg-title" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="lg-title">대형 모달</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">넓은 콘텐츠 영역</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 스크롤 모달 — modal-dialog-scrollable -->
+<div class="modal fade" id="scrollModal" tabindex="-1" aria-labelledby="scroll-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="scroll-title">스크롤 모달</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="닫기"></button>
+            </div>
+            <div class="modal-body">긴 콘텐츠 영역 — 본문만 스크롤, 헤더/푸터 고정</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+---
+
+## 정적 백드롭 모달
+
+배경 클릭으로 닫히지 않는 모달이다. 중요한 확인이나 필수 입력이 완료될 때까지 모달을 유지해야 할 때 사용한다:
+
+<div class="docs-preview">
+<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#previewStaticModal">필수 확인</button>
+<div class="modal fade" id="previewStaticModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="preview-static-title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title fw-bold" id="preview-static-title">이용약관 동의</div>
+      </div>
+      <div class="modal-body">
+        <p>서비스를 이용하려면 이용약관에 동의해야 합니다.</p>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="preview-agree">
+          <label class="form-check-label" for="preview-agree">이용약관에 동의합니다</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+```html
+<!-- 정적 백드롭 — 배경 클릭/ESC로 닫히지 않음 -->
+<div class="modal fade" id="staticModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="static-title" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="static-title">이용약관 동의</h2>
+                <!-- 닫기 버튼 없음 — 반드시 확인 버튼으로만 닫기 -->
+            </div>
+            <div class="modal-body">
+                <p>서비스를 이용하려면 이용약관에 동의해야 합니다.</p>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="agree-terms">
+                    <label class="form-check-label" for="agree-terms">이용약관에 동의합니다</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">확인</button>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+| 속성 | 값 | 역할 |
+|------|---|------|
+| `data-bs-backdrop="static"` | — | 배경 클릭으로 닫히지 않음 |
+| `data-bs-keyboard="false"` | — | ESC 키로 닫히지 않음 |
+| `modal-dialog-centered` | — | 화면 세로 중앙 정렬 |
+
+---
+
 ## 핵심 ARIA 속성
 
 | 속성 | 값 | 역할 |

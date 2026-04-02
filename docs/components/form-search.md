@@ -48,6 +48,14 @@ permalink: /components/form-search/
 
 헤더 영역에 배치하는 인라인 검색 폼이다. 검색 아이콘 버튼을 사용할 때 `aria-label`로 버튼 목적을 명시한다:
 
+<div class="docs-preview">
+<form role="search" aria-label="사이트 검색" onsubmit="return false;" class="d-flex gap-2">
+  <label for="preview-header-search" class="sr-only">검색어</label>
+  <input type="search" id="preview-header-search" name="q" class="form-control form-control-sm" placeholder="검색" autocomplete="search">
+  <button type="submit" class="btn btn-sm btn-outline-secondary" aria-label="검색 실행">검색</button>
+</form>
+</div>
+
 ```html
 <!-- 헤더 인라인 검색 — 아이콘 버튼에 aria-label 필수 -->
 <form role="search" aria-label="사이트 검색" class="search-inline" action="/search" method="get">
@@ -64,6 +72,54 @@ permalink: /components/form-search/
 ## 확장 검색 (필터 포함)
 
 검색어 입력과 함께 카테고리, 날짜 범위 등의 필터를 제공하는 확장 검색 폼이다. `<fieldset>` + `<legend>`로 필터 그룹을 묶는다:
+
+<div class="docs-preview">
+<form role="search" aria-label="상세 검색" onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-adv-search" class="form-label">검색어</label>
+    <input type="search" id="preview-adv-search" name="q" class="form-control" autocomplete="search">
+  </div>
+  <fieldset class="mb-3">
+    <legend class="form-label">검색 범위</legend>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="preview-scope-all" name="preview-scope" value="all" class="form-check-input" checked>
+      <label for="preview-scope-all" class="form-check-label">전체</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="preview-scope-title" name="preview-scope" value="title" class="form-check-input">
+      <label for="preview-scope-title" class="form-check-label">제목</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input type="radio" id="preview-scope-content" name="preview-scope" value="content" class="form-check-input">
+      <label for="preview-scope-content" class="form-check-label">내용</label>
+    </div>
+  </fieldset>
+  <fieldset class="mb-3">
+    <legend class="form-label">기간</legend>
+    <div class="d-flex gap-2">
+      <div>
+        <label for="preview-date-from" class="form-label">시작일</label>
+        <input type="date" id="preview-date-from" name="date_from" class="form-control">
+      </div>
+      <div>
+        <label for="preview-date-to" class="form-label">종료일</label>
+        <input type="date" id="preview-date-to" name="date_to" class="form-control">
+      </div>
+    </div>
+  </fieldset>
+  <div class="mb-3">
+    <label for="preview-adv-category" class="form-label">카테고리</label>
+    <select id="preview-adv-category" name="category" class="form-select">
+      <option value="">전체</option>
+      <option value="notice">공지사항</option>
+      <option value="news">뉴스</option>
+      <option value="faq">FAQ</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">검색</button>
+  <button type="reset" class="btn btn-secondary">초기화</button>
+</form>
+</div>
 
 ```html
 <!-- 확장 검색 폼 — 필터 포함, fieldset/legend로 그룹화 -->
@@ -123,6 +179,12 @@ permalink: /components/form-search/
 ## 검색 결과 안내
 
 검색 결과 영역에 `aria-live="polite"`를 적용하면 결과가 갱신될 때 스크린리더가 변경 내용을 읽어준다:
+
+<div class="docs-preview">
+<div aria-live="polite" aria-atomic="true">
+  <p>"접근성" 검색 결과 <strong>42</strong>건이 있습니다.</p>
+</div>
+</div>
 
 ```html
 <!-- 검색 결과 안내 — aria-live="polite"로 결과 갱신 알림 -->

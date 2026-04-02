@@ -108,6 +108,28 @@ permalink: /components/pagination/
 비활성 처리한다. 비활성 상태에서는 `<a>` 대신 `<span>`을 사용하여
 클릭 불가 상태를 명확히 한다. `<a href="#">`는 비활성처럼 보여도 키보드로 여전히 Tab 이동이 되고 클릭도 된다:
 
+<div class="docs-preview">
+<nav aria-label="페이지 탐색" id="preview-disabled-pagination">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <span class="page-link" aria-label="이전 페이지 (없음)">
+        <span aria-hidden="true">&laquo;</span>
+      </span>
+    </li>
+    <li class="page-item active" aria-current="page">
+      <span class="page-link">1</span>
+    </li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false;">2</a></li>
+    <li class="page-item"><a class="page-link" href="#" onclick="return false;">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="다음 페이지" onclick="return false;">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+</div>
+
 ```html
 <!-- 비활성 이전 버튼 — 첫 페이지에서 사용 -->
 <li class="page-item disabled">

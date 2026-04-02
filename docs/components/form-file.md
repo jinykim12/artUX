@@ -47,6 +47,17 @@ permalink: /components/form-file/
 
 기본 파일 입력의 디자인을 커스터마이징할 때, 원본 `<input>`을 `sr-only`로 숨기고 `<label>`을 버튼처럼 스타일링한다. 이렇게 하면 `<label>` 클릭 시 파일 선택 대화상자가 열리면서 스크린리더 접근성도 유지된다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-custom-file" class="btn btn-outline-secondary">파일 선택</label>
+    <input type="file" id="preview-custom-file" name="attachment" class="d-none" accept=".pdf,.hwp,.docx,.jpg,.png" aria-describedby="preview-custom-file-hint" multiple>
+    <p id="preview-custom-file-hint" class="form-text">허용 형식: PDF, HWP, DOCX, JPG, PNG / 파일당 최대 10MB, 최대 5개</p>
+    <p class="form-text" aria-live="polite"></p>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 커스텀 파일 업로드 — input을 sr-only로 숨기고 label을 버튼으로 스타일링 -->
 <div class="mb-3">
@@ -67,6 +78,16 @@ permalink: /components/form-file/
 
 파일 첨부가 필수인 경우 `required`와 `aria-required="true"`를 적용한다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-file-required" class="form-label">증빙서류 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
+    <input type="file" id="preview-file-required" name="document" class="form-control" required aria-required="true" accept=".pdf,.jpg,.png" aria-describedby="preview-file-required-hint">
+    <p id="preview-file-required-hint" class="form-text">PDF, JPG, PNG 형식 / 최대 5MB</p>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 필수 파일 첨부 — required + aria-required 적용 -->
 <div class="mb-3">
@@ -81,6 +102,17 @@ permalink: /components/form-file/
 ## 파일 오류 상태
 
 파일 형식이 올바르지 않거나 용량을 초과했을 때의 오류 상태이다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-file-error" class="form-label">첨부파일</label>
+    <input type="file" id="preview-file-error" name="attachment" class="form-control is-invalid" aria-invalid="true" aria-describedby="preview-file-error-hint preview-file-error-msg" accept=".pdf,.hwp,.docx">
+    <p id="preview-file-error-hint" class="form-text">허용 형식: PDF, HWP, DOCX / 최대 10MB</p>
+    <p id="preview-file-error-msg" class="form-error" role="alert">파일 크기가 10MB를 초과합니다. 더 작은 파일을 선택해 주세요.</p>
+  </div>
+</form>
+</div>
 
 ```html
 <!-- 파일 오류 — is-invalid + aria-invalid 쌍 처리, role="alert"로 즉시 알림 -->
@@ -97,6 +129,26 @@ permalink: /components/form-file/
 ## 업로드된 파일 목록
 
 업로드된 파일을 목록으로 표시하고, 각 파일에 삭제 버튼을 제공한다. 삭제 버튼의 `aria-label`에 파일명을 포함하여 어떤 파일을 삭제하는지 명확히 한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-file-multi" class="form-label">첨부파일</label>
+    <input type="file" id="preview-file-multi" name="attachments" class="form-control" accept=".pdf,.hwp,.docx,.jpg,.png" aria-describedby="preview-file-multi-hint" multiple>
+    <p id="preview-file-multi-hint" class="form-text">허용 형식: PDF, HWP, DOCX, JPG, PNG / 파일당 최대 10MB</p>
+    <ul class="list-group mt-2" aria-live="polite" aria-label="업로드된 파일 목록">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>제안서.pdf <small class="text-muted">(2.3MB)</small></span>
+        <button type="button" class="btn btn-sm btn-danger" aria-label="제안서.pdf 파일 삭제">삭제</button>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span>참고자료.hwp <small class="text-muted">(1.1MB)</small></span>
+        <button type="button" class="btn btn-sm btn-danger" aria-label="참고자료.hwp 파일 삭제">삭제</button>
+      </li>
+    </ul>
+  </div>
+</form>
+</div>
 
 ```html
 <!-- 업로드된 파일 목록 — aria-label에 파일명 포함, 삭제 후 aria-live 알림 -->
@@ -126,6 +178,16 @@ permalink: /components/form-file/
 ## 드래그 앤 드롭 영역
 
 드래그 앤 드롭 업로드 영역을 제공할 때도 기본 `<input type="file">`을 함께 포함하여 키보드 접근성을 보장한다:
+
+<div class="docs-preview">
+<div class="border border-2 border-dashed rounded p-4 text-center" role="presentation" aria-describedby="preview-dropzone-hint">
+  <p class="mb-1">파일을 여기에 끌어다 놓으세요.</p>
+  <p class="mb-2">또는</p>
+  <label for="preview-file-drop" class="btn btn-outline-secondary">파일 선택</label>
+  <input type="file" id="preview-file-drop" name="attachments" class="d-none" accept=".pdf,.hwp,.docx,.jpg,.png" multiple>
+  <p id="preview-dropzone-hint" class="form-text mt-2 mb-0">허용 형식: PDF, HWP, DOCX, JPG, PNG / 파일당 최대 10MB</p>
+</div>
+</div>
 
 ```html
 <!-- 드래그 앤 드롭 — 기본 file input 병행으로 키보드 접근성 보장 -->

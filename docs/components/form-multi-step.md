@@ -25,6 +25,26 @@ permalink: /components/form-multi-step/
 
 현재 단계를 `aria-current="step"`으로 표시한다. 완료된 단계와 미완료 단계를 시각적/의미적으로 구분한다:
 
+<div class="docs-preview">
+<nav aria-label="가입 진행 단계">
+  <ol class="d-flex list-unstyled gap-3 m-0 p-0">
+    <li class="d-flex align-items-center gap-1">
+      <span class="badge rounded-circle bg-success">&#10003;</span>
+      <span>기본 정보</span>
+      <span class="sr-only">(완료)</span>
+    </li>
+    <li class="d-flex align-items-center gap-1" aria-current="step">
+      <span class="badge rounded-circle bg-primary">2</span>
+      <span class="fw-bold">상세 정보</span>
+    </li>
+    <li class="d-flex align-items-center gap-1">
+      <span class="badge rounded-circle bg-secondary">3</span>
+      <span class="text-muted">약관 동의</span>
+    </li>
+  </ol>
+</nav>
+</div>
+
 ```html
 <!-- 단계 표시기 — aria-current="step"으로 현재 단계 표시 -->
 <nav aria-label="가입 진행 단계">
@@ -42,6 +62,11 @@ permalink: /components/form-multi-step/
 ## 진행 상황 알림 영역
 
 단계가 전환될 때 `aria-live="polite"` 영역으로 진행 상황을 스크린리더에 알린다:
+
+<div class="docs-preview">
+<div id="preview-step-announce-demo" class="sr-only" aria-live="polite" aria-atomic="true">3단계 중 2단계입니다.</div>
+<p class="border rounded p-2 bg-light m-0"><code>aria-live="polite"</code> 영역 (sr-only): <em>"3단계 중 2단계입니다."</em></p>
+</div>
 
 ```html
 <!-- 진행 상황 알림 — aria-live="polite"로 단계 전환 알림 -->

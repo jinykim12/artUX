@@ -153,12 +153,6 @@
   box-sizing: border-box;
 }
 
-.docs-preview > *:last-child,
-.docs-preview > *:last-child > *:last-child,
-.docs-preview > *:last-child > *:last-child > *:last-child {
-  margin-bottom: 0 !important;
-  padding-bottom: 0;
-}
 
 /* 코드 블록 — Prism.js 테마 */
 .docs-content pre {

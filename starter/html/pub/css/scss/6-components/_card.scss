@@ -1,70 +1,12 @@
 // ====================================================
-// [카드 컴포넌트 — COMP-04]
-// 작성일: 2026-03-26
-// Bootstrap .card 오버라이드 — CSS 토큰(var(--*))만 사용
-// Sass 변수 오버라이드 방식 금지
-//
-// 사용 예 (HTML):
-//   <div class="card">
-//     <div class="card-body">
-//       <h3 class="card-title">카드 제목</h3>
-//       <p class="card-text">카드 설명 텍스트입니다.</p>
-//     </div>
-//   </div>
-//
-// 접근성 주의사항:
-//   - 이미지에 적절한 alt 속성 필수 (장식 이미지: alt="", 의미 이미지: 설명 텍스트)
-//   - 카드 제목에 적절한 heading 레벨 사용 (h2~h4, 페이지 구조에 맞게)
-//   - 링크 카드에서 a 태그 텍스트가 카드 목적을 설명해야 함
-//   - 독립적 콘텐츠 단위 카드에는 article 태그 사용 권장
-//   - 트랜지션 없음 — 공공기관 즉시 표시 원칙
+// [카드 — COMP-04]
+// Bootstrap 5 .card 보완: transition 제거, object-fit
 // ====================================================
 
-// ── 카드 공통 ─────────────────────────────────────
 .card {
-    border: 1px solid var(--color-border);
-    border-radius: 0.4rem;
-    background-color: var(--color-bg);
-    box-shadow: var(--shadow-sm);   // 그림자 토큰 적용 (D-07)
-    transition: none;                // 공공기관 트랜지션 없음 원칙 적용
-    overflow: hidden;
+    transition: none;
 }
 
-// ── 카드 헤더 ─────────────────────────────────────
-.card-header {
-    padding: var(--spacing-md);
-    border-bottom: 1px solid var(--color-border);
-    background-color: transparent;
-    font-weight: var(--font-weight-medium);
-}
-
-// ── 카드 본문 ─────────────────────────────────────
-.card-body {
-    padding: var(--spacing-md);
-}
-
-// ── 카드 푸터 ─────────────────────────────────────
-.card-footer {
-    padding: var(--spacing-md);
-    border-top: 1px solid var(--color-border);
-}
-
-// ── 카드 제목 ─────────────────────────────────────
-.card-title {
-    font-size: var(--font-size-md);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-sm);
-}
-
-// ── 카드 텍스트 ───────────────────────────────────
-.card-text {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-base);
-}
-
-// ── 카드 상단 이미지 ──────────────────────────────
-// alt 속성 필수 — 장식 이미지: alt="", 의미 이미지: 설명 텍스트 (접근성 패턴)
-// Bootstrap 기본: width 100%, border-radius top — object-fit만 커스텀
 .card-img-top {
     object-fit: cover;
 }

@@ -49,6 +49,16 @@ permalink: /components/card/
 
 이미지의 `alt` 속성은 이미지가 전달하는 정보를 텍스트로 대체한다. 시각장애인은 `alt` 텍스트로 이미지를 "본다". `alt`를 빠뜨리면 스크린리더가 파일명을 그대로 읽어 의미 없는 소음이 된다:
 
+<div class="docs-preview">
+  <div class="card" id="preview-image-card">
+    <img src="https://picsum.photos/300/150" class="card-img-top" alt="프로젝트 미리보기 화면">
+    <div class="card-body">
+      <div class="card-title fw-bold">프로젝트명</div>
+      <p class="card-text">프로젝트 설명입니다.</p>
+    </div>
+  </div>
+</div>
+
 ```html
 <!-- 이미지 카드 — alt 속성에 이미지 설명 필수 -->
 <!-- 의미 있는 이미지: alt="이미지 내용 설명" -->
@@ -95,6 +105,17 @@ permalink: /components/card/
 ## 링크 카드 (전체 클릭)
 
 카드 전체를 `<a>`로 감싸면 스크린리더가 카드 안의 모든 텍스트를 링크 텍스트로 읽어버린다. "카드 제목, 설명 텍스트, 날짜, 카테고리" 전부를 하나의 링크로 읽는 것은 매우 불편하다. `stretched-link` 패턴을 사용하면 시각적으로는 전체 영역이 클릭되지만 스크린리더에는 제목 텍스트만 링크로 노출된다:
+
+<div class="docs-preview">
+  <article class="card" id="preview-link-card">
+    <div class="card-body">
+      <div class="card-title fw-bold">
+        <a href="#" class="stretched-link" onclick="return false;">카드 제목</a>
+      </div>
+      <p class="card-text">설명 텍스트</p>
+    </div>
+  </article>
+</div>
 
 ```html
 <!-- 링크 카드 — article 태그 사용 (독립 콘텐츠 단위), 제목 내 a 태그 배치 -->
@@ -159,6 +180,19 @@ permalink: /components/card/
 
 카드 상단에 카테고리, 하단에 액션 버튼을 배치하는 구조다. `card-header`의 텍스트는 장식 목적이라도 스크린리더가 읽으므로 의미 있는 텍스트를 사용한다:
 
+<div class="docs-preview">
+  <div class="card" id="preview-header-footer-card">
+    <div class="card-header">카테고리</div>
+    <div class="card-body">
+      <div class="card-title fw-bold">제목</div>
+      <p class="card-text">내용</p>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-primary">자세히</button>
+    </div>
+  </div>
+</div>
+
 ```html
 <!-- 헤더/푸터 카드 — 카테고리 표시 + 액션 버튼 배치 -->
 <div class="card">
@@ -178,6 +212,22 @@ permalink: /components/card/
 ## 수평 카드 (이미지 + 텍스트)
 
 Bootstrap Grid를 사용하여 이미지와 텍스트를 좌우로 나란히 배치한다. `h-100`은 이미지를 카드 높이에 꽉 채우기 위한 유틸리티 클래스다:
+
+<div class="docs-preview">
+  <div class="card" id="preview-horizontal-card">
+    <div class="row g-0">
+      <div class="col-4">
+        <img src="https://picsum.photos/300/150" class="card-img-top h-100" alt="항목 이미지 설명">
+      </div>
+      <div class="col-8">
+        <div class="card-body">
+          <div class="card-title fw-bold">카드 제목</div>
+          <p class="card-text">카드 본문 내용입니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 ```html
 <!-- 수평 레이아웃 — Bootstrap Grid 활용, 이미지와 텍스트를 나란히 배치 -->

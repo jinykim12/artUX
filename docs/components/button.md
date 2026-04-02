@@ -25,7 +25,7 @@ permalink: /components/button/
 `type="button"`을 명시하는 이유는 `<form>` 안에 버튼을 배치했을 때 `type` 미지정 시 기본값이 `type="submit"`이어서 의도치 않은 폼 제출이 발생하기 때문이다:
 
 <div class="docs-preview">
-  <button type="button" class="btn btn-primary">확인</button>
+<button type="button" class="btn btn-primary">확인</button>
 </div>
 
 ```html
@@ -38,6 +38,14 @@ permalink: /components/button/
 ## Secondary / Outline / Ghost 버튼
 
 용도에 따라 시각적 강조 수준을 다르게 한다. 스크린리더는 버튼 텍스트를 읽으므로 텍스트가 행동을 명확히 설명해야 한다:
+
+<div class="docs-preview">
+<div class="d-flex flex-wrap gap-2">
+  <button type="button" class="btn btn-secondary">취소</button>
+  <button type="button" class="btn btn-outline-primary">더보기</button>
+  <button type="button" class="btn btn-ghost">닫기</button>
+</div>
+</div>
 
 ```html
 <!-- Secondary 버튼 — 보조 행동에 사용 (취소, 닫기 등) -->
@@ -56,6 +64,10 @@ permalink: /components/button/
 
 `disabled` 속성과 `aria-disabled="true"`를 반드시 쌍으로 적용한다. `disabled`만 쓰면 일부 구형 보조 기기에서 비활성 상태를 정확히 전달하지 못한다:
 
+<div class="docs-preview">
+<button type="button" class="btn btn-primary" disabled aria-disabled="true">제출 불가</button>
+</div>
+
 ```html
 <!-- disabled 속성 + aria-disabled="true" — 스크린 리더에서도 비활성 안내 -->
 <!-- CSS disabled 선택자와 aria-disabled 속성은 항상 쌍으로 처리한다 -->
@@ -73,6 +85,14 @@ permalink: /components/button/
 ## 아이콘 버튼
 
 아이콘만 있고 텍스트가 없는 버튼은 스크린리더가 읽을 내용이 없어 "버튼"이라고만 읽힌다. `aria-label`로 버튼 목적을 반드시 설명해야 한다. SVG 아이콘의 `focusable="false"`는 Internet Explorer에서 SVG가 별도 포커스를 받는 버그를 방지한다:
+
+<div class="docs-preview">
+<div class="d-flex flex-wrap gap-2 align-items-center">
+  <button type="button" class="btn btn-ghost btn--icon" aria-label="삭제">&#128465;</button>
+  <button type="button" class="btn btn-ghost btn--icon" aria-label="검색">&#128269;</button>
+  <button type="button" class="btn btn-primary">&#128190; 다운로드</button>
+</div>
+</div>
 
 ```html
 <!-- 아이콘 전용 버튼 — aria-label 필수 (텍스트 없으므로 스크린 리더 안내) -->
@@ -119,6 +139,10 @@ permalink: /components/button/
 
 `<a>` 태그는 "페이지 이동"에, `<button>` 태그는 "행동 실행"에 사용하는 것이 원칙이다. 이동 목적지가 없는 클릭 행동에는 `<button>`을 사용해야 키보드 접근성을 보장할 수 있다:
 
+<div class="docs-preview">
+<a href="#" onclick="return false;" class="btn btn-primary" role="button">다운로드</a>
+</div>
+
 ```html
 <!-- a 태그를 버튼처럼 사용할 때 — role="button" 추가 -->
 <!-- href가 있으면 <a> 태그, 없으면 <button>을 사용하는 것이 원칙 -->
@@ -151,6 +175,10 @@ permalink: /components/button/
 ## 로딩 상태 버튼
 
 폼 제출 중 버튼이 비활성되면서 텍스트가 "제출 중..."으로 바뀐다. `aria-busy="true"`를 추가하면 스크린리더가 "바쁨" 상태임을 인식한다:
+
+<div class="docs-preview">
+<button type="button" class="btn btn-primary" disabled aria-disabled="true" aria-busy="true">제출 중...</button>
+</div>
 
 ```html
 <!-- 로딩 상태 — aria-busy="true" + 텍스트 변경으로 스크린 리더에 상태 전달 -->

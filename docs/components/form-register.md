@@ -155,6 +155,20 @@ $(function () {
 
 비밀번호 확인이 일치하지 않을 때의 오류 상태이다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-reg-pw-err" class="form-label">비밀번호 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
+    <input type="password" id="preview-reg-pw-err" name="password" class="form-control" required aria-required="true" autocomplete="new-password">
+  </div>
+  <div class="mb-3">
+    <label for="preview-reg-pw-confirm-err" class="form-label">비밀번호 확인 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
+    <input type="password" id="preview-reg-pw-confirm-err" name="password_confirm" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="preview-pw-confirm-error" autocomplete="new-password">
+    <p id="preview-pw-confirm-error" class="form-error" role="alert">비밀번호가 일치하지 않습니다.</p>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 비밀번호 불일치 오류 — is-invalid + aria-invalid 쌍 처리 -->
 <div class="mb-3">
@@ -169,6 +183,32 @@ $(function () {
 ## 약관 동의 (fieldset/legend)
 
 약관 동의 항목은 `<fieldset>` + `<legend>`로 그룹화한다. 전체 동의 체크박스와 개별 동의 체크박스를 분리한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset class="mb-3">
+    <legend class="form-label">약관 동의 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></legend>
+    <div class="form-check mb-2">
+      <input type="checkbox" id="preview-agree-all" class="form-check-input">
+      <label for="preview-agree-all" class="form-check-label"><strong>전체 동의</strong></label>
+    </div>
+    <hr>
+    <div class="form-check">
+      <input type="checkbox" id="preview-agree-terms" name="agree_terms" class="form-check-input" required aria-required="true">
+      <label for="preview-agree-terms" class="form-check-label">이용약관 동의 (필수)</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-agree-privacy" name="agree_privacy" class="form-check-input" required aria-required="true">
+      <label for="preview-agree-privacy" class="form-check-label">개인정보 수집·이용 동의 (필수)</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="preview-agree-marketing" name="agree_marketing" class="form-check-input">
+      <label for="preview-agree-marketing" class="form-check-label">마케팅 정보 수신 동의 (선택)</label>
+    </div>
+  </fieldset>
+  <button type="submit" class="btn btn-primary">가입 완료</button>
+</form>
+</div>
 
 ```html
 <!-- 약관 동의 — fieldset/legend로 그룹화, 필수 체크박스에 aria-required -->

@@ -1,27 +1,5 @@
-@use '../2-tools/breakpoints' as *;
-
 // ====================================================
-// [툴팁 컴포넌트 — COMP-14]
-// KRDS v1.0.0: Tooltip
-// Bootstrap 5 Tooltip을 CSS 토큰으로 오버라이드
-//
-// 사용법 (HTML):
-//   <button type="button" data-bs-toggle="tooltip" title="설명 텍스트">버튼</button>
-//
-// JS 초기화 (jQuery):
-//   $('[data-bs-toggle="tooltip"]').each(function(){ new bootstrap.Tooltip(this); });
-//
-// 접근성:
-//   - Bootstrap Tooltip이 aria-describedby 자동 생성
-//   - hover + focus 모두 표시 (Bootstrap 기본)
-//   - ESC 키 닫기 지원 (Bootstrap 기본)
+// [툴팁 — COMP-14]
+// Bootstrap 5 Tooltip — 현재 추가 오버라이드 불필요
+// 커스텀 필요 시 이 파일에 추가
 // ====================================================
-
-// Bootstrap Tooltip 스타일 오버라이드
-// Bootstrap 기본: padding .25rem .5rem, border-radius .375rem
-// bg·font-size = 커스텀 토큰, border-radius .25rem = 의도적 차이
-.tooltip-inner {
-    background-color: var(--color-text);
-    font-size: var(--font-size-sm);
-    border-radius: 0.25rem;
-}

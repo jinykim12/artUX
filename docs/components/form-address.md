@@ -83,6 +83,18 @@ permalink: /components/form-address/
 
 팝업(다이얼로그)에 `role="dialog"`, `aria-modal="true"`, `aria-label`을 적용한다. 팝업이 열리면 팝업 내부로 포커스를 이동하고, 키보드 트랩을 적용한다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-popup-postcode" class="form-label">우편번호</label>
+    <div class="d-flex gap-2">
+      <input type="text" id="preview-popup-postcode" class="form-control" readonly placeholder="우편번호" autocomplete="postal-code">
+      <button type="button" class="btn btn-outline-secondary text-nowrap" aria-haspopup="dialog">우편번호 검색</button>
+    </div>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 우편번호 검색 팝업 — role="dialog", aria-modal, 키보드 트랩 -->
 <div id="postcode-dialog" class="modal" role="dialog" aria-modal="true" aria-label="우편번호 검색" class="d-none">
@@ -181,6 +193,27 @@ $(function () {
 ## 주소 오류 상태
 
 우편번호 미입력 또는 상세주소 미입력 시의 오류 상태이다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset class="mb-3">
+    <legend class="form-label">주소 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></legend>
+    <div class="d-flex gap-2 mb-2">
+      <input type="text" id="preview-postcode-err" class="form-control" readonly value="06234">
+      <button type="button" class="btn btn-outline-secondary text-nowrap" aria-haspopup="dialog">우편번호 검색</button>
+    </div>
+    <div class="mb-2">
+      <label for="preview-road-err" class="form-label">기본주소</label>
+      <input type="text" id="preview-road-err" class="form-control" readonly value="서울특별시 강남구 테헤란로 123">
+    </div>
+    <div class="mb-2">
+      <label for="preview-detail-err" class="form-label">상세주소</label>
+      <input type="text" id="preview-detail-err" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="preview-detail-error-msg">
+      <p id="preview-detail-error-msg" class="text-danger small mt-1" role="alert">상세주소를 입력해 주세요.</p>
+    </div>
+  </fieldset>
+</form>
+</div>
 
 ```html
 <!-- 주소 오류 — 상세주소 미입력 시 오류 처리 -->

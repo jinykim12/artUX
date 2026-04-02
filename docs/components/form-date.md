@@ -49,6 +49,16 @@ permalink: /components/form-date/
 
 `input type="date"`를 지원하지 않는 환경에서 사용하는 텍스트 입력 폴백이다. `pattern` 속성과 `inputmode="numeric"`으로 입력을 유도한다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-date-fallback" class="form-label">날짜</label>
+    <input type="text" id="preview-date-fallback" name="date" class="form-control" placeholder="YYYY-MM-DD" pattern="\d{4}-\d{2}-\d{2}" inputmode="numeric" aria-describedby="preview-date-fallback-hint">
+    <p id="preview-date-fallback-hint" class="form-text">형식: YYYY-MM-DD (예: 2026-03-31)</p>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 텍스트 폴백 — pattern으로 형식 검증, inputmode="numeric"으로 숫자 키보드 유도 -->
 <div class="mb-3">
@@ -63,6 +73,16 @@ permalink: /components/form-date/
 ## 필수 날짜 입력
 
 날짜가 필수인 경우 `required`와 `aria-required="true"`를 적용한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-event-date" class="form-label">행사일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
+    <input type="date" id="preview-event-date" name="event_date" class="form-control" required aria-required="true" aria-describedby="preview-event-date-hint">
+    <p id="preview-event-date-hint" class="form-text">형식: YYYY-MM-DD</p>
+  </div>
+</form>
+</div>
 
 ```html
 <!-- 필수 날짜 — required + aria-required, 필수 표시 적용 -->
@@ -79,6 +99,17 @@ permalink: /components/form-date/
 
 날짜 형식이 올바르지 않거나 범위를 벗어났을 때의 오류 상태이다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <div class="mb-3">
+    <label for="preview-date-error" class="form-label">행사일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
+    <input type="date" id="preview-date-error" name="event_date" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="preview-date-error-hint preview-date-error-msg">
+    <p id="preview-date-error-hint" class="form-text">형식: YYYY-MM-DD</p>
+    <p id="preview-date-error-msg" class="form-error" role="alert">올바른 날짜를 입력해 주세요.</p>
+  </div>
+</form>
+</div>
+
 ```html
 <!-- 날짜 오류 — is-invalid + aria-invalid 쌍 처리, role="alert"로 즉시 알림 -->
 <div class="mb-3">
@@ -94,6 +125,26 @@ permalink: /components/form-date/
 ## 날짜 범위 (시작일~종료일)
 
 시작일과 종료일을 함께 입력받을 때 `<fieldset>` + `<legend>`로 그룹화한다. `min`/`max` 속성으로 논리적 범위를 제한한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset class="mb-3">
+    <legend class="form-label">조회 기간</legend>
+    <div class="d-flex align-items-center gap-2">
+      <div>
+        <label for="preview-date-start" class="form-label">시작일</label>
+        <input type="date" id="preview-date-start" name="date_start" class="form-control" aria-describedby="preview-date-range-hint">
+      </div>
+      <span aria-hidden="true">~</span>
+      <div>
+        <label for="preview-date-end" class="form-label">종료일</label>
+        <input type="date" id="preview-date-end" name="date_end" class="form-control">
+      </div>
+    </div>
+    <p id="preview-date-range-hint" class="form-text">시작일은 종료일보다 이전이어야 합니다.</p>
+  </fieldset>
+</form>
+</div>
 
 ```html
 <!-- 날짜 범위 — fieldset/legend로 그룹화, min/max로 범위 제한 -->
@@ -120,6 +171,26 @@ permalink: /components/form-date/
 
 시작일이 종료일보다 이후인 경우의 오류 처리이다:
 
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset class="mb-3">
+    <legend class="form-label">조회 기간</legend>
+    <div class="d-flex align-items-center gap-2">
+      <div>
+        <label for="preview-date-start-err" class="form-label">시작일</label>
+        <input type="date" id="preview-date-start-err" name="date_start" class="form-control is-invalid" aria-invalid="true" aria-describedby="preview-date-range-error" value="2026-04-01">
+      </div>
+      <span aria-hidden="true">~</span>
+      <div>
+        <label for="preview-date-end-err" class="form-label">종료일</label>
+        <input type="date" id="preview-date-end-err" name="date_end" class="form-control is-invalid" aria-invalid="true" aria-describedby="preview-date-range-error" value="2026-03-15">
+      </div>
+    </div>
+    <p id="preview-date-range-error" class="form-error" role="alert">시작일은 종료일보다 이전이어야 합니다.</p>
+  </fieldset>
+</form>
+</div>
+
 ```html
 <!-- 날짜 범위 오류 — 시작일이 종료일보다 이후일 때 -->
 <fieldset class="mb-3">
@@ -144,6 +215,42 @@ permalink: /components/form-date/
 ## 연·월·일 분리 입력
 
 하나의 날짜를 연/월/일 세 개의 필드로 분리 입력받는 패턴이다. `<fieldset>` + `<legend>`로 묶어 하나의 날짜 질문임을 전달한다:
+
+<div class="docs-preview">
+<form onsubmit="return false;">
+  <fieldset class="mb-3">
+    <legend class="form-label">생년월일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></legend>
+    <div class="d-flex gap-2">
+      <div>
+        <label for="preview-birth-year" class="form-label">년</label>
+        <input type="text" id="preview-birth-year" name="birth_year" class="form-control" inputmode="numeric" pattern="\d{4}" maxlength="4" required aria-required="true" placeholder="YYYY">
+      </div>
+      <div>
+        <label for="preview-birth-month" class="form-label">월</label>
+        <select id="preview-birth-month" name="birth_month" class="form-select" required aria-required="true">
+          <option value="">선택</option>
+          <option value="01">1월</option>
+          <option value="02">2월</option>
+          <option value="03">3월</option>
+          <option value="04">4월</option>
+          <option value="05">5월</option>
+          <option value="06">6월</option>
+          <option value="07">7월</option>
+          <option value="08">8월</option>
+          <option value="09">9월</option>
+          <option value="10">10월</option>
+          <option value="11">11월</option>
+          <option value="12">12월</option>
+        </select>
+      </div>
+      <div>
+        <label for="preview-birth-day" class="form-label">일</label>
+        <input type="text" id="preview-birth-day" name="birth_day" class="form-control" inputmode="numeric" pattern="\d{1,2}" maxlength="2" required aria-required="true" placeholder="DD">
+      </div>
+    </div>
+  </fieldset>
+</form>
+</div>
 
 ```html
 <!-- 연·월·일 분리 입력 — fieldset/legend로 하나의 날짜 그룹화 -->
