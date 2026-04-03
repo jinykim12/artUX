@@ -236,7 +236,7 @@ $(function () {
     <div class="mb-2">
         <label for="addr-detail-err" class="form-label">상세주소</label>
         <input type="text" id="addr-detail-err" name="address_detail" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="addr-detail-error">
-        <p id="addr-detail-error" class="form-error" role="alert">상세주소를 입력해 주세요.</p>
+        <p id="addr-detail-error" class="invalid-feedback d-block" role="alert">상세주소를 입력해 주세요.</p>
     </div>
 </fieldset>
 ```

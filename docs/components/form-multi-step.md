@@ -130,13 +130,13 @@ permalink: /components/form-multi-step/
         <div class="mb-3">
             <label for="ms-name" class="form-label">이름 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
             <input type="text" id="ms-name" name="name" class="form-control" required aria-required="true" autocomplete="name">
-            <p id="ms-name-error" class="form-error" class="d-none"></p>
+            <p id="ms-name-error" class="invalid-feedback d-block" class="d-none"></p>
         </div>
 
         <div class="mb-3">
             <label for="ms-email" class="form-label">이메일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
             <input type="email" id="ms-email" name="email" class="form-control" required aria-required="true" autocomplete="email">
-            <p id="ms-email-error" class="form-error" class="d-none"></p>
+            <p id="ms-email-error" class="invalid-feedback d-block" class="d-none"></p>
         </div>
 
         <div class="step-actions">
@@ -152,7 +152,7 @@ permalink: /components/form-multi-step/
             <label for="ms-phone" class="form-label">휴대전화 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
             <input type="tel" id="ms-phone" name="phone" class="form-control" required aria-required="true" autocomplete="tel" aria-describedby="ms-phone-hint">
             <p id="ms-phone-hint" class="form-text">숫자만 입력 (예: 01012345678)</p>
-            <p id="ms-phone-error" class="form-error" class="d-none"></p>
+            <p id="ms-phone-error" class="invalid-feedback d-block" class="d-none"></p>
         </div>
 
         <div class="mb-3">
@@ -181,7 +181,7 @@ permalink: /components/form-multi-step/
                 <label for="ms-agree-privacy" class="form-check-label">개인정보 수집·이용 동의 (필수)</label>
             </div>
         </fieldset>
-        <p id="ms-agree-error" class="form-error" class="d-none"></p>
+        <p id="ms-agree-error" class="invalid-feedback d-block" class="d-none"></p>
 
         <div class="step-actions">
             <button type="button" class="btn btn-secondary" data-step-prev="2">이전</button>

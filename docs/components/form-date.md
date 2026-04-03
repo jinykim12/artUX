@@ -105,7 +105,7 @@ permalink: /components/form-date/
     <label for="preview-date-error" class="form-label">행사일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
     <input type="date" id="preview-date-error" name="event_date" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="preview-date-error-hint preview-date-error-msg">
     <p id="preview-date-error-hint" class="form-text">형식: YYYY-MM-DD</p>
-    <p id="preview-date-error-msg" class="form-error" role="alert">올바른 날짜를 입력해 주세요.</p>
+    <p id="preview-date-error-msg" class="invalid-feedback d-block" role="alert">올바른 날짜를 입력해 주세요.</p>
   </div>
 </form>
 </div>
@@ -116,7 +116,7 @@ permalink: /components/form-date/
     <label for="date-error" class="form-label">행사일 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
     <input type="date" id="date-error" name="event_date" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="date-error-hint date-error-msg">
     <p id="date-error-hint" class="form-text">형식: YYYY-MM-DD</p>
-    <p id="date-error-msg" class="form-error" role="alert">올바른 날짜를 입력해 주세요.</p>
+    <p id="date-error-msg" class="invalid-feedback d-block" role="alert">올바른 날짜를 입력해 주세요.</p>
 </div>
 ```
 
@@ -186,7 +186,7 @@ permalink: /components/form-date/
         <input type="date" id="preview-date-end-err" name="date_end" class="form-control is-invalid" aria-invalid="true" aria-describedby="preview-date-range-error" value="2026-03-15">
       </div>
     </div>
-    <p id="preview-date-range-error" class="form-error" role="alert">시작일은 종료일보다 이전이어야 합니다.</p>
+    <p id="preview-date-range-error" class="invalid-feedback d-block" role="alert">시작일은 종료일보다 이전이어야 합니다.</p>
   </fieldset>
 </form>
 </div>
@@ -206,7 +206,7 @@ permalink: /components/form-date/
             <input type="date" id="date-end-err" name="date_end" class="form-control is-invalid" aria-invalid="true" aria-describedby="date-range-error" value="2026-03-15">
         </div>
     </div>
-    <p id="date-range-error" class="form-error" role="alert">시작일은 종료일보다 이전이어야 합니다.</p>
+    <p id="date-range-error" class="invalid-feedback d-block" role="alert">시작일은 종료일보다 이전이어야 합니다.</p>
 </fieldset>
 ```
 

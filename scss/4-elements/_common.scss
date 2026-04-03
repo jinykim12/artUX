@@ -7,6 +7,14 @@ body {
     word-wrap: break-word;
 }
 
+// 공공기관 트랜지션 없음 — 전역 적용
+// 개별 컴포넌트에서 반복 선언 불필요
+*,
+*::before,
+*::after {
+    transition: none !important;
+}
+
 // 스크린리더 전용 — 팀 관행명 .sr-only (Bootstrap .visually-hidden 별칭)
 .sr-only {
     position: absolute;

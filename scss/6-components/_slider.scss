@@ -18,7 +18,6 @@
 //   - 자동 재생 사용 시 정지 버튼 필수 (KWCAG 2.2.2)
 //   - 정지 버튼은 항상 가시적 위치에 배치 (숨김 처리 금지)
 //   - Swiper a11y 옵션 활성화 필수 (paginationBulletMessage, slideLabelMessage)
-//   - transition: none — 공공기관 즉시 표시 원칙
 // ====================================================
 
 // ── 슬라이더 컨테이너 ────────────────────────────
@@ -28,7 +27,6 @@
 
 // ── Swiper 슬라이드 전환 — 공공기관 즉시 표시 원칙 ──
 .swiper-slide {
-    transition: none;
 }
 
 // ── 정지/재생 컨트롤 영역 ───────────────────────
@@ -57,7 +55,6 @@
     border-radius: 6px;
     color: var(--bs-body-color);
     cursor: pointer;
-    transition: none;   // 공공기관 즉시 표시 원칙
 
     &:hover {
     background-color: var(--bs-border-color);

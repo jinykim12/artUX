@@ -86,7 +86,6 @@
     border: 2px solid var(--bs-border-color);
     position: relative;
     z-index: 1;
-    transition: none;  // 공공기관 트랜지션 없음 원칙
 
     // 현재 단계
     .step-indicator__item--active & {

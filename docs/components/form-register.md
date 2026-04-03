@@ -164,7 +164,7 @@ $(function () {
   <div class="mb-3">
     <label for="preview-reg-pw-confirm-err" class="form-label">비밀번호 확인 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
     <input type="password" id="preview-reg-pw-confirm-err" name="password_confirm" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="preview-pw-confirm-error" autocomplete="new-password">
-    <p id="preview-pw-confirm-error" class="form-error" role="alert">비밀번호가 일치하지 않습니다.</p>
+    <p id="preview-pw-confirm-error" class="invalid-feedback d-block" role="alert">비밀번호가 일치하지 않습니다.</p>
   </div>
 </form>
 </div>
@@ -174,7 +174,7 @@ $(function () {
 <div class="mb-3">
     <label for="reg-pw-confirm-err" class="form-label">비밀번호 확인 <span aria-hidden="true">*</span><span class="sr-only">(필수)</span></label>
     <input type="password" id="reg-pw-confirm-err" name="password_confirm" class="form-control is-invalid" required aria-required="true" aria-invalid="true" aria-describedby="pw-confirm-error" autocomplete="new-password">
-    <p id="pw-confirm-error" class="form-error" role="alert">비밀번호가 일치하지 않습니다.</p>
+    <p id="pw-confirm-error" class="invalid-feedback d-block" role="alert">비밀번호가 일치하지 않습니다.</p>
 </div>
 ```
 

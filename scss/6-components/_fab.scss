@@ -45,7 +45,6 @@
     color: #fff;
     cursor: pointer;
     box-shadow: var(--bs-box-shadow);
-    transition: none;  // 공공기관 트랜지션 없음 원칙
 
     &:hover {
         filter: brightness(0.9);

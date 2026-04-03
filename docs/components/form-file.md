@@ -109,7 +109,7 @@ permalink: /components/form-file/
     <label for="preview-file-error" class="form-label">첨부파일</label>
     <input type="file" id="preview-file-error" name="attachment" class="form-control is-invalid" aria-invalid="true" aria-describedby="preview-file-error-hint preview-file-error-msg" accept=".pdf,.hwp,.docx">
     <p id="preview-file-error-hint" class="form-text">허용 형식: PDF, HWP, DOCX / 최대 10MB</p>
-    <p id="preview-file-error-msg" class="form-error" role="alert">파일 크기가 10MB를 초과합니다. 더 작은 파일을 선택해 주세요.</p>
+    <p id="preview-file-error-msg" class="invalid-feedback d-block" role="alert">파일 크기가 10MB를 초과합니다. 더 작은 파일을 선택해 주세요.</p>
   </div>
 </form>
 </div>
@@ -120,7 +120,7 @@ permalink: /components/form-file/
     <label for="file-error" class="form-label">첨부파일</label>
     <input type="file" id="file-error" name="attachment" class="form-control is-invalid" aria-invalid="true" aria-describedby="file-error-hint file-error-msg" accept=".pdf,.hwp,.docx">
     <p id="file-error-hint" class="form-text">허용 형식: PDF, HWP, DOCX / 최대 10MB</p>
-    <p id="file-error-msg" class="form-error" role="alert">파일 크기가 10MB를 초과합니다. 더 작은 파일을 선택해 주세요.</p>
+    <p id="file-error-msg" class="invalid-feedback d-block" role="alert">파일 크기가 10MB를 초과합니다. 더 작은 파일을 선택해 주세요.</p>
 </div>
 ```
 

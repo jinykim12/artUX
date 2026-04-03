@@ -87,7 +87,7 @@ permalink: /components/forms/
     autocomplete="email"
   >
   <!-- role="alert" — 스크린 리더에 오류 내용 즉시 알림 -->
-  <p id="email-error" class="form-error" role="alert">
+  <p id="email-error" class="invalid-feedback d-block" role="alert">
     올바른 이메일 형식으로 입력해 주세요.
   </p>
 </div>
@@ -105,7 +105,7 @@ permalink: /components/forms/
 
 ```html
 <input class="form-control is-invalid" aria-invalid="true" aria-describedby="email-error">
-<p id="email-error" class="form-error" role="alert">올바른 이메일 형식으로 입력해 주세요.</p>
+<p id="email-error" class="invalid-feedback d-block" role="alert">올바른 이메일 형식으로 입력해 주세요.</p>
 ```
 
 > **주의:** `is-invalid` 클래스와 `aria-invalid="true"` 속성은 항상 쌍으로 처리한다.
@@ -170,7 +170,7 @@ permalink: /components/forms/
     <option value="seoul">서울</option>
     <option value="busan">부산</option>
   </select>
-  <p id="region-error" class="form-error" role="alert">
+  <p id="region-error" class="invalid-feedback d-block" role="alert">
     지역을 선택해 주세요.
   </p>
 </div>
@@ -231,7 +231,7 @@ permalink: /components/forms/
     aria-describedby="content-hint content-error"
   ></textarea>
   <p id="content-hint" class="form-text">최소 10자 이상 입력해 주세요.</p>
-  <p id="content-error" class="form-error" role="alert">
+  <p id="content-error" class="invalid-feedback d-block" role="alert">
     내용을 입력해 주세요.
   </p>
 </div>
@@ -457,7 +457,7 @@ permalink: /components/forms/
     >
     <!-- 오류 메시지 컨테이너 — 미리 DOM에 존재, 내용은 비워둠 -->
     <!-- id는 반드시 "필드id-error" 패턴 유지 (JS에서 errorId = field.id + '-error') -->
-    <p id="v-name-error" class="form-error" class="d-none"></p>
+    <p id="v-name-error" class="invalid-feedback d-block" class="d-none"></p>
   </div>
 
   <div class="mb-3">
@@ -476,7 +476,7 @@ permalink: /components/forms/
       aria-required="true"
       autocomplete="email"
     >
-    <p id="v-email-error" class="form-error" class="d-none"></p>
+    <p id="v-email-error" class="invalid-feedback d-block" class="d-none"></p>
   </div>
 
   <button type="submit" class="btn btn-primary">제출</button>

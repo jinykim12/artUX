@@ -56,7 +56,7 @@ permalink: /components/form-login/
     <h2>로그인</h2>
 
     <!-- 로그인 오류 메시지 — role="alert"로 즉시 알림, 초기에는 비워둠 -->
-    <div id="login-error" class="form-error" role="alert" class="d-none"></div>
+    <div id="login-error" class="invalid-feedback d-block" role="alert" class="d-none"></div>
 
     <div class="mb-3">
         <label for="login-id" class="form-label">아이디</label>
@@ -114,7 +114,7 @@ permalink: /components/form-login/
     <h2>로그인</h2>
 
     <!-- 로그인 실패 메시지 — role="alert"가 스크린리더에 즉시 전달 -->
-    <div id="login-error" class="form-error" role="alert">
+    <div id="login-error" class="invalid-feedback d-block" role="alert">
         <p>아이디 또는 비밀번호가 일치하지 않습니다. 다시 확인해 주세요.</p>
     </div>
 
