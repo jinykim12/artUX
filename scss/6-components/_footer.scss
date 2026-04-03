@@ -96,12 +96,13 @@
         margin: 0;
         padding: 0;
         display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
+        flex-direction: column;
+        gap: 8px;
 
         @media (min-width: 768px) {
-            flex-direction: column;
-            gap: 8px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 20px;
         }
     }
 

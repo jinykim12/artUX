@@ -222,6 +222,16 @@ KRDS 프레임워크를 직접 사용하지는 않지만, 접근성 패턴과 AR
 | 테이블 | Table | 레이아웃 및 표현 | `<caption>`, `scope`, `<thead>/<tbody>` |
 | 카드 | — (KRDS 미정의) | — | 시맨틱 마크업, 링크 내 이미지 `alt` |
 | 슬라이더 | Carousel | 레이아웃 및 표현 | `aria-live`, 정지 버튼, `aria-label` |
+| 아코디언 | Accordion | 레이아웃 및 표현 | `aria-expanded`, `aria-controls`, Bootstrap `data-bs-toggle="collapse"` |
+| 토스트 | Toast / Snackbar | 피드백 | `role="alert"`, `aria-live`, Bootstrap `data-bs-dismiss="toast"` |
+| 배지 | Badge | 레이아웃 및 표현 | `.sr-only` 컨텍스트 텍스트, Bootstrap `bg-*` |
+| 툴팁 | Tooltip | 레이아웃 및 표현 | Bootstrap `data-bs-toggle="tooltip"`, `aria-describedby` 자동 생성 |
+| 단계 표시기 | Step indicator | 피드백 | `aria-current="step"`, `<ol>` 순서 목록 |
+| 스피너 | Spinner | 피드백 | `role="status"`, `.sr-only` "로딩 중", Bootstrap `.spinner-border` |
+| 사이드 메뉴 | Side navigation | 탐색 | `<nav aria-label>`, `aria-current="page"` |
+| 푸터 | Footer / Identifier | 아이덴티티 | `<footer>`, `<address>`, `role="contentinfo"` |
+| 플로팅 버튼 | FAB | 액션 | `aria-label` 필수, `position: fixed` |
+| 공식 배너 | Masthead | 아이덴티티 | `role="region"`, `aria-label`, 정부 사이트 식별 |
 
 ### KRDS에서 참조할 추가 패턴
 

@@ -98,7 +98,7 @@ Bootstrap 컴포넌트 전체에 적용할 스타일 변경은 SCSS에서 해당
 // scss/6-components/_card.scss
 // Bootstrap 카드 기본 스타일을 프로젝트 토큰으로 변경
 .card {
-  --bs-card-border-radius: var(--radius-md);
+  --bs-card-border-radius: 0.375rem;
   --bs-card-bg: var(--bs-body-bg);
   --bs-card-border-color: var(--bs-border-color);
 }
@@ -127,12 +127,12 @@ Bootstrap 컴포넌트 전체에 적용할 스타일 변경은 SCSS에서 해당
 // 강조 카드 변형 — BEM 수정자
 .card--featured {
   border-color: var(--bs-primary);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--bs-box-shadow);
 
   // 수정자 안에서 Bootstrap 하위 요소 스타일 변경
   .card-title {
     color: var(--bs-primary);
-    font-weight: var(--font-weight-bold);
+    font-weight: 700;
   }
 
   .card-body {
