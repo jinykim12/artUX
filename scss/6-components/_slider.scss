@@ -47,8 +47,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.75rem;   // 44px — WCAG 2.5.8 최소 터치영역 (기존 3.2rem → 4.4rem)
-    min-height: 2.75rem;  // 44px — WCAG 2.5.8 최소 터치영역 (기존 3.2rem → 4.4rem)
+    min-width: 44px;   // WCAG 2.5.8 최소 터치영역
+    min-height: 44px;  // WCAG 2.5.8 최소 터치영역
     padding: 0;
     background: none;
     border: 1px solid var(--bs-border-color);

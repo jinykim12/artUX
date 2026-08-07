@@ -46,11 +46,11 @@
  display: flex;
  align-items: center;
  justify-content: space-between;
- height: 3.75rem;  // 모바일 헤더 높이 (60px)
+ height: 60px;  // 모바일 헤더 높이
  padding: 0 20px;
 
  @media (min-width: 992px) {
-    height: 5rem;  // PC 헤더 높이 (80px)
+    height: 80px;  // PC 헤더 높이
     padding: 0 28px;
  }
  }
@@ -73,8 +73,8 @@
  align-items: center;
  justify-content: center;
  gap: 8px;            // 막대 간격을 gap으로 처리 (터치영역 확보 후)
- min-width: 2.75rem;      // 44px — WCAG 2.5.8 최소 터치영역
- min-height: 2.75rem;     // 44px — WCAG 2.5.8 최소 터치영역
+ min-width: 44px;      // WCAG 2.5.8 최소 터치영역
+ min-height: 44px;     // WCAG 2.5.8 최소 터치영역
  padding: 0;
  background: none;
  border: none;
