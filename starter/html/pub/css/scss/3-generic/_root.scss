@@ -1,16 +1,91 @@
+// 자동 생성 — tokens.json에서 생성됨. 직접 수정 금지.
+// 토큰 수정: tokens.json → node scripts/build-tokens.js
 // ====================================================
-// artpqUX 디자인 토큰
+// artpqUX CSS Custom Properties (디자인 토큰)
 //
-// Bootstrap 5 --bs-* CSS 변수를 직접 사용한다.
-// 커스텀 토큰을 별도로 정의하지 않는다.
+// 토큰 네이밍 규칙: --[카테고리]-[이름]-[변형]
+//   --color-*       색상
+//   --font-size-*   폰트 크기
+//   --font-weight-* 폰트 굵기
+//   --leading-*     줄간격
+//   --spacing-*     간격
+//   --shadow-*      그림자
+//   --transition-*  전환 속도
+//   --z-*           z-index
 //
-// 색상:     var(--bs-primary), var(--bs-danger), var(--bs-body-color) 등
-// 폰트:     Bootstrap 기본값 (1rem = 16px)
-// 간격:     Bootstrap 유틸리티 (p-3, gap-2 등) 또는 rem 직접 사용
-// 그림자:   var(--bs-box-shadow), var(--bs-box-shadow-sm) 등
-// z-index:  Bootstrap 기본값 (1000, 1040, 1050 등)
+// Bootstrap 충돌 방지:
+//   Bootstrap 5.3은 --bs-* 접두어 사용 → 팀 토큰과 이름 충돌 없음
 //
-// 색상 커스터마이징:
-//   _vendor.scss에서 $primary, $secondary 등을 바꾸면
-//   --bs-primary 등 CSS 변수가 자동 반영된다.
+// [Bootstrap 기본 REM 환경] 1rem = 16px
+//   px→rem 환산: px / 16 = rem (예: 16px = 1rem)
 // ====================================================
+
+:root {
+    // ── 색상 토큰 (TOKEN-01) ──────────────────────────
+    // Bootstrap Sass 변수 ↔ CSS Custom Properties 매핑:
+    //   $primary (#0d6efd)        → --color-primary
+    //   $secondary (#6c757d)      → --color-secondary
+    //   $body-color (#212529)     → --color-text
+    //   $text-muted (#6c757d)     → --color-text-muted
+    //   $body-bg (#fff)           → --color-bg
+    //   $border-color (#dee2e6)   → --color-border
+    //   $danger (#dc3545)         → --color-error
+    //   $success (#198754)        → --color-success
+    //
+    // [중요] $primary: var(--color-primary) 사용 불가
+    // Sass 변수는 컴파일-타임 정적값이어야 한다.
+    // 값 변경 시 _vendor.scss의 $primary도 동일하게 수정할 것.
+    --color-primary:     #0d6efd;
+    --color-secondary:   #6c757d;
+    --color-text:        #212529;
+    --color-text-muted:  #6c757d;
+    --color-bg:          #fff;
+    --color-border:      #dee2e6;
+    --color-error:       #dc3545;
+    --color-success:     #198754;
+
+    // ── 타이포그래피 토큰 (TOKEN-02) ──────────────────
+    // [Bootstrap 기본 REM] 1rem = 16px
+    --font-size-xs:    0.6875rem; // 11px
+    --font-size-sm:    0.8125rem; // 13px
+    --font-size-base:  1rem; // 16px — Bootstrap $font-size-base 대응
+    --font-size-md:    1.1875rem; // 19px
+    --font-size-lg:    1.375rem; // 22px
+    --font-size-xl:    1.75rem; // 28px
+    --font-size-2xl:   2.25rem; // 36px
+    --font-weight-regular:  400;
+    --font-weight-medium:   500;
+    --font-weight-bold:     700;
+
+    --leading-tight:   1.25;
+    --leading-normal:  1.5; // Bootstrap $line-height-base 기본값
+    --leading-loose:   1.75;
+
+    // ── 접근성 토큰 (TOKEN-02b) ───────────────────────
+    --touch-target-min:  2.75rem; // 44px — WCAG 2.5.8 최소 터치영역
+
+    // ── 간격 토큰 — 4px 기반 7단계 (TOKEN-03) ────────
+    // [Bootstrap 기본 REM] 4px = 0.25rem
+    --spacing-xs:   0.25rem; //  4px
+    --spacing-sm:   0.5rem; //  8px
+    --spacing-md:   1.25rem; // 20px
+    --spacing-lg:   1.75rem; // 28px
+    --spacing-xl:   2rem; // 32px
+    --spacing-2xl:  3rem; // 48px
+    --spacing-3xl:  4rem; // 64px
+
+    // ── 기타 토큰 (TOKEN-04) ─────────────────────────
+    // 그림자 — Bootstrap --bs-box-shadow-* 값 참조
+    --shadow-sm:  0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --shadow-md:  0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --shadow-lg:  0 1rem 3rem rgba(0, 0, 0, 0.175);
+
+    // 전환
+    --transition-fast:  150ms ease;
+    --transition-base:  300ms ease;
+
+    // z-index — Bootstrap z-index 체계와 정렬
+    --z-dropdown:  1000;
+    --z-overlay:   1040;
+    --z-modal:     1050;
+}

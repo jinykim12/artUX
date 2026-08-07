@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # sync-starter.sh
-# 메인 scss/에서 starter/scss/로 핵심 파일을 자동 복사한다.
+# 메인 scss/에서 starter/html/pub/css/scss/로 핵심 파일을 자동 복사한다.
 # 사용법: bash scripts/sync-starter.sh
 
 set -euo pipefail
 
 SRC="scss"
-DEST="starter/scss"
+DEST="starter/html/pub/css/scss"
 
-echo "artUX sync-starter: 메인 scss → starter/scss 동기화 시작"
+echo "artUX sync-starter: 메인 scss → starter/html/pub/css/scss 동기화 시작"
 echo "------------------------------------------------------"
 
 # ------------------------------------------------------------------
@@ -53,17 +53,10 @@ cp "${SRC}/5-objects/_layout.scss" "${DEST}/5-objects/_layout.scss"
 cp "${SRC}/5-objects/_index.scss"  "${DEST}/5-objects/_index.scss"
 
 # ------------------------------------------------------------------
-# 6-components/ — 빈 _index.scss 생성 (컴포넌트는 프로젝트별 추가)
-# 메인의 _index.scss를 복사하지 않는다 — 스타터는 컴포넌트가 없는 상태에서 시작한다.
+# 6-components/ 전체
 # ------------------------------------------------------------------
-echo "생성: 6-components/_index.scss (빈 상태 — 컴포넌트 파일은 프로젝트별 추가)"
-cat > "${DEST}/6-components/_index.scss" << 'EMPTY_INDEX'
-// ====================================================
-// 6-components: UI 컴포넌트
-// ====================================================
-// 프로젝트별 컴포넌트를 추가한다.
-// 예시: @forward 'button';
-EMPTY_INDEX
+echo "복사: 6-components/"
+cp "${SRC}/6-components/"*.scss "${DEST}/6-components/"
 
 # ------------------------------------------------------------------
 # 7-utilities/_index.scss
@@ -78,7 +71,7 @@ echo "복사: .editorconfig"
 cp ".editorconfig" "starter/.editorconfig"
 
 # ------------------------------------------------------------------
-# starter/scss/style.scss는 복사하지 않음 — 스타터용 별도 유지
+# starter/html/pub/css/scss/style.scss는 복사하지 않음 — 스타터용 별도 유지
 # ------------------------------------------------------------------
 
 echo "------------------------------------------------------"

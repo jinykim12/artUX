@@ -12,7 +12,8 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 
-const tokens = JSON.parse(readFileSync(resolve(ROOT, 'tokens.json'), 'utf8'));
+const tokenSource = readFileSync(resolve(ROOT, 'tokens.json'), 'utf8').replace(/^\uFEFF/, '');
+const tokens = JSON.parse(tokenSource);
 
 // ── 헬퍼 ───────────────────────────────────────────────────────────────────
 
@@ -77,7 +78,7 @@ function buildFontSizeSection(fontSize) {
     const w = maxPropLen(entries.map(([k]) => [`font-size-${k}`]));
     const lines = [
         '    // ── 타이포그래피 토큰 (TOKEN-02) ──────────────────',
-        '    // [62.5% REM] 1rem = 10px',
+        '    // [Bootstrap 기본 REM] 1rem = 16px',
     ];
     for (const [key, token] of entries) {
         const px = token['$px'];
@@ -128,7 +129,7 @@ function buildSpacingSection(spacing) {
     const w = maxPropLen(entries.map(([k]) => [`spacing-${k}`]));
     const lines = [
         '    // ── 간격 토큰 — 4px 기반 7단계 (TOKEN-03) ────────',
-        '    // [62.5% REM] 4px = 0.4rem',
+        '    // [Bootstrap 기본 REM] 4px = 0.25rem',
     ];
     for (const [key, token] of entries) {
         const px = token['$px'];
@@ -217,8 +218,8 @@ const output = `// 자동 생성 — tokens.json에서 생성됨. 직접 수정 
 // Bootstrap 충돌 방지:
 //   Bootstrap 5.3은 --bs-* 접두어 사용 → 팀 토큰과 이름 충돌 없음
 //
-// [62.5% REM 환경] html { font-size: 62.5% } → 1rem = 10px
-//   px→rem 환산: px / 10 = rem (예: 16px = 1.6rem)
+// [Bootstrap 기본 REM 환경] 1rem = 16px
+//   px→rem 환산: px / 16 = rem (예: 16px = 1rem)
 // ====================================================
 
 :root {
@@ -229,3 +230,4 @@ ${sections}
 const outPath = resolve(ROOT, 'scss/3-generic/_root.scss');
 writeFileSync(outPath, output, 'utf8');
 console.log(`생성 완료: ${outPath}`);
+

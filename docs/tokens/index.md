@@ -7,7 +7,7 @@ permalink: /tokens/
 
 # 디자인 토큰
 
-**Bootstrap 5 CSS 변수(`--bs-*`)를 그대로 사용한다.** 커스텀 토큰을 별도로 정의하지 않는다.
+**Bootstrap 5 CSS 변수(`--bs-*`)를 우선 사용한다.** 팀 토큰은 `tokens.json`에서 생성되는 보조 토큰으로 유지하며, Bootstrap 기본 REM 환경(`1rem = 16px`)을 따른다.
 
 색상을 바꾸고 싶으면 `_vendor.scss`에서 Bootstrap Sass 변수(`$primary` 등)를 수정하면 `--bs-*` CSS 변수가 자동 반영된다.
 
@@ -15,7 +15,7 @@ permalink: /tokens/
 
 ## 색상
 
-Bootstrap이 컴파일 시 생성하는 CSS 변수를 직접 사용한다.
+기본 색상과 컴포넌트 스타일은 Bootstrap이 컴파일 시 생성하는 CSS 변수를 직접 사용한다.
 
 | Bootstrap 변수 | 기본값 | 사용 상황 |
 |---------------|--------|-----------|
